@@ -1,7 +1,7 @@
 CXX=g++
 CXXFLAGS=-Wall -std=c++11
 
-SRCS=main.cpp populasjon.cpp miljo.cpp
+SRCS=main.cpp populasjon.cpp 
 OBJS=$(subst .cpp,.o,$(SRCS))
 
 main: $(OBJS) 
@@ -11,7 +11,6 @@ main.o: main.cpp
 
 populasjon.o: populasjon.cpp populasjon.h
 
-miljo.o: miljo.cpp miljo.h
 
 clean:
 	rm $(OBJS)
