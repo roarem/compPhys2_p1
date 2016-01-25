@@ -1,18 +1,17 @@
-
 CXX=g++
 CXXFLAGS=-Wall -std=c++11
 
-SRCS=main.cpp populasjon.cpp 
-OBJS=$(subst .cpp,.o,$(SRCS))
+SUBDIRS = wavefunctions
 
-main: $(OBJS) 
-	$(CXX) -o main.x $(OBJS)
+.PHONY: subdirs $(SUBDIRS)
+.PHONY: all clean
 
-main.o: main.cpp
+all: $(SUBDIRS)
+$(SUBDIRS):
+	$(MAKE) -C $@
 
-populasjon.o: populasjon.cpp populasjon.h
 
-
-clean:
-	rm $(OBJS)
+#clean:	 
+#$(SUBDIRS):
+#	$(MAKE) -C $@ clean
 
