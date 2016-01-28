@@ -1,5 +1,6 @@
 import subprocess as sub
 import argparse
+import time
 
 class Make:
 
@@ -18,6 +19,10 @@ class Make:
             cpile = sub.Popen(['make','-C',folder],stdout=sub.PIPE)
             cpile.wait()
             copy = sub.Popen('cp '+folder+'*.o '+self.build_folder,shell=True)
+	print('Done compiling everything, starting on the linking.')	
+	time.sleep(0.01)
+	cpile = sub.Popen(['make','-C',self.build_folder],stdout=sub.PIPE)
+	cpile.wait()
         print('Done compiling, taking some time off')
 
     def clean(self):
@@ -29,15 +34,16 @@ class Make:
         
         print('Cleaning up the build folder...')
         sub.Popen('rm '+self.build_folder+'*.o',shell=True)
-        pritn('Sparkling clean')
+        print('Sparkling clean')
 
 
 
             
 if __name__=='__main__':
-    root_folder = '/home/rat/fys4411/compPhys2_p1'
+    #root_folder = '/home/rat/fys4411/compPhys2_p1'
+    root_folder = '/uio/hume/student-u49/roarem/compPhys2_p1'
     build_folder = 'build'
-    dev_folders = ['wavefunctions']
+    dev_folders = ['wavefunctions', 'main']
 
     parser = argparse.ArgumentParser()
     parser.add_argument('clean',nargs='?',default=None, help='Cleans')
