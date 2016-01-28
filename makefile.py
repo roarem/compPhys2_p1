@@ -19,6 +19,7 @@ class Make:
             cpile = sub.Popen(['make','-C',folder],stdout=sub.PIPE)
             cpile.wait()
             copy = sub.Popen('cp '+folder+'*.o '+self.build_folder,shell=True)
+
 	print('Done compiling everything, starting on the linking.')	
 	time.sleep(0.01)
 	cpile = sub.Popen(['make','-C',self.build_folder],stdout=sub.PIPE)
