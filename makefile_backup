@@ -1,0 +1,28 @@
+CXX=g++
+CPILE=-Wall -c -std=c++11 
+CLINK=-Wall -o
+SUB = wavefunctions main
+BUILD = build
+
+#.PHONY: subdirs $(SUB)
+#.PHONY: all clean
+
+all: 
+	for source in $(SUB); do \
+	  cd $$source; \
+	  CPP=$(wildcard *.cpp); \
+	  H=$(wildcard *.h); \
+	  echo cp $(CPP) $(BUILD)/; \
+	  cp $(CPP) $(BUILD)/; \
+	  cp $(H) $(BUILD)/; \
+	  cd ..; \
+	done
+	cd $(BUILD)
+	$(CXX) $(CPILE) $(wildcard *.cpp)
+	$(CXX) $(CLINK) main.x
+	mv main.x ../
+
+clean:	 
+	cd $(BUILD)
+	rm *.cpp *.h *.o
+
