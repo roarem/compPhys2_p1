@@ -20,10 +20,10 @@ class Make:
             cpile.wait()
             copy = sub.Popen('cp '+folder+'*.o '+self.build_folder,shell=True)
 
-	print('Done compiling everything, starting on the linking.')	
-	time.sleep(0.01)
-	cpile = sub.Popen(['make','-C',self.build_folder],stdout=sub.PIPE)
-	cpile.wait()
+        print('Done compiling everything, starting on the linking.')    
+        time.sleep(0.01)
+        cpile = sub.Popen(['make','-C',self.build_folder],stdout=sub.PIPE)
+        cpile.wait()
         print('Done compiling, taking some time off')
 
     def clean(self):
@@ -41,10 +41,10 @@ class Make:
 
             
 if __name__=='__main__':
-    #root_folder = '/home/rat/fys4411/compPhys2_p1'
-    root_folder = '/uio/hume/student-u49/roarem/compPhys2_p1'
+    root_folder = '/home/rat/fys4411/compPhys2_p1'
+    #root_folder = '/uio/hume/student-u49/roarem/compPhys2_p1'
     build_folder = 'build'
-    dev_folders = ['wavefunctions', 'main']
+    dev_folders = ['wavefunctions', 'VMCSolver', 'main']
 
     parser = argparse.ArgumentParser()
     parser.add_argument('clean',nargs='?',default=None, help='Cleans')
@@ -73,10 +73,10 @@ SRCS=$(wildcard *.cpp)
 OBJS=$(subst .cpp,.o,$(SRCS))
 
 all:
-	for source in $(SRCS); do \
-	  $(CXX) $(CXXFLAGS) $$source; \
-	done
+        for source in $(SRCS); do \
+          $(CXX) $(CXXFLAGS) $$source; \
+        done
 
 clean:
-	rm $(OBJS)
+        rm $(OBJS)
 '''
