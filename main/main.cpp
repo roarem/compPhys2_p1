@@ -49,6 +49,23 @@ void MonteCarloIntegration()
 }
 
 
+switch (nDimensions) {
+
+  case 1:
+    double wFuncCall (rowvec &pos) {return exp(-alpha*pos(0)*pos(0));}
+  case 2:
+    double wFuncCall (rowvec &pos) {return exp(-alpha*(pos(0)*pos(0) + pos(1)*pos(1)));}
+  case 3:
+    double wFuncCall (rowvec &pos) {return exp(-alpha*(pos(0)*pos(0) + pos(1)*pos(1) + beta*pos(2)*pos(2)));}
+}
+
+double waveFunction (const mat &r)
+{
+  double return_value = 0;
+  
+  for (int i = 0 ; i < nParticles ; i++){
+    return_value += wFuncCall (r.row(i));
+    //return_value += exp(-alpha*(r(i,0)*r(i,0) + r(i,1)*r(i,1) + 
 
 
 int main (){
