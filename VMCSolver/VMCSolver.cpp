@@ -2,15 +2,10 @@
 
 VMCSolver::VMCSolver() : uniform(0.0,1.0)
 {
-  typedef chrono::high_resolution_clock klokka;
-  klokka::time_point start = klokka::now();
-  default_random_engine generator;
-  //uniform_real_distribution<double> uniform(0.0,1.0);
-
    nDimensions	     = 1;
    nParticles  	     = 2;
    nCycles     	     = 1000000;
-   alpha      	     = 1;
+   alpha      	     = 0.5;
    beta	      	     = 1;
    stepLength  	     = 1.0;
    h		     = 0.001;
@@ -18,9 +13,6 @@ VMCSolver::VMCSolver() : uniform(0.0,1.0)
    energySum	     = 0;
    energySumSquared  = 0;
 
-  klokka::duration d = klokka::now() - start;
-  seed = d.count();
-  generator.seed(seed);
 }
 
 void VMCSolver::MonteCarloIntegration()
@@ -32,14 +24,21 @@ void VMCSolver::MonteCarloIntegration()
   energySumSquared    	= 0;
   energySum	      	= 0; 
 
+
   rOld = zeros<mat>(nParticles, nDimensions);
   rNew = zeros<mat>(nParticles, nDimensions);
+
+  klokka::duration d = klokka::now() - start;
+  seed = d.count();
+  generator.seed(seed);
 
   //Makes random placement in positions
   for (int i = 0 ; i < nParticles ; i++){
     for (int j = 0 ; j < nDimensions; j++){
       rOld(i,j) = stepLength * (uniform(generator) - 0.5);
+      cout << rOld(i,j) << " , ";
     }
+    cout << endl;
   }
   rNew = rOld;
 
@@ -63,30 +62,32 @@ void VMCSolver::MonteCarloIntegration()
 	  rNew(i,j) = rOld(i,j);
 	}
       }
-      deltaE = localEnergy(rNew);
+      //deltaE = localEnergyNumerical(rNew);
+      deltaE = localEnergyAnalytical(rNew);
       energySum += deltaE;
       energySumSquared += deltaE*deltaE;
     }
   }
   energy = energySum/(nCycles * nParticles);
   energySquared = energySumSquared/(nCycles*nParticles);
+  
   cout << "Energy: " << energy << " Energy^2: " << energySquared << endl;
 }
 
 double VMCSolver::waveFunction (const mat &r)
 {
-  double return_value = 0;
-  double particle     = 0;
+  double wave	    = 0;
+  double particle   = 0;
   for (int i=0 ; i<nParticles ; i++){ 
     for (int j=0 ; j<nDimensions ; j++){
       particle += r(i,j)*r(i,j);
     }
-    return_value += exp(-alpha*particle);
+    wave += exp(-alpha*particle);
   }
-  return return_value;
+  return wave;
 }
 
-double VMCSolver::localEnergy (const mat &r)
+double VMCSolver::localEnergyNumerical (const mat &r)
 {
   mat rPlus		    = zeros<mat>(nParticles, nDimensions);
   mat rMinus		    = zeros<mat>(nParticles, nDimensions);
@@ -111,12 +112,32 @@ double VMCSolver::localEnergy (const mat &r)
       rMinus(i,j) = r(i,j);
     }
   }
-  kineticEnergy = 0.5 * h * kineticEnergy / waveFunctionCurrent;
+  kineticEnergy = 0.5 * kineticEnergy / (h * h * waveFunctionCurrent);
 
   return kineticEnergy;
 }
 
+double VMCSolver::localEnergyAnalytical (const mat &r)
+{
+  double tempEnergy	= 0;
+  double kineticEnergy	= 0;
+  double particle	= 0;
+  //double a		= alpha;
+  //double b		= beta;
 
+  for (int i = 0 ; i < nParticles ; i++){
+    for (int j = 0 ; j < nDimensions ; j++){
+      particle += r(i,j)*r(i,j);
+    }
+    tempEnergy += (2*alpha*particle-1);
+    cout << tempEnergy << endl;
+  }
+//three dimensions 
+//2*a*(2*a*b**2*z**2 + 4*a*b*x*z + 4*a*b*y*z + 2*a*x**2 + 4*a*x*y + 2*a*y**2 - b - 2)
+  kineticEnergy -= tempEnergy*2*alpha;
+
+  return kineticEnergy;
+}
 
 
 

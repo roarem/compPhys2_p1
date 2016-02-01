@@ -16,7 +16,8 @@ class VMCSolver
     VMCSolver();
     void MonteCarloIntegration();
     double waveFunction(const mat &r);
-    double localEnergy(const mat &r);
+    double localEnergyNumerical(const mat &r);
+    double localEnergyAnalytical(const mat &r);
 
   private:
     unsigned seed;
@@ -41,8 +42,7 @@ class VMCSolver
     typedef chrono::high_resolution_clock klokka;
     klokka::time_point start = klokka::now();
     default_random_engine generator;
-    uniform_real_distribution<double> uniform;//(0.0,1.0);
-    //function<double(rowvec)> wFuncCall;
+    uniform_real_distribution<double> uniform;
 
 };
 #endif //VMCSOLVER_H
