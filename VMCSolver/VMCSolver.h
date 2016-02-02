@@ -32,9 +32,6 @@ class VMCSolver
     double h;
     double waveFunctionNew;
     double waveFunctionOld;
-    double deltaE;
-    double energySum;
-    double energySumSquared;
 
     mat rOld;
     mat rNew;

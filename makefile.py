@@ -13,17 +13,25 @@ class Make:
     def make(self):
 
         print('Warming up the compiler')
+        print('-'*100)
+        print(' ')
         for folder in self.dev_folders:
             print('Compiles in folder '+folder)
             folder = self.root_folder+folder+'/'
             cpile = sub.Popen(['make','-C',folder],stdout=sub.PIPE)
             cpile.wait()
+            cpile_out = cpile.stdout.read()
+            print(cpile_out.decode('utf-8'))
             copy = sub.Popen('cp '+folder+'*.o '+self.build_folder,shell=True)
-
+            print(' ')
+            print('-'*100)
+        print(' ')
+        print('#'*100)
         print('Done compiling everything, starting on the linking.')    
         time.sleep(0.01)
         cpile = sub.Popen(['make','-C',self.build_folder],stdout=sub.PIPE)
         cpile.wait()
+        print('#'*100)
         print('Done compiling, taking some time off')
 
     def clean(self):
@@ -34,7 +42,7 @@ class Make:
             clean.wait() 
         
         print('Cleaning up the build folder...')
-        sub.Popen('rm '+self.build_folder+'*.o',shell=True)
+        clean = sub.Popen(['make','-C',self.build_folder,'clean'])
         print('Sparkling clean')
 
 
