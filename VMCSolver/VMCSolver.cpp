@@ -2,14 +2,14 @@
 
 VMCSolver::VMCSolver() : uniform(0.0,1.0)
 {
-   nDimensions	     = 1;
-   nParticles  	     = 2;
-   nCycles     	     = 1000000;
-   alpha      	     = 0.5;
-   beta	      	     = 1;
-   stepLength  	     = 1.0;
-   h		     = 0.001;
-
+   nDimensions	= 1;
+   nParticles  	= 2;
+   nCycles     	= 1000000;
+   alpha      	= 0.5;
+   beta	      	= 1;
+   stepLength  	= 1.0;
+   h		= 0.001;
+   h2		= h*h;
 }
 
 void VMCSolver::MonteCarloIntegration()
@@ -62,16 +62,16 @@ void VMCSolver::MonteCarloIntegration()
 	}
       }
 
-      //deltaE = localEnergyNumerical(rNew);
-      deltaE = localEnergyAnalytical(rNew);
+      deltaE = localEnergyNumerical(rNew);
+      //deltaE = localEnergyAnalytical(rNew);
       energySum += deltaE;
       energySumSquared += deltaE*deltaE;
     }
   }
   //energy = energySum/(nCycles * nParticles);
   //energySquared = energySumSquared/(nCycles*nParticles);
-  energy = energySum/(nCycles);
-  energySquared = energySumSquared/(nCycles);
+  energy = energySum/(nCycles*nParticles);
+  energySquared = energySumSquared/(nCycles*nParticles);
   
   cout << "Energy: " << (energy) << " Energy^2: " << energySquared << endl;
   cout << "Variance: " << (energy*energy)-energySquared << endl;

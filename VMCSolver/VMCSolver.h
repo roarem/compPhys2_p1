@@ -30,6 +30,7 @@ class VMCSolver
     double beta;
     double stepLength;
     double h;
+    double h2;
     double waveFunctionNew;
     double waveFunctionOld;
 
