@@ -2,10 +2,12 @@
 
 VMCSolver::VMCSolver() : uniform(0.0,1.0)
 {
-   nDimensions	= 1;
-   nParticles  	= 2;
-   nCycles     	= 1000000;
-   alpha      	= 0.5;
+   accepted	= 0;
+   nDimensions	= 3;
+   nParticles  	= 10;
+   nCycles     	= 1e5;
+   omega	= 1;
+   alpha      	= 0.5*omega;
    beta	      	= 1;
    stepLength  	= 1.0;
    h		= 0.001;
@@ -33,15 +35,15 @@ void VMCSolver::MonteCarloIntegration()
   for (int i = 0 ; i < nParticles ; i++){
     for (int j = 0 ; j < nDimensions; j++){
       rOld(i,j) = stepLength * (uniform(generator) - 0.5);
-      cout << rOld(i,j) << " , ";
     }
-    cout << endl;
   }
   rNew = rOld;
 
+  waveFunctionOld = waveFunction(rOld);
   for (int cycle = 0 ; cycle < nCycles ; cycle++){
-    waveFunctionOld = waveFunction(rOld);
-    
+
+    if (cycle%(10000) == 0){cout << "cycle #: " << cycle << endl;}
+
     for (int i = 0 ; i < nParticles ; i++){
       for (int j = 0 ; j < nDimensions ; j++){
 	rNew(i,j) = rOld(i,j) + stepLength * (uniform(generator) - 0.5);
@@ -55,6 +57,7 @@ void VMCSolver::MonteCarloIntegration()
 	  rOld(i,j) = rNew(i,j);
 	  waveFunctionOld = waveFunctionNew;
 	}
+	accepted += 1;
       }
       else{
 	for (int j = 0 ; j < nDimensions ; j++){
@@ -68,13 +71,12 @@ void VMCSolver::MonteCarloIntegration()
       energySumSquared += deltaE*deltaE;
     }
   }
-  //energy = energySum/(nCycles * nParticles);
-  //energySquared = energySumSquared/(nCycles*nParticles);
   energy = energySum/(nCycles*nParticles);
   energySquared = energySumSquared/(nCycles*nParticles);
   
-  cout << "Energy: " << (energy) << " Energy^2: " << energySquared << endl;
-  cout << "Variance: " << (energy*energy)-energySquared << endl;
+  cout << "Mean(Energy) = " << (energy) << " Mean(Energy^2) = " << energySquared << endl;
+  cout << "Mean(Energy)^2 - Mean(Energy^2) = " << energySquared- (energy*energy)<< endl;
+  cout << "Accepted ratio: " << accepted/(nParticles*nCycles) << endl;
 }
 
 double VMCSolver::waveFunction (const mat &r)
@@ -83,12 +85,14 @@ double VMCSolver::waveFunction (const mat &r)
   double particle   = 0;
 
   for (int i=0 ; i<nParticles ; i++){ 
+    particle = 0;
+
     for (int j=0 ; j<nDimensions ; j++){
       particle += r(i,j)*r(i,j);
     }
-    wave += exp(-alpha*particle);
+    wave += (-alpha*particle);
   }
-  return wave;
+  return exp(wave);
 }
 
 double VMCSolver::localEnergyNumerical (const mat &r)
@@ -104,6 +108,7 @@ double VMCSolver::localEnergyNumerical (const mat &r)
 
   for (int i = 0 ; i < nParticles ; i++){
     for (int j = 0 ; j < nDimensions ; j++){
+
       rPlus(i,j) += h;
       rMinus(i,j) -= h;
 
@@ -118,7 +123,8 @@ double VMCSolver::localEnergyNumerical (const mat &r)
       potEnergy += r(i,j)*r(i,j);    
     }
   }
-  kinEnergy = 0.5 * kinEnergy / (h * h * waveFunctionCurrent);
+
+  kinEnergy = 0.5 * kinEnergy / (h2 * waveFunctionCurrent);
   potEnergy = 0.5 * potEnergy;
 
   return kinEnergy + potEnergy;
@@ -129,21 +135,19 @@ double VMCSolver::localEnergyAnalytical (const mat &r)
   double kinEnergy	= 0;
   double potEnergy	= 0;
   double particle	= 0;
-  //double a		= alpha;
-  //double b		= beta;
 
   for (int i = 0 ; i < nParticles ; i++){
     particle = 0;
     for (int j = 0 ; j < nDimensions ; j++){
       particle += r(i,j)*r(i,j);
     }
-    kinEnergy -= (2*alpha*particle-1);
-    potEnergy	  += particle;  
+    kinEnergy -= (2*alpha*particle - nDimensions);
+    potEnergy += particle;  
   }
-//three dimensions 
-//2*a*(2*a*b**2*z**2 + 4*a*b*x*z + 4*a*b*y*z + 2*a*x**2 + 4*a*x*y + 2*a*y**2 - b - 2)
+
   kinEnergy	= kinEnergy*alpha;
-  potEnergy	= potEnergy * 0.5;
+  potEnergy	= omega * omega * potEnergy * 0.5;
+
   return kinEnergy + potEnergy;
 }
 

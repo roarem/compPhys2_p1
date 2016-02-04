@@ -26,8 +26,10 @@ class VMCSolver
     int nParticles;
     int nCycles;
 
+    double accepted;
     double alpha;
     double beta;
+    double omega;
     double stepLength;
     double h;
     double h2;
