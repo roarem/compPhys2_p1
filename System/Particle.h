@@ -1,4 +1,4 @@
-#pragma_once
+#pragma once
 #include <vector>
 
 class Particle {
