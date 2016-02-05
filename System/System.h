@@ -13,6 +13,7 @@ class System
     void set_nParticles	  	    (int nParticles);
     void set_nCycles	  	    (int nCycles);
     void set_stepLength		    (double stepLength);
+    void set_derivativeStep	    (double h);
     void set_equilibrationFraction  (double equilibractionFraction);
     
     int get_nDimensions	    (){return my_nDimensions;}
@@ -29,6 +30,8 @@ class System
     int my_nParticles		  = 0;
     int my_nCycles		  = 0;
     double my_stepLength	  = 0;
+    double derivativeStep	  = 0;
+    double derivativeStep2	  = 0;
     double equilibrationFraction  = 0;
 
     class Hammiltonian*	    my_hamiltonian    = nullptr;
