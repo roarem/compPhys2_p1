@@ -8,8 +8,8 @@ class WaveFunction
   public:
     WaveFunction (class System* system);
 
-    virtual double evaluate	    (std::vector<class Particle*> particles) = 0;
-    virtual double secondDerivative (std::vector<class Particle*> particles) = 0;
+    virtual double evaluate	    () = 0;
+    virtual double computeEnergy    () = 0;
 
     int get_nParameters () {return my_nParameters;}
 

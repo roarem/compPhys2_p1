@@ -7,6 +7,11 @@ HarmonicOscillator::HarmonicOscillator (System* system, double omega) :
   my_omega = omega;
 }
 
-double HarmonicOscillator::computeLocalEnergy (std::vector<Particle*> particles)
+double HarmonicOscillator::computeLocalEnergy ()
 {
+  return system->computeEnergy;
+}
+  
+    
+
 

@@ -6,6 +6,6 @@ class TrialWaveFunction : public WaveFunction
 {
   public:
     TrialWaveFunction	    (class System* system, double alpha);
-    double evaluate	    (std::vector<class Particle*> particles);
-    double secondDerivative (std::vector<class Particle*> particles);
+    double evaluate	    ();
+    double computeEnergy    ();
 };

@@ -8,40 +8,59 @@ TrialWaveFunction::TrialWaveFunction (System* system,
     my_parameters.push_back  (alpha);
   }
 
-double TrialWaveFunction::evaluate (std::vector<class Particle*> particles)
+double TrialWaveFunction::evaluate ()
 {
   double wave	= 0;
-  double r	= 0;
+  double r2	= 0;
 
-  std::vector<double> position(my_system->my_nDimensions);
+  std::vector<double> position(system->my_nDimensions);
 
-  for (int i = 0 ; i < my_system->my_nParticles ; i++){
-       position = particles[i].get_position();
-    for (int j = 0 ; j < my_system->my_nDimensions ; j++){
-      r += position(j)*position(j);
+  for (int i = 0 ; i < system->my_nParticles ; i++){
+
+       position = system->particles[i].get_position();
+
+    for (int j = 0 ; j < system->my_nDimensions ; j++){
+
+      r2 += system->my_particles[i].get_position()[j]*
+	system->my_particles[i].get_position()[j]
     }
-    wave -= my_parameters[0]*r;
+    wave -= my_parameters[0]*r2;
   }
 
   return exp(wave);
 }
 
-double TrialWaveFunction::secondDerivative (std::vector<class Particle*> particles)
+double TrialWaveFunction::computeEnergy ()
 {
-  double kinEnergy	      = 0;
-  double potEnergy	      = 0;
+  double doubleDerivative     = 0;
   double waveFunctionPlus     = 0;
   double waveFunctionMinus    = 0;
+  double potEnergy	      = 0;
+  double kinEnergy	      = 0;
   double waveFunctionCurrent  = 0;
-
-  std::vector<double> rPlus	(my_system->nDimensions);
-  std::vector<double> rminus	(my_system->nDimensions);
  
   waveFunctionCurrent = evaluate(particles);
 
   for (int i = 0 ; i < my_system->my_nParticles ; i++){
     for (int j = 0 ; j < my_system->my_nDimensions ; j++){
+
+      system->mu_particles.changePosition(j, system->derivateStep);
+      waveFunctionPlus = evaluate();
+
+      system->my_particles.changePosition(j, -2*system->derivateStep);
+      waveFunctionMinus = evaluate();
+
+      system->my_particles.changePosition(j, -system->derivateStep);
+     
+      doubeDerivative += waveFunctionPlus + waveFunctionMinus - 2*waveFunctionCurrent;
+
+      potEnergy += system->my_particle.get_position()[j]*
+	system->my_particle.get_position()[j];
     }
   }
-  return 0;
+
+  kinEnergy = -0.5 / (waveFunctionCurrent * system->derivativeStep2);
+  potEnergy = 0.5 * potEnergy;
+
+  return kinEnergy + potEnergy;
 }

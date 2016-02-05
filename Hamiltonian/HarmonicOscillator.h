@@ -8,7 +8,7 @@ class HarmonicOscillator : public Hamiltonian
     
     HarmonicOscillator( System* system, double omega);
 
-    double computeLocalEnergy (std::vector<Particle*> particles);
+    double computeLocalEnergy ();
 
   private:
 
