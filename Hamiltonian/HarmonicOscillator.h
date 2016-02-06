@@ -8,8 +8,7 @@ class HarmonicOscillator : public Hamiltonian
     
     HarmonicOscillator( System* system, double omega);
 
-    double computeLocalEnergy ();
-
+    double computeLocalEnergy		();
   private:
 
     double my_omega   = 0;

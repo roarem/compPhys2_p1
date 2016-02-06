@@ -19,5 +19,5 @@ class InitialState
 
     class System* my_system = nullptr;
 
-    std::vecto<class Particle*> my_particles;
+    std::vector<class Particle*> my_particles;
 };

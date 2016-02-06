@@ -49,10 +49,10 @@ class Make:
 
             
 if __name__=='__main__':
-    #root_folder = '/home/rat/fys4411/compPhys2_p1'
-    root_folder = '/uio/hume/student-u49/roarem/compPhys2_p1'
+    root_folder = '/home/rat/fys4411/compPhys2_p1'
+    #root_folder = '/uio/hume/student-u49/roarem/compPhys2_p1'
     build_folder = 'build'
-    dev_folders = ['wavefunctions', 'VMCSolver', 'main']
+    dev_folders = ['System', 'Hamiltonian', 'WaveFunction','InitialState', 'main']
 
     parser = argparse.ArgumentParser()
     parser.add_argument('clean',nargs='?',default=None, help='Cleans')

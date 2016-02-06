@@ -28,7 +28,7 @@ UniformRandom::setupInitialState ()
     std::vector<double> position = std::vector<double>();
     
     for(int j = 0 ; j < my_nDimensions ; j++){
-      position.push_back  (uniform(generator) - 0.5);
+      position.push_back  (my_system->stepLength*(uniform(generator) - 0.5));
     }
   my_particles.push_back	      (new Particle());
   my_particles.at(i)->set_nDimensions (my_nDimensions);
