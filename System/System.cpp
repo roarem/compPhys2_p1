@@ -1,7 +1,5 @@
 #include "System.h"
 
-
-
 bool System::metropolis ()
 {
   bool	    accepted		  = false;
@@ -14,9 +12,10 @@ bool System::metropolis ()
   double    randomMove		  = 0;
  
   std::uniform_int_distribution<int> particle  (0,my_nParticles-1);
-  std::uniform_int_distribution<int> dimension (0,my_nDimensons-1);
+  std::uniform_int_distribution<int> dimension (0,my_nDimensions-1);
 
-  clock::duration d = clock.now() - start;
+  
+  clock::duration d = clock::now() - my_start;
   seed = d.count();
   my_generator.seed(seed);
   
@@ -26,7 +25,7 @@ bool System::metropolis ()
 
   waveFunctionOld = my_waveFunction->evaluate(); 
 
-  my_particles[chosenParticle].changePosition(chosenDimension, randomMove);
+  my_particles[chosenParticle]->changePosition(chosenDimension, randomMove);
 
   waveFunctionNew = my_waveFunction->evaluate();
 
@@ -35,7 +34,7 @@ bool System::metropolis ()
   
   if (waveFunctionsCompared < 1.0){
     if (waveFunctionsCompared < my_uniform(my_generator)){
-      my_particles[chosenParticle].changePosition(chosenDimension, -randomMove);
+      my_particles[chosenParticle]->changePosition(chosenDimension, -randomMove);
       return false;
     }
   }
@@ -50,13 +49,11 @@ void System::runMetropolis (int nCycles)
   for (int cycle = 0 ; cycle < my_nCycles ; cycle++){
     accepted = metropolis();
     
-    if (cycle > equilibrationFraction * my_nCycles)
+    if (cycle > my_equilibrationFraction * my_nCycles)
     {
       my_sampler->sample(accepted);
     }
   }
-
-  return 0;
 }
 
 void System::set_nDimensions (int nDimensions)
@@ -79,14 +76,14 @@ void System::set_stepLength (double stepLength)
   my_stepLength = stepLength;
 }
 
-void System::set_derivativeStep (double h);
+void System::set_derivativeStep (double h)
 {
   my_derivativeStep = h;
 }
 
 void System::set_equilibrationFraction (double equilibraFraction)
 {
-  my_euilibraFraction = equilibraFraction;
+  my_equilibrationFraction = equilibraFraction;
 }
 
 void System::set_Hamiltonian (Hamiltonian* hamiltonian)
@@ -104,4 +101,12 @@ void System::set_InitialState (InitialState* initialState)
   my_initialState = initialState;
 }
 
+void System::set_parameters (std::vector<double> parameters)
+{
+  my_parameters = parameters;
+}
 
+void System::add_particle (Particle* particle)
+{
+  my_particles.push_back(particle);
+}

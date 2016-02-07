@@ -1,6 +1,6 @@
 #include "InitialState.h"
 
-InitialSate::InitialState (class System* system)
+InitialState::InitialState(System* system)
 {
   my_system = system;
 }

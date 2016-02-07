@@ -14,10 +14,10 @@ void Sampler::sample (bool accepted)
     cumulativeAcceptanceRate  = 0;
   }
 
-  double localEnergy = my_system->get_Hamiltonian()->computeLocalEnergy();
+  double localEnergy = my_system->get_hamiltonian()->computeLocalEnergy();
 
   cumulativeEnergy	    += localEnergy;
   cumulativeEnergy2	    += localEnergy*localEnergy;
-  cumulativeAcceotanceRate  += accepted;
+  cumulativeAcceptanceRate  += accepted;
   my_stepNumber		    += 1;
 } 

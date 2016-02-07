@@ -1,5 +1,7 @@
 #include "Particle.h"
 
+Particle::Particle(){}
+
 void Particle::set_nDimensions (int nDimensions)
 {
   my_nDimensions = nDimensions;

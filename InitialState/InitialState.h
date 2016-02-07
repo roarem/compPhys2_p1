@@ -8,7 +8,7 @@ class InitialState
   public:
     InitialState (class System* system);
     
-    virtual void setupInitialSate () = 0;
+    virtual void setupInitialState () = 0;
 
     std::vector<class Particle*> get_particles() {return my_particles;}
     

@@ -1,7 +1,7 @@
-#include "HarmonicOscillator.h"
+#include "HarmonicOscillatorAna.h"
 
 
-HarmonicOscillatorAna::HarmonicOscillator (System* system, double omega) :
+HarmonicOscillatorAna::HarmonicOscillatorAna (System* system, double omega) :
   Hamiltonian(system)
 {
   my_omega = omega;
@@ -9,7 +9,7 @@ HarmonicOscillatorAna::HarmonicOscillator (System* system, double omega) :
 
 double HarmonicOscillatorAna::computeLocalEnergy ()
 {
-  return my_system->my_waveFunction->computeEnergy();
+  return my_system->get_waveFunction()->computeEnergy();
 }
  
     

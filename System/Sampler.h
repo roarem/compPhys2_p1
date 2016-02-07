@@ -19,5 +19,5 @@ class Sampler {
     double  cumulativeEnergy2	      = 0;
     double  cumulativeAcceptanceRate  = 0;
     class   System* my_system	      = nullptr;
-}
+};
 

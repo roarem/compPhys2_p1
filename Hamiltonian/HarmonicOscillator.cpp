@@ -9,9 +9,7 @@ HarmonicOscillator::HarmonicOscillator (System* system, double omega) :
 
 double HarmonicOscillator::computeLocalEnergy ()
 {
-  return my_system->my_waveFunction->computeEnergy();
+  return my_system->get_waveFunction()->computeEnergy();
 }
  
-    
-
-
+ 

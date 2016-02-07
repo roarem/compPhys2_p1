@@ -2,9 +2,9 @@
 #include "../System/Sampler.h"
 #include "../System/Particle.h"
 #include "../Hamiltonian/Hamiltonian.h"
-#include "../Hamiltonian/HarmonicOscillator.h"
+#include "../Hamiltonian/HarmonicOscillatorAna.h"
 #include "../WaveFunction/WaveFunction.h"
-#include "../WaveFunction/TrialWaveFunction.h"
+#include "../WaveFunction/TrialWaveFunctionAna.h"
 #include "../InitialState/InitialState.h"
 #include "../InitialState/RandomUniform.h"
 #include <iostream>
@@ -24,9 +24,9 @@ int main (){
   System* system = new System();
 
   system->set_Hamiltonian	  (new HarmonicOscillatorAna    (system, omega));
-  sysetm->set_WaveFunction	  (new TrialWaveFuntionAna      (system, alpha, omega));
-  system->set_InitialState	  (new RandomUniform	      (system, nDimensions, nParticles));
-  system->set_equilibrationFactor (equilibration);
+  system->set_WaveFunction	  (new TrialWaveFunctionAna     (system, alpha, omega));
+  system->set_InitialState	  (new RandomUniform		(system, nDimensions, nParticles));
+  system->set_equilibrationFraction (equilibration);
   system->set_stepLength	  (stepLength);
   //system->set_derivativeStep	  (derivativeStep);
  

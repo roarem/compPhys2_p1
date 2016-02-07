@@ -2,12 +2,14 @@
 #include "WaveFunction.h"
 #include <cmath>
 
-class TrialWaveFunction : public WaveFunction
+class TrialWaveFunctionAna : public WaveFunction
 {
   public:
-    TrialWaveFunction		  (class System* system, 
+    TrialWaveFunctionAna	  (class System* system, 
 				   double alpha,  
 				   double omega);
     double evaluate		  ();
     double computeEnergy	  ();
+
+  protected:
 };

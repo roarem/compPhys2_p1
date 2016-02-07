@@ -12,5 +12,5 @@ class HarmonicOscillator : public Hamiltonian
   private:
 
     double my_omega   = 0;
-}
+};
 
