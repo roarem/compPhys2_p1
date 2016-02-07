@@ -1,4 +1,7 @@
 #include "Sampler.h"
+#include <iostream>
+using std::cout;
+using std::endl;
 
 Sampler::Sampler(System* system){
   my_system	= system;
@@ -21,3 +24,10 @@ void Sampler::sample (bool accepted)
   cumulativeAcceptanceRate  += accepted;
   my_stepNumber		    += 1;
 } 
+
+void Sampler::printResults ()
+{
+  cout << "accumulated energy average: " << cumulativeEnergy/my_stepNumber << endl;;
+  cout << (cumulativeEnergy*cumulativeEnergy - cumulativeEnergy2)/my_stepNumber <<endl;
+  cout << "Acceptence ratio: " << cumulativeAcceptanceRate/my_stepNumber << endl;
+}

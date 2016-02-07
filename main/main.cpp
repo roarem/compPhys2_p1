@@ -23,13 +23,15 @@ int main (){
 
   System* system = new System();
 
-  system->set_Hamiltonian	  (new HarmonicOscillatorAna    (system, omega));
-  system->set_WaveFunction	  (new TrialWaveFunctionAna     (system, alpha, omega));
-  system->set_InitialState	  (new RandomUniform		(system, nDimensions, nParticles));
+  system->set_Hamiltonian	    (new HarmonicOscillatorAna    (system, omega));
+  system->set_WaveFunction	    (new TrialWaveFunctionAna     (system, alpha, omega));
+  system->set_InitialState	    (new RandomUniform		  (system, nDimensions, nParticles));
   system->set_equilibrationFraction (equilibration);
-  system->set_stepLength	  (stepLength);
-  //system->set_derivativeStep	  (derivativeStep);
- 
+  system->set_stepLength	    (stepLength);
+  system->runMetropolis		    (nCycles);
+  //system->set_derivativeStep	    (derivativeStep);
+  
+  std::cout << "sending return 0 from main, good bye\n";
   return 0;
 
 }

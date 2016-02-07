@@ -10,9 +10,12 @@ class Sampler {
   public:
     Sampler(class System* system);
 
-    void sample	    (bool accepted);
+    void sample		(bool accepted);
+    void printResults	();
+    
+    double get_cumuEn (){return cumulativeEnergy;}
 
-  private:
+  protected:
     int	    my_nCycles		      = 0;
     int	    my_stepNumber	      = 0;
     double  cumulativeEnergy	      = 0;
