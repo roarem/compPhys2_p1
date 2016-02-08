@@ -1,15 +1,14 @@
 CXX=g++
-CXXFLAGS=-Wall -std=c++11 -c
+CXXFLAGS=-Wall -std=c++11
+
 
 SRCS=$(wildcard *.cpp)
 
 OBJS=$(subst .cpp,.o,$(SRCS))
 
-all:
-	for source in $(SRCS); do \
-	  $(CXX) $(CXXFLAGS) $$source; \
-	done
+main: $(OBJS)
+
+	$(echo Done compiling.)
 
 clean:
 	rm $(OBJS)
-

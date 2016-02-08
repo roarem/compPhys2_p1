@@ -27,7 +27,7 @@ void Sampler::sample (bool accepted)
 
 void Sampler::printResults ()
 {
-  cout << "accumulated energy average: " << cumulativeEnergy/my_stepNumber << endl;;
-  cout << (cumulativeEnergy*cumulativeEnergy - cumulativeEnergy2)/my_stepNumber <<endl;
-  cout << "Acceptence ratio: " << cumulativeAcceptanceRate/my_stepNumber << endl;
+  cout << "accumulated energy average: " << cumulativeEnergy/(double)my_stepNumber << endl;;
+  cout << (cumulativeEnergy*cumulativeEnergy - cumulativeEnergy2)/(double)my_stepNumber <<endl;
+  cout << "Acceptence ratio: " << cumulativeAcceptanceRate/(double)my_stepNumber << endl;
 }

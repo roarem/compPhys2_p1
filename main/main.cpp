@@ -13,10 +13,10 @@ int main (){
 
   int	  nDimensions     = 1;
   int 	  nParticles      = 2;
-  int 	  nCycles	  = (int) 1e6;
+  int 	  nCycles	  = (int) 1e4;
 
   double  omega		  = 1.0;
-  double  alpha		  = 0.5;
+  double  alpha		  = 1.0;
   double  stepLength	  = 1.0;
   double  equilibration	  = 0.1;
   //double  derivativeStep  = 0.001;

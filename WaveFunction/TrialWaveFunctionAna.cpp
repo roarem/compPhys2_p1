@@ -3,12 +3,14 @@
 using std::cout;
 using std::endl;
 
+
 TrialWaveFunctionAna::TrialWaveFunctionAna (System* system,
 				      double  alpha,
 				      double  omega):
   WaveFunction(system){
     my_nParameters = 2;
      
+
     std::vector<double> parameters(my_nParameters);
     parameters[0] = alpha;
     parameters[1] = omega;
@@ -48,6 +50,7 @@ double TrialWaveFunctionAna::computeEnergy()
       kinEnergy -= (2*my_system->get_parameters()[0]*r2 - my_system->get_nDimensions());
       potEnergy += r2;
   }
+
   kinEnergy = kinEnergy *my_system->get_parameters()[0];
   potEnergy = my_system->get_parameters()[1] *my_system->get_parameters()[1] * potEnergy * 0.5;
   return kinEnergy + potEnergy;
