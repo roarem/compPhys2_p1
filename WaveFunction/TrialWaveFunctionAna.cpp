@@ -9,7 +9,6 @@ TrialWaveFunctionAna::TrialWaveFunctionAna (System* system,
 				      double  omega):
   WaveFunction(system){
     my_nParameters = 2;
-     
 
     std::vector<double> parameters(my_nParameters);
     parameters[0] = alpha;

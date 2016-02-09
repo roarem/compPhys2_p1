@@ -71,7 +71,7 @@ void System::set_stepLength (double stepLength)
 { my_stepLength = stepLength; }
 
 void System::set_derivativeStep (double h)
-{ my_derivativeStep = h; }
+{ my_derivativeStep = h; my_derivativeStep2 = h*h;}
 
 void System::set_equilibrationFraction (double equilibraFraction)
 { my_equilibrationFraction = equilibraFraction; }
