@@ -15,7 +15,7 @@ int main (){
 
   int	  nDimensions     = 1;
   int 	  nParticles      = 2;
-  int 	  nCycles	  = (int) 1e6;
+  int 	  nCycles	  = (int) 1e5;
 
   double  omega		  = 1.0;
   double  alpha		  = omega/2.0;
@@ -38,7 +38,6 @@ int main (){
 
   system->runMetropolis		    (nCycles);
   
-  std::cout << "sending return 0 from main, good bye\n";
   return 0;
 
 }
