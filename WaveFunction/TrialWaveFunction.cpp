@@ -70,4 +70,3 @@ double TrialWaveFunction::computeEnergy ()
 }
 
 
-
