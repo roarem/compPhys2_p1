@@ -42,9 +42,9 @@ double TrialWaveFunction::computeEnergy ()
   double waveFunctionMinus    = 0;
   double potEnergy	      = 0;
   double kinEnergy	      = 0;
-  double waveFunctionCurrent  = 0;
+  double waveFunctionCurrent2  = 0;
  
-  waveFunctionCurrent = evaluate();
+  waveFunctionCurrent2 = 2*evaluate();
 
   for (int i = 0 ; i < my_system->get_nParticles() ; i++){
     for (int j = 0 ; j < my_system->get_nDimensions() ; j++){
@@ -57,14 +57,14 @@ double TrialWaveFunction::computeEnergy ()
 
       my_system->get_particle()[i]->changePosition(j, my_system->get_derivativeStep());
      
-      doubleDerivative += waveFunctionPlus + waveFunctionMinus - 2*waveFunctionCurrent;
+      doubleDerivative += waveFunctionPlus + waveFunctionMinus - waveFunctionCurrent2;
 
       potEnergy += my_system->get_particle()[i]->get_position()[j]*
 	my_system->get_particle()[i]->get_position()[j];
     }
   }
   
-  kinEnergy = -0.5 * doubleDerivative / (waveFunctionCurrent * my_system->get_derivativeStep2());
+  kinEnergy = -doubleDerivative / (waveFunctionCurrent2 * my_system->get_derivativeStep2());
   potEnergy = 0.5 * potEnergy * my_system->get_parameters()[1] * my_system->get_parameters()[1];
   return kinEnergy + potEnergy;
 }
