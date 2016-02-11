@@ -25,14 +25,15 @@ int main (){
 
   System* system = new System();
 
+  system->set_stepLength	    (stepLength);
+  system->set_equilibrationFraction (equilibration);
+  system->set_derivativeStep	    (derivativeStep);
+
   //system->set_Hamiltonian	    (new HarmonicOscillatorAna    (system, omega));
   //system->set_WaveFunction	    (new TrialWaveFunctionAna     (system, alpha, omega));
   system->set_Hamiltonian	    (new HarmonicOscillator       (system, omega));
   system->set_WaveFunction	    (new TrialWaveFunction	  (system, alpha, omega));
   system->set_InitialState	    (new RandomUniform		  (system, nDimensions, nParticles));
-  system->set_equilibrationFraction (equilibration);
-  system->set_stepLength	    (stepLength);
-  system->set_derivativeStep	    (derivativeStep);
   
 
 

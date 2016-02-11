@@ -43,8 +43,8 @@ double TrialWaveFunctionAna::computeEnergy()
   for (int i = 0 ; i < my_system->get_nParticles() ; i++){
     for (int j = 0 ; j < my_system->get_nDimensions() ; j++){
       
-      r2 += my_system->get_particle()[i]->get_position()[j]*
-	my_system->get_particle()[i]->get_position()[j];
+      r2 =  my_system->get_particle()[i]->get_position()[j]*
+	    my_system->get_particle()[i]->get_position()[j];
       }
       kinEnergy -= (2*my_system->get_parameters()[0]*r2 - my_system->get_nDimensions());
       potEnergy += r2;
