@@ -6,7 +6,7 @@ SRCS=$(wildcard *.cpp)
 
 OBJS=$(subst .cpp,.o,$(SRCS))
 
-main: $(OBJS)
+Wavefunction: $(OBJS)
 
 	$(echo Done compiling.)
 

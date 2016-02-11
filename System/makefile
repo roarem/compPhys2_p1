@@ -6,7 +6,7 @@ SRCS=$(wildcard *.cpp)
 
 OBJS=$(subst .cpp,.o,$(SRCS))
 
-main: $(OBJS)
+System: $(OBJS)
 
 	$(echo Done compiling.)
 
