@@ -14,7 +14,7 @@
 int main (){
 
   int	  nDimensions     = 1;
-  int 	  nParticles      = 1;
+  int 	  nParticles      = 2;
   int 	  nCycles	  = (int) 1e5;
 
   double  omega		  = 1.0;

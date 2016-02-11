@@ -12,7 +12,7 @@ TrialWaveFunction::TrialWaveFunction (System* system,
     
     std::vector<double> parameters(my_nParameters);
     parameters[0] = alpha;
-    parameters[0] = omega;
+    parameters[1] = omega;
     my_system->set_parameters(parameters);
   }
 
@@ -20,8 +20,6 @@ double TrialWaveFunction::evaluate ()
 {
   double wave	= 0;
   double r2	= 0;
-
-  std::vector<double> position(my_system->get_nDimensions());
 
   for (int i = 0 ; i < my_system->get_nParticles() ; i++){
     for (int j = 0 ; j < my_system->get_nDimensions() ; j++){
@@ -35,6 +33,7 @@ double TrialWaveFunction::evaluate ()
   return exp(wave);
 }
 
+
 double TrialWaveFunction::computeEnergy ()
 {
   double doubleDerivative     = 0;
@@ -42,12 +41,13 @@ double TrialWaveFunction::computeEnergy ()
   double waveFunctionMinus    = 0;
   double potEnergy	      = 0;
   double kinEnergy	      = 0;
-  double waveFunctionCurrent2  = 0;
+  double waveFunctionCurrent2 = 0;
  
   waveFunctionCurrent2 = 2*evaluate();
-
+  
   for (int i = 0 ; i < my_system->get_nParticles() ; i++){
     for (int j = 0 ; j < my_system->get_nDimensions() ; j++){
+
 
       my_system->get_particle()[i]->changePosition(j, my_system->get_derivativeStep());
       waveFunctionPlus = evaluate();
@@ -66,6 +66,8 @@ double TrialWaveFunction::computeEnergy ()
   
   kinEnergy = -doubleDerivative / (waveFunctionCurrent2 * my_system->get_derivativeStep2());
   potEnergy = 0.5 * potEnergy * my_system->get_parameters()[1] * my_system->get_parameters()[1];
+  //cout << "potential energy = " << potEnergy << ", kinetic energy = " << kinEnergy << endl;
+  cout << "potential - kinetic = " << potEnergy - kinEnergy << endl;
   return kinEnergy + potEnergy;
 }
 
