@@ -28,13 +28,15 @@ void Sampler::sample (bool accepted)
 void Sampler::printResults ()
 {
   double energyAverage	=  cumulativeEnergy/(double)my_stepNumber;
-  double variance	=  (cumulativeEnergy2 - cumulativeEnergy*
-			   cumulativeEnergy/(double)my_stepNumber)/
-			   (double)my_stepNumber;
+  double energy2Average =  cumulativeEnergy2/(double)my_stepNumber;
+  double variance	=  energy2Average - energyAverage*energyAverage;
+//  double variance	=  (cumulativeEnergy2 - cumulativeEnergy*
+//			   cumulativeEnergy/(double)my_stepNumber)/
+//			   (double)my_stepNumber;
   double acceptanceRatio= cumulativeAcceptanceRate/(double)my_stepNumber;
 
-  cout << "====================  System Data ====================\n";
-  cout << "Energy average:		    " << energyAverage << endl;
-  cout << "Variance:		    " << variance << endl;
-  cout << "Acceptance ratio:	    " << acceptanceRatio << endl;
+  printf("\033[1;44m====================  System Data ====================\033[1;m\n");
+  printf("\033[0;32mEnergy average:		    %e\033[0;m\n", energyAverage);
+  printf("\033[0;32mVariance:		    %e\033[0;m\n",variance);
+  printf("\033[0;32mAcceptance ratio:	    %f\033[0;m\n",acceptanceRatio);
 }

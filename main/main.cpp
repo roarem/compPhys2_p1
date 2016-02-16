@@ -15,8 +15,8 @@ using std::cout;
 
 int main (){
 
-  int	  nDimensions     = 1;
-  int 	  nParticles      = 5;
+  int	  nDimensions     = 3;
+  int 	  nParticles      = 10;
   int 	  nCycles	  = (int) 1e3;
 
   double  omega		  = 1.0;

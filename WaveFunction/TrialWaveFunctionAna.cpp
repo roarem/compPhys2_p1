@@ -27,8 +27,8 @@ double TrialWaveFunctionAna::evaluate ()
       r2 += my_system->get_particle()[i]->get_position()[j]*
 	    my_system->get_particle()[i]->get_position()[j];
     }
-    wave -= my_system->get_parameters()[0]*r2;
   }
+  wave -= my_system->get_parameters()[0]*r2;
 
   return exp(wave);
 }

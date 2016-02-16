@@ -17,7 +17,7 @@ class Make:
         print(' ')
         for folder in self.dev_folders:
             outStartString = 'Compiles in folder '+folder
-            print(outStartString+'\n'+'*'*len(outStartString))
+            print(outStartString+'\n'+'\033[1;44m*\033[1;m'*len(outStartString))
             folder = self.root_folder+folder+'/'
             cpile = sub.Popen(['make','-C',folder],stdout=sub.PIPE,stderr=sub.PIPE)
             cpile.wait()
