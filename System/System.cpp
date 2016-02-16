@@ -50,7 +50,7 @@ void System::runMetropolis (int nCycles)
 
   for (int cycle = 0 ; cycle < nCycles ; cycle++){
     accepted = metropolis();
-    if (cycle > my_equilibrationFraction * my_nCycles)
+    if (cycle > my_equilibrationFraction * nCycles)
     {
       my_sampler->sample(accepted);
     }

@@ -8,6 +8,7 @@ class TrialWaveFunction : public WaveFunction
     TrialWaveFunction		  (class System* system, 
 				   double alpha,  
 				   double omega);
-    double evaluate		  ();
-    double computeEnergy	  ();
+    double evaluate		    ();
+    double computeDoubleDerivative  (int p, int d, double waveFunctionCurrent);
+    double computeEnergy	    ();
 };

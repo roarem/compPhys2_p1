@@ -1,7 +1,7 @@
 #include "RandomUniform.h"
 #include <iostream>
 using std::cout;
-
+using std::endl;
 RandomUniform::RandomUniform( System* system,
 			      int nDimensions,
 			      int nParticles):
@@ -26,16 +26,22 @@ void RandomUniform::setupInitialState ()
   seed = dur.count();
   generator.seed(seed);
 
+  std::vector<double> position(my_nDimensions);
+
   for (int i = 0 ; i < my_nParticles ; i++){
-    std::vector<double> position = std::vector<double>();
     
     for(int j = 0 ; j < my_nDimensions ; j++){
-      position.push_back  (my_system->get_stepLength()*(uniform(generator) - 0.5));
+      position[j] = (my_system->get_stepLength()*(uniform(generator) - 0.5));
     }
-    //my_system->get_particle().push_back		       (new Particle());
-    //cout << "my_system->get_particle().push_back		       (new Particle());\n";
+    //cout << "x: " << position[0] << "| y: " << position[1] << endl;
     my_system->add_particle(new Particle());
     my_system->get_particle().at(i)->set_nDimensions    (my_nDimensions);
     my_system->get_particle().at(i)->set_position       (position);
   }
+  //double average = 0;
+  //for (int i = 0 ; i < my_nParticles ; i++){
+  //  average +=	my_system->get_particle()[i]->get_position()[0]+
+  //      	my_system->get_particle()[i]->get_position()[1];
+  //}
+  //cout << "Average: " << 0.5*average/my_nParticles << endl;
 }

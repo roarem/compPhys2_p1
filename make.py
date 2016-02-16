@@ -19,10 +19,13 @@ class Make:
             outStartString = 'Compiles in folder '+folder
             print(outStartString+'\n'+'*'*len(outStartString))
             folder = self.root_folder+folder+'/'
-            cpile = sub.Popen(['make','-C',folder],stdout=sub.PIPE)
+            cpile = sub.Popen(['make','-C',folder],stdout=sub.PIPE,stderr=sub.PIPE)
             cpile.wait()
-            cpile_out = cpile.stdout.read()
-            print(cpile_out.decode('utf-8'))
+            cpile_out = cpile.stdout.read().decode('utf-8')
+            cpile_err = cpile.stderr.read().decode('utf-8')
+            print("\033[1;41m"+cpile_err+"\033[1;m")
+            print("\033[1;32m"+cpile_out+"\033[1;m")
+            #print(cpile_out.decode('utf-8'))
             copy = sub.Popen('cp '+folder+'*.o '+self.build_folder,shell=True)
             print(' ')
             print('-'*100+'\n')
@@ -50,8 +53,8 @@ class Make:
             
 if __name__=='__main__':
     #root_folder = '/home/roar/fys4411/compPhys2_p1'
-    #root_folder = '/home/rat/fys4411/compPhys2_p1'
-    root_folder = '/uio/hume/student-u49/roarem/compPhys2_p1'
+    root_folder = '/home/rat/fys4411/compPhys2_p1'
+    #root_folder = '/uio/hume/student-u49/roarem/compPhys2_p1'
     build_folder = 'build'
     dev_folders = ['System', 'Hamiltonian', 'WaveFunction','InitialState', 'main']
 

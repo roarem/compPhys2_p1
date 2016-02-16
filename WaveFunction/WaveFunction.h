@@ -8,9 +8,9 @@ class WaveFunction
   public:
   WaveFunction (class System* system);
 
-    virtual double evaluate	    () = 0;
-    virtual double computeEnergy    () = 0;
-
+    virtual double evaluate		      () = 0;
+    virtual double computeDoubleDerivative    (int p, int d, double waveFunctionCurrent) = 0;
+    virtual double computeEnergy	      () = 0;
     int get_nParameters () {return my_nParameters;}
 
     std::vector<double> get_parameters() {return my_parameters;}

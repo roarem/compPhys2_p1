@@ -25,7 +25,7 @@ double TrialWaveFunction::evaluate ()
     for (int j = 0 ; j < my_system->get_nDimensions() ; j++){
 
       r2 += my_system->get_particle()[i]->get_position()[j]*
-	my_system->get_particle()[i]->get_position()[j];
+	    my_system->get_particle()[i]->get_position()[j];
     }
     wave -= my_system->get_parameters()[0]*r2;
   }
@@ -34,41 +34,29 @@ double TrialWaveFunction::evaluate ()
 }
 
 
-double TrialWaveFunction::computeEnergy ()
+double TrialWaveFunction::computeDoubleDerivative(int p, int d, double waveFunctionCurrent)
 {
   double doubleDerivative     = 0;
   double waveFunctionPlus     = 0;
   double waveFunctionMinus    = 0;
-  double potEnergy	      = 0;
-  double kinEnergy	      = 0;
-  double waveFunctionCurrent2 = 0;
  
-  waveFunctionCurrent2 = 2*evaluate();
+
+  my_system->get_particle()[p]->changePosition(d, my_system->get_derivativeStep());
+  waveFunctionPlus = evaluate();
+
+  my_system->get_particle()[p]->changePosition(d, -2*my_system->get_derivativeStep());
+  waveFunctionMinus = evaluate();
+
+  my_system->get_particle()[p]->changePosition(d, my_system->get_derivativeStep());
   
-  for (int i = 0 ; i < my_system->get_nParticles() ; i++){
-    for (int j = 0 ; j < my_system->get_nDimensions() ; j++){
-
-
-      my_system->get_particle()[i]->changePosition(j, my_system->get_derivativeStep());
-      waveFunctionPlus = evaluate();
-
-      my_system->get_particle()[i]->changePosition(j, -2*my_system->get_derivativeStep());
-      waveFunctionMinus = evaluate();
-
-      my_system->get_particle()[i]->changePosition(j, my_system->get_derivativeStep());
-     
-      doubleDerivative += waveFunctionPlus + waveFunctionMinus - waveFunctionCurrent2;
-
-      potEnergy += my_system->get_particle()[i]->get_position()[j]*
-	my_system->get_particle()[i]->get_position()[j];
-    }
-  }
+  doubleDerivative += waveFunctionPlus + waveFunctionMinus - 2*waveFunctionCurrent;
   
-  kinEnergy = -doubleDerivative / (waveFunctionCurrent2 * my_system->get_derivativeStep2());
-  potEnergy = 0.5 * potEnergy * my_system->get_parameters()[1] * my_system->get_parameters()[1];
-  //cout << "potential energy = " << potEnergy << ", kinetic energy = " << kinEnergy << endl;
-  cout << "potential - kinetic = " << potEnergy - kinEnergy << endl;
-  return kinEnergy + potEnergy;
+  doubleDerivative = doubleDerivative/my_system->get_derivativeStep2();
+  
+  return doubleDerivative;
 }
 
-
+double TrialWaveFunction::computeEnergy ()
+{
+  return 0;
+}

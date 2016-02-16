@@ -1,8 +1,8 @@
 #include "TrialWaveFunctionAna.h"
 #include <iostream>
+
 using std::cout;
 using std::endl;
-
 
 TrialWaveFunctionAna::TrialWaveFunctionAna (System* system,
 				      double  alpha,
@@ -25,14 +25,18 @@ double TrialWaveFunctionAna::evaluate ()
     for (int j = 0 ; j < my_system->get_nDimensions() ; j++){
 
       r2 += my_system->get_particle()[i]->get_position()[j]*
-	my_system->get_particle()[i]->get_position()[j];
+	    my_system->get_particle()[i]->get_position()[j];
     }
-    wave += -my_system->get_parameters()[0]*r2;
+    wave -= my_system->get_parameters()[0]*r2;
   }
 
   return exp(wave);
 }
 
+double TrialWaveFunctionAna::computeDoubleDerivative(int p, int d, double waveFunctionCurrent)
+{
+  return 0;
+}
 
 double TrialWaveFunctionAna::computeEnergy()
 {
@@ -48,12 +52,12 @@ double TrialWaveFunctionAna::computeEnergy()
       }
       kinEnergy -= (2*my_system->get_parameters()[0]*r2 - my_system->get_nDimensions());
       potEnergy += r2;
+      //cout << my_system->get_particle()[i]->get_position()[0] << endl;
   }
 
   kinEnergy = kinEnergy *my_system->get_parameters()[0];
   potEnergy = my_system->get_parameters()[1] *my_system->get_parameters()[1] * potEnergy * 0.5;
+  //cout << "potential energy = " << potEnergy << ", kinetic energy = " << kinEnergy << endl;
   return kinEnergy + potEnergy;
 }
-
-
 
