@@ -8,9 +8,11 @@ class TrialWaveFunctionAna : public WaveFunction
     TrialWaveFunctionAna	  (class System* system, 
 				   double alpha,  
 				   double omega);
-    double evaluate		  ();
-    double computeDoubleDerivative  (int p, int d, double waveFunctionCurrent);
-    double computeEnergy	  ();
+    double evaluate		    ();
+    double computeDoubleDerivative  (int p, int d, double waveFunctionCurrent){return 0;}
+    double computeDerivative	    (int p, int d, double waveFunctionCurrent){return 0;}
+    double computeQuantumForce	    (double waveFunctionCurrent){return 0;}
+    double computeEnergy	    ();
 
   protected:
 };

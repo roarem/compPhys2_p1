@@ -5,7 +5,6 @@ using std::endl;
 
 bool System::metropolis ()
 {
-  unsigned  seed;
   int	    chosenParticle	  = 0;
   int	    chosenDimension	  = 0;
   double    waveFunctionOld	  = 0;
@@ -15,11 +14,6 @@ bool System::metropolis ()
  
   std::uniform_int_distribution<int> particle  (0,my_nParticles-1);
   std::uniform_int_distribution<int> dimension (0,my_nDimensions-1);
-
-  
-  clock::duration d = clock::now() - my_start;
-  seed = d.count();
-  my_generator.seed(seed);
   
   randomMove	  = my_stepLength*(my_uniform(my_generator)-0.5);
   chosenParticle  = particle(my_generator);
@@ -43,13 +37,75 @@ bool System::metropolis ()
   return true;
 }
 
+bool System::importanceSampling()
+{
+  int	    chosenParticle	    = 0;
+  int	    chosenDimension   	    = 0;
+  double    waveFunctionOld   	    = 0;
+  double    waveFunctionNew   	    = 0;
+  double    waveFunctionsCompared   = 0;
+  double    randomMove		    = 0; 
+
+  std::uniform_int_distribution<int> particle	(0,my_nParticles-1);
+  std::uniform_int_distribution<int> dimension	(0,my_nDimensions-1);
+  
+
+  chosenParticle  = particle(my_generator);
+  chosenDimension = dimension(my_generator);
+
+  waveFunctionOld = my_waveFunction->evaluate();
+  randomMove	  = sqrt(my_stepLength) * (my_normal(my_generator)) 
+		    +
+		    my_waveFunction->computeQuantumForce(waveFunctionOld) *
+		    my_stepLength * 0.5;
+
+  my_particles[chosenParticle]->changePosition(chosenDimension, randomMove);
+  waveFunctionNew = my_waveFunction->evaluate();
+
+  waveFunctionsCompared = (waveFunctionOld*waveFunctionOld)/
+			  (waveFunctionNew*waveFunctionNew);
+  
+  if (waveFunctionsCompared < 1.0){
+    if (waveFunctionsCompared < my_uniform(my_generator)){
+      my_particles[chosenParticle]->changePosition(chosenDimension, -randomMove);
+      return false;
+    }
+  }
+  
+  return true;
+}
+
 void System::runMetropolis (int nCycles)
 {
+  unsigned  seed;
   bool accepted = false;
   my_sampler	= new Sampler(this);
+  clock::duration d = clock::now() - my_start;
+  seed = d.count();
+  my_generator.seed(seed);
 
   for (int cycle = 0 ; cycle < nCycles ; cycle++){
     accepted = metropolis();
+    if (cycle > my_equilibrationFraction * nCycles)
+    {
+      my_sampler->sample(accepted);
+    }
+  }
+  my_sampler->printResults();
+}
+
+
+void System::runImportanceSampling (int nCycles)
+{
+  unsigned  seed;
+  bool accepted = false;
+  my_sampler	= new Sampler(this);
+  clock::duration d = clock::now() - my_start;
+  seed = d.count();
+  my_generator.seed(seed);
+
+  for (int cycle = 0 ; cycle < nCycles ; cycle++){
+    accepted = importanceSampling();
     if (cycle > my_equilibrationFraction * nCycles)
     {
       my_sampler->sample(accepted);
@@ -84,6 +140,9 @@ void System::set_WaveFunction (WaveFunction* waveFunction)
 
 void System::set_InitialState (InitialState* initialState)
 { my_initialState = initialState; }
+
+void System::set_Timer (Timer* timer)
+{ my_timer = timer; }
 
 void System::set_parameters (std::vector<double> parameters)
 { my_parameters = parameters; }

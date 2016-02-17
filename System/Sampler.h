@@ -1,6 +1,7 @@
 #pragma once
 #include "System.h"
 #include "Particle.h"
+#include "Timer.h"
 #include "../Hamiltonian/Hamiltonian.h"
 #include "../WaveFunction/WaveFunction.h"
 

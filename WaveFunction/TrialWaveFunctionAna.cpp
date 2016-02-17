@@ -33,11 +33,6 @@ double TrialWaveFunctionAna::evaluate ()
   return exp(wave);
 }
 
-double TrialWaveFunctionAna::computeDoubleDerivative(int p, int d, double waveFunctionCurrent)
-{
-  return 0;
-}
-
 double TrialWaveFunctionAna::computeEnergy()
 {
   double kinEnergy	= 0;
