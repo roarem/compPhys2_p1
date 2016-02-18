@@ -17,68 +17,67 @@ using std::cout;
 int main (){
 
   int	  nDimensions     = 3;
-  int 	  nParticles      = 2;
-  int 	  nCycles	  = (int) 1e4;
+  int 	  nParticles      = 10;
+  int 	  nCycles	  = (int) 1e5;
 
   double  omega		  = 1.0;
   double  alpha		  = omega/2.0;
-  double  stepLength	  = 1.0;
+  double  stepLength	  = 1e-4;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
 
-/* Analytical */
+/* Brute forece Metropolis */
   cout << "Initializing analytical system...\n";
 
-  System* anaSystem = new System();
+  System* metSystem = new System();
 
-  anaSystem->set_stepLength		(stepLength);
-  anaSystem->set_equilibrationFraction	(equilibration);
-  anaSystem->set_derivativeStep		(derivativeStep);
+  metSystem->set_stepLength		(stepLength);
+  metSystem->set_equilibrationFraction	(equilibration);
+  metSystem->set_derivativeStep		(derivativeStep);
 
-  anaSystem->set_InitialState	    (new RandomUniform		  (anaSystem, nDimensions, nParticles));
-  anaSystem->set_Hamiltonian	    (new HarmonicOscillatorAna    (anaSystem, omega));
-  anaSystem->set_WaveFunction	    (new TrialWaveFunctionAna     (anaSystem, alpha, omega));
-  anaSystem->set_Timer		    (new Timer                    (anaSystem));
+  metSystem->set_InitialState	    (new RandomUniform		  (metSystem, nDimensions, nParticles));
+  metSystem->set_Hamiltonian	    (new HarmonicOscillator       (metSystem, omega));
+  metSystem->set_WaveFunction	    (new TrialWaveFunction        (metSystem, alpha, omega));
+  metSystem->set_Timer		    (new Timer                    (metSystem));
   
   cout << "Starting Metropolis Timer...\n";
-  anaSystem->get_timer()->startTimer	();
-  anaSystem->runMetropolis		(nCycles);
-  anaSystem->get_timer()->stopTimer	();
+  metSystem->get_timer()->startTimer	();
+  metSystem->runMetropolis		(nCycles);
+  metSystem->get_timer()->stopTimer	();
   cout << "----------------------------------\n";
-  cout << "Timers for the analytical solution\n";
+  cout << "Timers for the Metropolis method  \n";
   cout << "----------------------------------\n";
-  printf("Seconds     : %i \n",anaSystem->get_timer()->elapsedTimeSeconds());
-  printf("Milliseconds: %i \n",anaSystem->get_timer()->elapsedTimeMilli());
-  printf("Microseconds: %i \n",anaSystem->get_timer()->elapsedTimeMicro());
+  printf("Seconds     : %i \n",metSystem->get_timer()->elapsedTimeSeconds());
+  printf("Milliseconds: %i \n",metSystem->get_timer()->elapsedTimeMilli());
+  printf("Microseconds: %i \n",metSystem->get_timer()->elapsedTimeMicro());
   cout << "----------------------------------\n\n\n";
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-/* Numerical derivation */
+/* Importance Sampling */
   cout << "Initializing numerical system...\n";
-  System* numSystem = new System();
+  System* impSystem = new System();
 
-  numSystem->set_stepLength		(stepLength);
-  numSystem->set_equilibrationFraction	(equilibration);
-  numSystem->set_derivativeStep		(derivativeStep);
+  impSystem->set_stepLength		(stepLength);
+  impSystem->set_equilibrationFraction	(equilibration);
+  impSystem->set_derivativeStep		(derivativeStep);
 
-  numSystem->set_InitialState	    (new RandomUniform		  (numSystem, nDimensions, nParticles));
-  numSystem->set_Hamiltonian	    (new HarmonicOscillator       (numSystem, omega));
-  numSystem->set_WaveFunction	    (new TrialWaveFunction	  (numSystem, alpha, omega));
-  numSystem->set_Timer		    (new Timer			  (numSystem));
+  impSystem->set_InitialState	    (new RandomUniform		  (impSystem, nDimensions, nParticles));
+  impSystem->set_Hamiltonian	    (new HarmonicOscillator       (impSystem, omega));
+  impSystem->set_WaveFunction	    (new TrialWaveFunction	  (impSystem, alpha, omega));
+  impSystem->set_Timer		    (new Timer			  (impSystem));
 
   cout << "Starting Metropolis Timer...\n";
   
-  numSystem->get_timer()->startTimer  ();
-//  numSystem->runMetropolis	      (nCycles);
-  numSystem->runImportanceSampling    (nCycles);
-  numSystem->get_timer()->stopTimer   ();
+  impSystem->get_timer()->startTimer  ();
+  impSystem->runImportanceSampling    (nCycles);
+  impSystem->get_timer()->stopTimer   ();
   cout << "----------------------------------\n";
-  cout << "Timers for the numerical solution\n";
+  cout << "Timers for the Importance Sampling\n";
   cout << "----------------------------------\n";
-  printf("Seconds     : %i \n",numSystem->get_timer()->elapsedTimeSeconds());
-  printf("Milliseconds: %i \n",numSystem->get_timer()->elapsedTimeMilli());
-  printf("Microseconds: %i \n",numSystem->get_timer()->elapsedTimeMicro());
+  printf("Seconds     : %i \n",impSystem->get_timer()->elapsedTimeSeconds());
+  printf("Milliseconds: %i \n",impSystem->get_timer()->elapsedTimeMilli());
+  printf("Microseconds: %i \n",impSystem->get_timer()->elapsedTimeMicro());
   cout << "Numerical run is complete!\n";
 
   return 0;

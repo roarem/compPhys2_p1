@@ -41,32 +41,49 @@ bool System::importanceSampling()
 {
   int	    chosenParticle	    = 0;
   int	    chosenDimension   	    = 0;
+  double    randomMove		    = 0; 
+  double    stepDifference	    = 0;
   double    waveFunctionOld   	    = 0;
   double    waveFunctionNew   	    = 0;
+  double    quantumForceOld	    = 0;
+  double    quantumForceNew	    = 0;
   double    waveFunctionsCompared   = 0;
-  double    randomMove		    = 0; 
+  double    greensFunctionCompared  = 0;
+  double    compared		    = 0;
 
   std::uniform_int_distribution<int> particle	(0,my_nParticles-1);
   std::uniform_int_distribution<int> dimension	(0,my_nDimensions-1);
   
-
   chosenParticle  = particle(my_generator);
   chosenDimension = dimension(my_generator);
 
   waveFunctionOld = my_waveFunction->evaluate();
+  quantumForceOld = my_waveFunction->computeQuantumForce(waveFunctionOld);
+
   randomMove	  = sqrt(my_stepLength) * (my_normal(my_generator)) 
 		    +
-		    my_waveFunction->computeQuantumForce(waveFunctionOld) *
-		    my_stepLength * 0.5;
+		    quantumForceOld * my_stepLength * 0.5;
+ 
+  stepDifference  = randomMove - my_particles[chosenParticle]->get_position()[chosenDimension];
 
   my_particles[chosenParticle]->changePosition(chosenDimension, randomMove);
   waveFunctionNew = my_waveFunction->evaluate();
+  quantumForceNew = my_waveFunction->computeQuantumForce(waveFunctionNew);
 
-  waveFunctionsCompared = (waveFunctionOld*waveFunctionOld)/
-			  (waveFunctionNew*waveFunctionNew);
-  
-  if (waveFunctionsCompared < 1.0){
-    if (waveFunctionsCompared < my_uniform(my_generator)){
+  waveFunctionsCompared	  = (waveFunctionOld*waveFunctionOld)/
+			    (waveFunctionNew*waveFunctionNew);
+  greensFunctionCompared  = 
+	exp((
+	-(my_stepLength*0.5*quantumForceOld - stepDifference) *
+	(my_stepLength*0.5*quantumForceOld - stepDifference) +
+	(my_stepLength*0.5*quantumForceNew + stepDifference) *
+	(my_stepLength*0.5*quantumForceNew + stepDifference))
+	/(2*my_stepLength)
+      );
+
+  compared = greensFunctionCompared*waveFunctionsCompared;
+  if (compared < 1.0){
+    if (compared < my_uniform(my_generator)){
       my_particles[chosenParticle]->changePosition(chosenDimension, -randomMove);
       return false;
     }
