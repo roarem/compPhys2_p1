@@ -17,12 +17,12 @@ using std::cout;
 int main (){
 
   int	  nDimensions     = 3;
-  int 	  nParticles      = 10;
-  int 	  nCycles	  = (int) 1e5;
+  int 	  nParticles      = 5;
+  int 	  nCycles	  = (int) 1e4;
 
   double  omega		  = 1.0;
   double  alpha		  = omega/2.0;
-  double  stepLength	  = 1e-4;
+  double  stepLength	  = 0.5;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
 

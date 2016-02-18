@@ -58,7 +58,8 @@ bool System::importanceSampling()
   chosenDimension = dimension(my_generator);
 
   waveFunctionOld = my_waveFunction->evaluate();
-  quantumForceOld = my_waveFunction->computeQuantumForce(waveFunctionOld);
+  quantumForceOld = my_waveFunction->
+		    computeQuantumForce(chosenParticle, chosenDimension, waveFunctionOld);
 
   randomMove	  = sqrt(my_stepLength) * (my_normal(my_generator)) 
 		    +
@@ -67,19 +68,24 @@ bool System::importanceSampling()
   stepDifference  = randomMove - my_particles[chosenParticle]->get_position()[chosenDimension];
 
   my_particles[chosenParticle]->changePosition(chosenDimension, randomMove);
+
   waveFunctionNew = my_waveFunction->evaluate();
-  quantumForceNew = my_waveFunction->computeQuantumForce(waveFunctionNew);
+  quantumForceNew = my_waveFunction->
+		    computeQuantumForce(chosenParticle, chosenDimension, waveFunctionNew);
 
   waveFunctionsCompared	  = (waveFunctionOld*waveFunctionOld)/
 			    (waveFunctionNew*waveFunctionNew);
-  greensFunctionCompared  = 
-	exp((
-	-(my_stepLength*0.5*quantumForceOld - stepDifference) *
-	(my_stepLength*0.5*quantumForceOld - stepDifference) +
-	(my_stepLength*0.5*quantumForceNew + stepDifference) *
-	(my_stepLength*0.5*quantumForceNew + stepDifference))
-	/(2*my_stepLength)
-      );
+  greensFunctionCompared  = exp((
+	  (0.5*(quantumForceOld + quantumForceNew)*
+	  ((quantumForceOld - quantumForceNew)*0.25*my_stepLength - 
+	  stepDifference))));
+
+//  	-(my_stepLength*0.5*quantumForceOld - stepDifference) *
+//  	(my_stepLength*0.5*quantumForceOld - stepDifference) +
+//  	(my_stepLength*0.5*quantumForceNew + stepDifference) *
+//  	(my_stepLength*0.5*quantumForceNew + stepDifference))
+//  	/(2*my_stepLength)
+//        );
 
   compared = greensFunctionCompared*waveFunctionsCompared;
   if (compared < 1.0){

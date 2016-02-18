@@ -11,8 +11,8 @@ class WaveFunction
     virtual double evaluate		      () = 0;
     virtual double computeDoubleDerivative    (int p, int d, double waveFunctionCurrent) = 0;
     virtual double computeDerivative	      (int p, int d, double waveFunctionCurrent) = 0;
+    virtual double computeQuantumForce	      (int p, int d, double waveFunctionCurrent) = 0;
     virtual double computeEnergy	      () = 0;
-    virtual double computeQuantumForce	      (double waveFunctionCurrent) = 0;
     int get_nParameters () {return my_nParameters;}
 
     std::vector<double> get_parameters() {return my_parameters;}

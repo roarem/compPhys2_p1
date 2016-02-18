@@ -71,22 +71,12 @@ double TrialWaveFunction::computeDerivative(int p, int d, double waveFunctionCur
   return derivative;
 }
 
-double TrialWaveFunction::computeQuantumForce(double waveFunctionCurrent)
+double TrialWaveFunction::computeQuantumForce(int p, int d, double waveFunctionCurrent)
 {
-  double derivative	= 0; 
   double quantumForce	= 0;
 
-  for (int p = 0 ; p < my_system->get_nParticles() ; p++){
-    for (int d = 0 ; d < my_system->get_nDimensions() ; d++){
-      
-      derivative += computeDerivative(p,d,waveFunctionCurrent);
-    }
-  }
-  quantumForce = 2*derivative/waveFunctionCurrent;
+  quantumForce = 2*computeDerivative(p,d,waveFunctionCurrent)/waveFunctionCurrent;
 
   return quantumForce;
 }
-
-
-
 

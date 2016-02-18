@@ -11,7 +11,7 @@ class TrialWaveFunctionAna : public WaveFunction
     double evaluate		    ();
     double computeDoubleDerivative  (int p, int d, double waveFunctionCurrent){return 0;}
     double computeDerivative	    (int p, int d, double waveFunctionCurrent){return 0;}
-    double computeQuantumForce	    (double waveFunctionCurrent){return 0;}
+    double computeQuantumForce	    (int p, int d, double waveFunctionCurrent){return 0;}
     double computeEnergy	    ();
 
   protected:
