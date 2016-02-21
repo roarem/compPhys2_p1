@@ -5,9 +5,7 @@
 class TrialWaveFunction : public WaveFunction
 {
   public:
-    TrialWaveFunction		  (class System* system, 
-				   double alpha,  
-				   double omega);
+    TrialWaveFunction		  (class System* system);
     double evaluate		    ();
     double computeDoubleDerivative  (int p, int d, double waveFunctionCurrent);
     double computeDerivative	    (int p, int d, double waveFunctionCurrent);

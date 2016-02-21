@@ -1,10 +1,9 @@
 #include "HarmonicOscillatorAna.h"
 
 
-HarmonicOscillatorAna::HarmonicOscillatorAna (System* system, double omega) :
+HarmonicOscillatorAna::HarmonicOscillatorAna (System* system) :
   Hamiltonian(system)
 {
-  my_omega = omega;
 }
 
 double HarmonicOscillatorAna::computeLocalEnergy ()

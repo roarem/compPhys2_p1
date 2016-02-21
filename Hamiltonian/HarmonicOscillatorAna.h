@@ -6,11 +6,9 @@ class HarmonicOscillatorAna : public Hamiltonian
 {
   public:
     
-    HarmonicOscillatorAna( System* system, double omega);
+    HarmonicOscillatorAna( System* system);
 
     double computeLocalEnergy		();
   private:
-
-    double my_omega   = 0;
 };
 

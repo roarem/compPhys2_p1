@@ -61,9 +61,9 @@ bool System::importanceSampling()
   quantumForceOld = my_waveFunction->
 		    computeQuantumForce(chosenParticle, chosenDimension, waveFunctionOld);
 
-  randomMove	  = sqrt(my_stepLength) * (my_normal(my_generator)) 
+  randomMove	  = my_stepLength * (my_normal(my_generator)) * sqrt(my_timeStep)
 		    +
-		    quantumForceOld * my_stepLength * 0.5;
+		    quantumForceOld * my_timeStep * 0.5;
 
   stepDifference  = randomMove - my_particles[chosenParticle]->get_position()[chosenDimension];
 
@@ -73,8 +73,8 @@ bool System::importanceSampling()
   quantumForceNew = my_waveFunction->
 		    computeQuantumForce(chosenParticle, chosenDimension, waveFunctionNew);
 
-  waveFunctionsCompared	  = (waveFunctionOld*waveFunctionOld)/
-			    (waveFunctionNew*waveFunctionNew);
+  waveFunctionsCompared	  = (waveFunctionNew*waveFunctionNew)/
+			    (waveFunctionOld*waveFunctionOld);
   greensFunctionCompared  = exp(
 	  (0.5*(quantumForceOld + quantumForceNew)*
 	  ((quantumForceOld - quantumForceNew)*0.25*my_stepLength - 
@@ -149,6 +149,9 @@ void System::set_derivativeStep (double h)
 
 void System::set_equilibrationFraction (double equilibraFraction)
 { my_equilibrationFraction = equilibraFraction; }
+
+void System::set_timeStep (double timeStep)
+{ my_timeStep = timeStep; }
 
 void System::set_Hamiltonian (Hamiltonian* hamiltonian)
 { my_hamiltonian = hamiltonian; }

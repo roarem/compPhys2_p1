@@ -13,14 +13,13 @@ class WaveFunction
     virtual double computeDerivative	      (int p, int d, double waveFunctionCurrent) = 0;
     virtual double computeQuantumForce	      (int p, int d, double waveFunctionCurrent) = 0;
     virtual double computeEnergy	      () = 0;
-    int get_nParameters () {return my_nParameters;}
+    //int get_nParameters () {return my_nParameters;}
 
-    std::vector<double> get_parameters() {return my_parameters;}
+    //std::vector<double> get_parameters() {return my_parameters;}
 
   protected:
     
-    int	my_nParameters	= 0;
-    std::vector<double> my_parameters = std::vector<double>();
+    //std::vector<double> my_parameters = std::vector<double>();
     class System* my_system = nullptr;
 
 };

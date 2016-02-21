@@ -1,7 +1,7 @@
 #pragma once
 #include "Particle.h"
-#include "Sampler.h"
-#include "Timer.h"
+#include "../Sampler/Sampler.h"
+#include "../Sampler/Timer.h"
 #include "../Hamiltonian/Hamiltonian.h"
 #include "../WaveFunction/WaveFunction.h"
 #include "../InitialState/InitialState.h"
@@ -24,6 +24,7 @@ class System
     void set_stepLength		    (double stepLength);
     void set_derivativeStep	    (double h);
     void set_equilibrationFraction  (double equilibractionFraction);
+    void set_timeStep		    (double timeStep);
     void set_Hamiltonian	    (class Hamiltonian* hamiltonian);
     void set_WaveFunction	    (class WaveFunction* waveFunction);
     void set_InitialState	    (class InitialState* initalState);
@@ -33,6 +34,7 @@ class System
     int	    get_nDimensions		(){return my_nDimensions;}
     int     get_nParticles	    	(){return my_nParticles;}
     int	    get_nCycles			(){return my_nCycles;}
+    double  get_timeStep		(){return my_timeStep;}
     double  get_stepLength	    	(){return my_stepLength;}
     double  get_derivativeStep	    	(){return my_derivativeStep;}
     double  get_derivativeStep2	    	(){return my_derivativeStep2;}
@@ -51,6 +53,7 @@ class System
     int my_nDimensions		     = 0;
     int my_nParticles		     = 0;
     int my_nCycles		     = 0;
+    double my_timeStep		     = 0.0;
     double my_stepLength	     = 0.0;
     double my_derivativeStep	     = 0.0;
     double my_derivativeStep2	     = 0.0;

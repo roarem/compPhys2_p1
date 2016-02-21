@@ -4,16 +4,8 @@
 using std::cout;
 using std::endl;
 
-TrialWaveFunction::TrialWaveFunction (System* system,
-				      double  alpha,
-				      double  omega):
+TrialWaveFunction::TrialWaveFunction (System* system) :
   WaveFunction(system){
-    my_nParameters = 2;
-    
-    std::vector<double> parameters(my_nParameters);
-    parameters[0] = alpha;
-    parameters[1] = omega;
-    my_system->set_parameters(parameters);
   }
 
 double TrialWaveFunction::evaluate ()

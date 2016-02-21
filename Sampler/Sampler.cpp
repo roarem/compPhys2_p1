@@ -29,7 +29,11 @@ void Sampler::printResults ()
 {
   int	 nParticles	= my_system->get_nParticles();
   int	 nDimensions	= my_system->get_nDimensions(); 
-  int	 nCycles	= my_system->get_nCycles();
+  double nCycles	= my_system->get_nCycles();
+  double alpha		= my_system->get_parameters()[0];
+  double omega		= my_system->get_parameters()[1];
+  double gamma		= my_system->get_parameters()[2];
+  double timeStep	= my_system->get_timeStep();
   double stepLength	= my_system->get_stepLength();
   double derivativeStep	= my_system->get_derivativeStep();
   double energyAverage	= cumulativeEnergy/(double)my_stepNumber;
@@ -43,8 +47,12 @@ void Sampler::printResults ()
   printf("\033[1;44m====================  System Data ====================\033[1;m\n");
   printf("\033[0;93mNumber of particles:     %i\033[0;m\n",nParticles);
   printf("\033[0;93mNumber of dimensions:    %i\033[0;m\n",nDimensions);
-  printf("\033[0;93mNumber of cycles:        %i\033[0;m\n",nCycles);
+  printf("\033[0;93mNumber of cycles:        %0.1e\033[0;m\n",nCycles);
+  printf("\033[0;93mAlpha:                   %f\033[0;m\n",alpha);
+  printf("\033[0;93mOmega:                   %f\033[0;m\n",omega);
+  printf("\033[0;93mGamma:                   %f\033[0;m\n",gamma);
   printf("\033[0;93mStep length:             %f\033[0;m\n",stepLength);
+  printf("\033[0;93mTime step:               %f\033[0;m\n",timeStep);
   printf("\033[0;93mDerivative step:         %f\033[0;m\n",derivativeStep);
   printf("\033[1;105m~~~~~~~~~~~~~~~~~~~~~ Results ~~~~~~~~~~~~~~~~~~~~~~~~\033[1;m\n");
   printf("\033[0;91mEnergy average:          %e\033[0;m\n", energyAverage);
