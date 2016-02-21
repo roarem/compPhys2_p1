@@ -16,8 +16,8 @@ class System
   public:
     bool metropolis		    ();
     bool importanceSampling	    ();
-    void runMetropolis		    (int nCycles);
-    void runImportanceSampling	    (int nCycles);
+    void runMetropolis		    ();
+    void runImportanceSampling	    ();
     void set_nDimensions	    (int nDimensions);
     void set_nParticles	  	    (int nParticles);
     void set_nCycles	  	    (int nCycles);
@@ -32,6 +32,7 @@ class System
     
     int	    get_nDimensions		(){return my_nDimensions;}
     int     get_nParticles	    	(){return my_nParticles;}
+    int	    get_nCycles			(){return my_nCycles;}
     double  get_stepLength	    	(){return my_stepLength;}
     double  get_derivativeStep	    	(){return my_derivativeStep;}
     double  get_derivativeStep2	    	(){return my_derivativeStep2;}

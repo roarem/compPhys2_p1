@@ -93,7 +93,7 @@ bool System::importanceSampling()
   return true;
 }
 
-void System::runMetropolis (int nCycles)
+void System::runMetropolis ()
 {
   unsigned  seed;
   bool accepted = false;
@@ -102,9 +102,9 @@ void System::runMetropolis (int nCycles)
   seed = d.count();
   my_generator.seed(seed);
 
-  for (int cycle = 0 ; cycle < nCycles ; cycle++){
+  for (int cycle = 0 ; cycle < my_nCycles ; cycle++){
     accepted = metropolis();
-    if (cycle > my_equilibrationFraction * nCycles)
+    if (cycle > my_equilibrationFraction * my_nCycles)
     {
       my_sampler->sample(accepted);
     }
@@ -113,7 +113,7 @@ void System::runMetropolis (int nCycles)
 }
 
 
-void System::runImportanceSampling (int nCycles)
+void System::runImportanceSampling ()
 {
   unsigned  seed;
   bool accepted = false;
@@ -122,9 +122,9 @@ void System::runImportanceSampling (int nCycles)
   seed = d.count();
   my_generator.seed(seed);
 
-  for (int cycle = 0 ; cycle < nCycles ; cycle++){
+  for (int cycle = 0 ; cycle < my_nCycles ; cycle++){
     accepted = importanceSampling();
-    if (cycle > my_equilibrationFraction * nCycles)
+    if (cycle > my_equilibrationFraction * my_nCycles)
     {
       my_sampler->sample(accepted);
     }

@@ -18,7 +18,7 @@ int main (){
 
   int	  nDimensions     = 3;
   int 	  nParticles      = 5;
-  int 	  nCycles	  = (int) 2e6;
+  int 	  nCycles	  = (int) 2e3;
 
   double  omega		  = 1.0;
   double  alpha		  = omega/2.0;
@@ -34,6 +34,7 @@ int main (){
   metSystem->set_stepLength		(stepLength);
   metSystem->set_equilibrationFraction	(equilibration);
   metSystem->set_derivativeStep		(derivativeStep);
+  metSystem->set_nCycles		(nCycles);
 
   metSystem->set_InitialState	    (new RandomUniform		  (metSystem, nDimensions, nParticles));
   metSystem->set_Hamiltonian	    (new HarmonicOscillator       (metSystem, omega));
@@ -42,7 +43,7 @@ int main (){
   
   cout << "Starting brute force timer...\n";
   metSystem->get_timer()->startTimer	();
-  metSystem->runMetropolis		(nCycles);
+  metSystem->runMetropolis		();
   metSystem->get_timer()->stopTimer	();
   cout << "----------------------------------\n";
   cout << "Timers for the brute force method \n";
@@ -61,6 +62,7 @@ int main (){
   impSystem->set_stepLength		(stepLength);
   impSystem->set_equilibrationFraction	(equilibration);
   impSystem->set_derivativeStep		(derivativeStep);
+  impSystem->set_nCycles		(nCycles);
 
   impSystem->set_InitialState	    (new RandomUniform		  (impSystem, nDimensions, nParticles));
   impSystem->set_Hamiltonian	    (new HarmonicOscillator       (impSystem, omega));
@@ -70,7 +72,7 @@ int main (){
   cout << "Starting Importance Sampint timer...\n";
   
   impSystem->get_timer()->startTimer  ();
-  impSystem->runImportanceSampling    (nCycles);
+  impSystem->runImportanceSampling    ();
   impSystem->get_timer()->stopTimer   ();
   cout << "----------------------------------\n";
   cout << "Timers for the Importance Sampling\n";
