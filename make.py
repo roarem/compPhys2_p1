@@ -1,6 +1,7 @@
 import subprocess as sub
 import argparse
 import time
+import os
 
 class Make:
 
@@ -15,9 +16,17 @@ class Make:
         print('\n\nWarming up the compiler')
         print('-'*100)
         print(' ')
+        pyntSize  = 30
+
         for folder in self.dev_folders:
-            outStartString = 'Compiles in folder '+folder
-            print(outStartString+'\n'+'\033[1;44m*\033[1;m'*len(outStartString))
+            size = pyntSize-len(folder)//2 
+            if len(folder)%2 == 0:
+                
+                outString = '\033[1;44m*\033[1;m'*size+' \033[1;36m'+folder+'\033[1;m  '+'\033[1;44m*\033[1;m'*size
+            else:
+                outString = '\033[1;44m*\033[1;m'*size+' \033[1;36m'+folder+'\033[1;m '+'\033[1;44m*\033[1;m'*size
+                 
+            print(outString)
             folder = self.root_folder+folder+'/'
             cpile = sub.Popen(['make','-C',folder],stdout=sub.PIPE,stderr=sub.PIPE)
             cpile.wait()
@@ -52,9 +61,10 @@ class Make:
 
             
 if __name__=='__main__':
+    root_folder = os.getcwd()
     #root_folder = '/home/roar/fys4411/compPhys2_p1'
     #root_folder = '/home/rat/fys4411/compPhys2_p1'
-    root_folder = '/uio/hume/student-u49/roarem/compPhys2_p1'
+    ##root_folder = '/uio/hume/student-u49/roarem/compPhys2_p1'
     build_folder = 'build'
     dev_folders = ['System', 'Hamiltonian', 'WaveFunction','InitialState', 'main']
 
