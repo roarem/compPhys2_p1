@@ -1,6 +1,5 @@
 #pragma once
 #include "Hamiltonian.h"
-#include <vector>
 
 class HarmonicOscillatorAna : public Hamiltonian
 {

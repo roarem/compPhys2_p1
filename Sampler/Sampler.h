@@ -1,11 +1,7 @@
 #pragma once
 #include "../System/System.h"
-#include "../System/Particle.h"
 #include "Timer.h"
-#include "../Hamiltonian/Hamiltonian.h"
-#include "../WaveFunction/WaveFunction.h"
-
-
+#include "ProgressBar.h"
 
 class Sampler {
   public:
@@ -17,6 +13,7 @@ class Sampler {
     double get_cumuEn (){return cumulativeEnergy;}
 
   protected:
+    std::ofstream my_oFile;
     int	    my_nCycles		      = 0;
     int	    my_stepNumber	      = 0;
     double  cumulativeEnergy	      = 0;

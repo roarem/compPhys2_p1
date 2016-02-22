@@ -1,6 +1,5 @@
 #pragma once
 #include "WaveFunction.h"
-#include <cmath>
 
 class TrialWaveFunction : public WaveFunction
 {

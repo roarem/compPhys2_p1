@@ -1,7 +1,8 @@
 #include "RandomUniform.h"
-#include <iostream>
+
 using std::cout;
 using std::endl;
+
 RandomUniform::RandomUniform( System* system,
 			      int nDimensions,
 			      int nParticles):

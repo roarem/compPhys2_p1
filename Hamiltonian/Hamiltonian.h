@@ -1,7 +1,5 @@
 #pragma once
-#include "../WaveFunction/WaveFunction.h"
 #include "../System/System.h"
-#include "../System/Particle.h"
 
 class Hamiltonian
 {

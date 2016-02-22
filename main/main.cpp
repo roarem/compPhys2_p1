@@ -1,38 +1,31 @@
 #include "../System/System.h"
-#include "../Sampler/Sampler.h"
-#include "../System/Particle.h"
-#include "../Sampler/Timer.h"
-#include "../Hamiltonian/Hamiltonian.h"
 #include "../Hamiltonian/HarmonicOscillatorAna.h"
 #include "../Hamiltonian/HarmonicOscillator.h"
 #include "../Hamiltonian/HarmonicOscillatorInteracting.h"
-#include "../WaveFunction/WaveFunction.h"
 #include "../WaveFunction/TrialWaveFunctionAna.h"
 #include "../WaveFunction/TrialWaveFunction.h"
-#include "../InitialState/InitialState.h"
 #include "../InitialState/RandomUniform.h"
-#include <iostream>
 
 using std::cout;
 
 void analytical(int,int,int,double,double,std::vector<double>);
-void metropolis(int,int,int,double,double,double,double,std::vector<double>);
-void importanceSampling(int,int,int,double,double,double,double,std::vector<double>);
-void interacting(int,int,int,double,double,double,double,double,std::vector<double>);
+void metropolis(int,int,int,double,double,double,std::vector<double>);
+void importanceSampling(int,int,int,double,double,double,std::vector<double>);
+void interacting(int,int,int,double,double,double,double,std::vector<double>);
 
  
 int main (){
 
   int	  nDimensions     = 3;
-  int 	  nParticles      = 10;
-  int 	  nCycles	  = (int) 1e6;
+  int 	  nParticles      = 5;
+  int 	  nCycles	  = (int) 1e1;
 
   double  omega		  = 1.0;
   double  alpha		  = 0.5;
   double  gamma		  = 2.82843;
   double  bosonSize	  = 0.0043;
-  double  stepLength	  = 1.0;
-  double  timeStep	  = 0.05;
+  double  stepLength	  = 0.1;
+  //double  timeStep	  = 0.01;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.0001;
 
@@ -50,27 +43,28 @@ int main (){
 
     case 1:
       metropolis(nCycles,nParticles,nDimensions,
-		 stepLength,timeStep,equilibration,derivativeStep,
+		 stepLength,equilibration,derivativeStep,
 		 parameters);
       break;
     case 2:
       importanceSampling(nCycles,nParticles,nDimensions,                   
-			 stepLength,timeStep,equilibration,derivativeStep,
+			 stepLength,equilibration,derivativeStep,
 			 parameters);
       break;
 
     case 3:
       metropolis(nCycles,nParticles,nDimensions,
-		 stepLength,timeStep,equilibration,derivativeStep,
+		 stepLength,equilibration,derivativeStep,
 		 parameters);
+
       importanceSampling(nCycles,nParticles,nDimensions,                   
-			 stepLength,timeStep,equilibration,derivativeStep,
+			 stepLength,equilibration,derivativeStep,
 			 parameters);
       break;
 
     case 4:
       interacting(nCycles,nParticles,nDimensions,
-		  stepLength,timeStep,equilibration,derivativeStep,bosonSize,
+		  stepLength,equilibration,derivativeStep,bosonSize,
 		  parameters);
       break;
   }
@@ -117,7 +111,6 @@ void metropolis(int nCycles,
 		int nParticles,
 		int nDimensions,
 		double stepLength,
-		double timeStep,
 		double equilibration,
 		double derivativeStep,
 		std::vector<double>parameters)
@@ -130,10 +123,9 @@ void metropolis(int nCycles,
    
   system->set_parameters		(parameters);
   system->set_stepLength		(stepLength);
-  system->set_timeStep		(timeStep);
   system->set_equilibrationFraction	(equilibration);
   system->set_derivativeStep		(derivativeStep);
-  system->set_nCycles		(nCycles);
+  system->set_nCycles                   (nCycles);
 
   system->set_InitialState	(new RandomUniform	 (system, nDimensions, nParticles));
   system->set_Hamiltonian	(new HarmonicOscillator  (system));
@@ -158,7 +150,6 @@ void importanceSampling(int nCycles,
 			int nParticles,
 			int nDimensions,
 			double stepLength,
-			double timeStep,
 			double equilibration,
 			double derivativeStep,
 			std::vector<double>parameters)
@@ -169,7 +160,6 @@ void importanceSampling(int nCycles,
 
   system->set_parameters		(parameters);
   system->set_stepLength		(stepLength);
-  system->set_timeStep		(timeStep);
   system->set_equilibrationFraction	(equilibration);
   system->set_derivativeStep		(derivativeStep);
   system->set_nCycles		(nCycles);
@@ -198,7 +188,6 @@ void interacting(int nCycles,
 	         int nParticles,
 		 int nDimensions,
 		 double stepLength,
-		 double timeStep,
 		 double equilibration,
 		 double derivativeStep,
 		 double bosonSize,
@@ -212,7 +201,6 @@ void interacting(int nCycles,
 
   system->set_parameters		(parameters);
   system->set_stepLength		(stepLength);
-  system->set_timeStep			(timeStep);
   system->set_equilibrationFraction	(equilibration);
   system->set_derivativeStep		(derivativeStep);
   system->set_nCycles			(nCycles);

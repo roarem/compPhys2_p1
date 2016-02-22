@@ -1,7 +1,5 @@
 #pragma once
 #include "../System/System.h"
-#include <vector>
-#include <chrono>
 
 class Timer
 {

@@ -1,5 +1,4 @@
 #include "TrialWaveFunction.h"
-#include <iostream>
 
 using std::cout;
 using std::endl;
@@ -10,19 +9,17 @@ TrialWaveFunction::TrialWaveFunction (System* system) :
 
 double TrialWaveFunction::evaluate ()
 {
-  double wave	= 0;
   double r2	= 0;
+
+  const double alpha = my_system->get_parameters()[0];
 
   for (int i = 0 ; i < my_system->get_nParticles() ; i++){
     for (int j = 0 ; j < my_system->get_nDimensions() ; j++){
-
-      r2 += my_system->get_particle()[i]->get_position()[j]*
-	    my_system->get_particle()[i]->get_position()[j];
+      const double x = my_system->get_particle()[i]->get_position()[j];
+      r2 += x*x;
     }
   }
-  wave -= my_system->get_parameters()[0]*r2;
-
-  return exp(wave);
+  return exp(-alpha*r2);
 }
 
 
@@ -66,9 +63,9 @@ double TrialWaveFunction::computeDerivative(int p, int d, double waveFunctionCur
 double TrialWaveFunction::computeQuantumForce(int p, int d, double waveFunctionCurrent)
 {
   double quantumForce	= 0;
-
+  cout << computeDerivative(p,d,waveFunctionCurrent) << endl;
   quantumForce = 2*computeDerivative(p,d,waveFunctionCurrent)/waveFunctionCurrent;
-
+  
   return quantumForce;
 }
 
