@@ -11,5 +11,6 @@ class HarmonicOscillatorInteracting: public HarmonicOscillator
     double computeLocalEnergy  ();
 
   private:
-    double my_bosonSize	= 0.0;
+    double my_bosonSize	 = 0.0;
+    double my_bosonSize2 = 0.0;
 };

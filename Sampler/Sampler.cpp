@@ -36,18 +36,19 @@ void Sampler::printResults ()
 {
   if (my_oFile.is_open())
     my_oFile.close();
-  int	 nParticles	= my_system->get_nParticles();
-  int	 nDimensions	= my_system->get_nDimensions(); 
-  double nCycles	= my_system->get_nCycles();
-  double alpha		= my_system->get_parameters()[0];
-  double omega		= my_system->get_parameters()[1];
-  double gamma		= my_system->get_parameters()[2];
-//  double timeStep	= my_system->get_timeStep();
-  double stepLength	= my_system->get_stepLength();
-  double derivativeStep	= my_system->get_derivativeStep();
-  double energyAverage	= cumulativeEnergy/(double)my_stepNumber;
-  double energy2Average = cumulativeEnergy2/(double)my_stepNumber;
-  double variance	= energy2Average - energyAverage*energyAverage;
+  int	 nParticles	    = my_system->get_nParticles();
+  int	 nDimensions	    = my_system->get_nDimensions(); 
+  double nCycles	    = my_system->get_nCycles();
+  double alpha		    = my_system->get_parameters()[0];
+  double omega		    = my_system->get_parameters()[1];
+  double gamma		    = my_system->get_parameters()[2];
+//  double timeStep	    = my_system->get_timeStep();
+  double stepLength	    = my_system->get_stepLength();
+  double derivativeStep	    = my_system->get_derivativeStep();
+  double expectationValue   = cumulativeEnergy/(double)my_stepNumber;
+  double expectationValue2  = cumulativeEnergy2/(double)my_stepNumber;
+  double variance	    = expectationValue - expectationValue * expectationValue;
+  double standardDeviation  = sqrt(variance);
 //  double variance	=  (cumulativeEnergy2 - cumulativeEnergy*
 //			   cumulativeEnergy/(double)my_stepNumber)/
 //			   (double)my_stepNumber;
@@ -64,7 +65,7 @@ void Sampler::printResults ()
 //  printf("\033[0;93mTime step:               %f\033[0;m\n",timeStep);
   printf("\033[0;93mDerivative step:         %f\033[0;m\n",derivativeStep);
   printf("\033[1;105m~~~~~~~~~~~~~~~~~~~~~ Results ~~~~~~~~~~~~~~~~~~~~~~~~\033[1;m\n");
-  printf("\033[0;91mEnergy average:          %e\033[0;m\n", energyAverage);
+  printf("\033[0;91mExpectation Value:       %e\033[0;m\n",expectationValue);
   printf("\033[0;91mVariance:                %e\033[0;m\n",variance);
   printf("\033[0;91mAcceptance ratio:        %f\033[0;m\n",acceptanceRatio);
 }

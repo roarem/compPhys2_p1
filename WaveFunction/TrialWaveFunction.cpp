@@ -54,7 +54,7 @@ double TrialWaveFunction::computeDerivative(int p, int d, double waveFunctionCur
   waveFunctionPlus = evaluate();
 
   my_system->get_particle()[p]->changePosition(d,-my_system->get_derivativeStep());
-
+  //cout << waveFunctionPlus - waveFunctionCurrent << "   ";
   derivative = (waveFunctionPlus - waveFunctionCurrent)/my_system->get_derivativeStep();
 
   return derivative;
@@ -63,7 +63,6 @@ double TrialWaveFunction::computeDerivative(int p, int d, double waveFunctionCur
 double TrialWaveFunction::computeQuantumForce(int p, int d, double waveFunctionCurrent)
 {
   double quantumForce	= 0;
-  cout << computeDerivative(p,d,waveFunctionCurrent) << endl;
   quantumForce = 2*computeDerivative(p,d,waveFunctionCurrent)/waveFunctionCurrent;
   
   return quantumForce;

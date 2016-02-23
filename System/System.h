@@ -12,6 +12,8 @@
 #include "../WaveFunction/WaveFunction.h"
 #include "../InitialState/InitialState.h"
 
+using std::cout;
+using std::endl;
 class System
 {
  
@@ -63,11 +65,12 @@ class System
     double my_derivativeStep	     = 0.0;
     double my_derivativeStep2	     = 0.0;
     double my_equilibrationFraction  = 0.0;
-
-    std::vector<double> quantumForceOld = std::vector<double>();
-    std::vector<double> randomMove	= std::vector<double>();
-    std::vector<double> my_parameters	= std::vector<double>();
     
+    //std::vector<double> oldPosition     = std::vector<double>();
+    //std::vector<double> quantumForceOld = std::vector<double>();
+    //std::vector<double> randomMove      = std::vector<double>();
+    std::vector<double> my_parameters	= std::vector<double>();
+
     class Hamiltonian*	    my_hamiltonian	= nullptr;
     class WaveFunction*	    my_waveFunction   	= nullptr;
     class InitialState*	    my_initialState   	= nullptr;

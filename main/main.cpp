@@ -17,21 +17,21 @@ void interacting(int,int,int,double,double,double,double,std::vector<double>);
 int main (){
 
   int	  nDimensions     = 3;
-  int 	  nParticles      = 5;
-  int 	  nCycles	  = (int) 1e1;
+  int 	  nParticles      = 10;
+  int 	  nCycles	  = (int) 1e2;
 
   double  omega		  = 1.0;
-  double  alpha		  = 0.5;
+  double  alpha		  = 0.8;
   double  gamma		  = 2.82843;
   double  bosonSize	  = 0.0043;
   double  stepLength	  = 0.1;
   //double  timeStep	  = 0.01;
   double  equilibration	  = 0.1;
-  double  derivativeStep  = 0.0001;
+  double  derivativeStep  = 0.001;
 
   std::vector<double> parameters {alpha, omega, gamma};
 
-  int chosenOne = 2;
+  int chosenOne = 4;
 
   switch (chosenOne)
   {
@@ -63,6 +63,9 @@ int main (){
       break;
 
     case 4:
+      metropolis(nCycles,nParticles,nDimensions,
+		 stepLength,equilibration,derivativeStep,
+		 parameters);
       interacting(nCycles,nParticles,nDimensions,
 		  stepLength,equilibration,derivativeStep,bosonSize,
 		  parameters);
@@ -162,7 +165,7 @@ void importanceSampling(int nCycles,
   system->set_stepLength		(stepLength);
   system->set_equilibrationFraction	(equilibration);
   system->set_derivativeStep		(derivativeStep);
-  system->set_nCycles		(nCycles);
+  system->set_nCycles			(nCycles);
 
   system->set_InitialState	    (new RandomUniform		  (system, nDimensions, nParticles));
   system->set_Hamiltonian	    (new HarmonicOscillator       (system));
