@@ -18,7 +18,7 @@ int main (){
 
   int	  nDimensions     = 3;
   int 	  nParticles      = 10;
-  int 	  nCycles	  = (int) 1e2;
+  int 	  nCycles	  = (int) 1e5;
 
   double  omega		  = 1.0;
   double  alpha		  = 0.8;
@@ -31,7 +31,7 @@ int main (){
 
   std::vector<double> parameters {alpha, omega, gamma};
 
-  int chosenOne = 4;
+  int chosenOne = 3;
 
   switch (chosenOne)
   {
