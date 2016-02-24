@@ -4,6 +4,7 @@
 #include "../Hamiltonian/HarmonicOscillatorInteracting.h"
 #include "../WaveFunction/TrialWaveFunctionAna.h"
 #include "../WaveFunction/TrialWaveFunction.h"
+#include "../WaveFunction/TrialWaveFunctionInteracting.h"
 #include "../InitialState/RandomUniform.h"
 
 using std::cout;
@@ -17,21 +18,21 @@ void interacting(int,int,int,double,double,double,double,std::vector<double>);
 int main (){
 
   int	  nDimensions     = 3;
-  int 	  nParticles      = 10;
-  int 	  nCycles	  = (int) 1e5;
+  int 	  nParticles      = 5;
+  int 	  nCycles	  = (int) 1e6;
 
   double  omega		  = 1.0;
-  double  alpha		  = 0.8;
+  double  alpha		  = 0.5;
   double  gamma		  = 2.82843;
   double  bosonSize	  = 0.0043;
-  double  stepLength	  = 0.1;
+  double  stepLength	  = 0.01;
   //double  timeStep	  = 0.01;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
 
   std::vector<double> parameters {alpha, omega, gamma};
 
-  int chosenOne = 3;
+  int chosenOne = 5;
 
   switch (chosenOne)
   {
@@ -66,6 +67,12 @@ int main (){
       metropolis(nCycles,nParticles,nDimensions,
 		 stepLength,equilibration,derivativeStep,
 		 parameters);
+      interacting(nCycles,nParticles,nDimensions,
+		  stepLength,equilibration,derivativeStep,bosonSize,
+		  parameters);
+      break;
+
+    case 5:
       interacting(nCycles,nParticles,nDimensions,
 		  stepLength,equilibration,derivativeStep,bosonSize,
 		  parameters);
@@ -210,7 +217,7 @@ void interacting(int nCycles,
 
   system->set_InitialState	    (new RandomUniform			(system, nDimensions, nParticles));
   system->set_Hamiltonian	    (new HarmonicOscillatorInteracting  (system, bosonSize));
-  system->set_WaveFunction	    (new TrialWaveFunction		(system));
+  system->set_WaveFunction	    (new TrialWaveFunctionInteracting	(system, bosonSize));
   system->set_Timer		    (new Timer			  	(system));
 
   cout << "Starting timer...\n";

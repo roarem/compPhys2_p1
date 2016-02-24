@@ -19,7 +19,7 @@ double HarmonicOscillator::computeLocalEnergy ()
   
   for (int p = 0 ; p < my_system->get_nParticles() ; p++){
     for (int d = 0 ; d < my_system->get_nDimensions() ; d++){
-      if (d==100){
+      if (d==2){
 	potEnergy += my_system->get_particle()[p]->get_position()[d]*
 		     my_system->get_particle()[p]->get_position()[d]*
 		     gamma2;
