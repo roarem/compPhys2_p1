@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{bm}
+
+\begin{document}
+
+\section{Method}
+
+  The Hamiltonian for the we are using has the following form
+
+  \begin{equation}
+     H = \sum_i^N \left(\frac{-\hbar^2}{2m}\nabla^2_i + V_{ext}(\bm{r}_i)\right) + %
+     \sum_{i< j}^N V_{int}(\bm{r}_i,\bm{r}_j)
+  \end{equation}
+
+  where the external potential given by the boson trap
+
+  \begin{equation}
+    V_{ext}(\bm{r}) = \left\{
+    \begin{array}{lr}
+      \frac{1}{2}m\omega_{ho}^2r^2 & \text{Spherical}\\
+      \frac{1}{2}m[\omega_{ho}^2(x^2 + y^2) + \omega_z z^2] & \text{Elliptical}
+    \end{array}
+    \right.
+  \end{equation}
+
+  and a repulsive potential due to bosons interaction given by
+
+  \begin{equation}
+    V_{int}(|\bm{r}_i - \bm{r}_j|) = \left\{
+    \begin{array}{lr}
+      \inf & |\bm{r}_i - \bm{r}_j| \leq a\\
+      0 & |\bm{r}_i - \bm{r}_j| > a
+    \end{array}
+    \right.
+  \end{equation}
+
+  As for the trial wavefunction for the ground state with $N$ atoms
+
+  \begin{equation}
+    \Psi_T({\bf R})=\Psi_T({\bf r}_1, {\bf r}_2, \dots {\bf r}_N,\alpha,\beta)=\prod_i%
+    g(\alpha,\beta,{\bf r}_i)\prod_{i<j}f(a,|{\bf r}_i-{\bf r}_j|),
+  \end{equation}
+
+  with $\alpha, \beta$ as variational parameters. The correlation function 
+  $f(a,|{\bf r}_i-{\bf r}_j|)$ is given by
+
+  \begin{equation}
+    f(a,|{\bf r}_i-{\bf r}_j|)=\Bigg\{
+    \begin{array}{ll}
+      0 & {|{\bf r}_i-{\bf r}_j|} \leq {a}\\
+	(1-\frac{a}{|{\bf r}_i-{\bf r}_j|}) & {|{\bf r}_i-{\bf r}_j|} > {a}.
+    \end{array}
+  \end{equation}  
+
+
+\end{document}
