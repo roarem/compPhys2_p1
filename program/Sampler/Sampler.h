@@ -5,7 +5,7 @@
 
 class Sampler {
   public:
-    Sampler(class System* system);
+    Sampler(class System* system, bool File);
 
     void sample		(bool accepted);
     void printResults	();

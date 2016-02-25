@@ -29,6 +29,7 @@ double TrialWaveFunctionInteracting::evaluate ()
 				  my_system->get_particle()[p2]->get_position()[d];
 	r += seperation*seperation;
       }
+      r = sqrt(r);
       if (r > my_bosonSize){
 	correlationFunction *= (1 -my_bosonSize/r);
       }

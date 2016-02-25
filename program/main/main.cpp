@@ -9,17 +9,20 @@
 
 using std::cout;
 
-void analytical(int,int,int,double,double,std::vector<double>);
-void metropolis(int,int,int,double,double,double,std::vector<double>);
-void importanceSampling(int,int,int,double,double,double,std::vector<double>);
-void interacting(int,int,int,double,double,double,double,std::vector<double>);
+
+void analytical(bool,int,int,int,double,double,std::vector<double>);
+void metropolis(bool,int,int,int,double,double,double,std::vector<double>);
+void importanceSampling(bool,int,int,int,double,double,double,std::vector<double>);
+void interacting(bool,int,int,int,double,double,double,double,std::vector<double>);
 
  
 int main (){
 
+  bool	  File		  = true;
+
   int	  nDimensions     = 3;
   int 	  nParticles      = 10;
-  int 	  nCycles	  = (int) 1e4;
+  int 	  nCycles	  = (int) 1e5;
 
   double  omega		  = 1.0;
   double  alpha		  = 0.5;
@@ -27,7 +30,7 @@ int main (){
   //double  gamma		  = 1.0;
   double  beta		  = gamma;
   double  bosonSize	  = 0.0043;
-  double  stepLength	  = 0.10;
+  double  stepLength	  = 1.0;
   //double  timeStep	  = 0.01;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
@@ -39,43 +42,43 @@ int main (){
   switch (chosenOne)
   {
     case 0:
-      analytical(nCycles,nParticles,nDimensions,
+      analytical(File,nCycles,nParticles,nDimensions,
 		 stepLength,equilibration,
 		 parameters);
       break;
 
     case 1:
-      metropolis(nCycles,nParticles,nDimensions,
+      metropolis(File,nCycles,nParticles,nDimensions,
 		 stepLength,equilibration,derivativeStep,
 		 parameters);
       break;
     case 2:
-      importanceSampling(nCycles,nParticles,nDimensions,                   
+      importanceSampling(File,nCycles,nParticles,nDimensions,                   
 			 stepLength,equilibration,derivativeStep,
 			 parameters);
       break;
 
     case 3:
-      metropolis(nCycles,nParticles,nDimensions,
+      metropolis(File,nCycles,nParticles,nDimensions,
 		 stepLength,equilibration,derivativeStep,
 		 parameters);
 
-      importanceSampling(nCycles,nParticles,nDimensions,                   
+      importanceSampling(File,nCycles,nParticles,nDimensions,                   
 			 stepLength,equilibration,derivativeStep,
 			 parameters);
       break;
 
     case 4:
-      metropolis(nCycles,nParticles,nDimensions,
+      metropolis(File,nCycles,nParticles,nDimensions,
 		 stepLength,equilibration,derivativeStep,
 		 parameters);
-      interacting(nCycles,nParticles,nDimensions,
+      interacting(File,nCycles,nParticles,nDimensions,
 		  stepLength,equilibration,derivativeStep,bosonSize,
 		  parameters);
       break;
 
     case 5:
-      interacting(nCycles,nParticles,nDimensions,
+      interacting(File,nCycles,nParticles,nDimensions,
 		  stepLength,equilibration,derivativeStep,bosonSize,
 		  parameters);
       break;
@@ -84,7 +87,8 @@ int main (){
   return 0;
 }
 
-void analytical(int nCycles,
+void analytical(bool File,
+		int nCycles,
 		int nParticles,
 		int nDimensions,
 		double stepLength,
@@ -93,7 +97,7 @@ void analytical(int nCycles,
 {
   cout << "Initializing analytical Metropolis system...\n";
 
-  System* system = new System();
+  System* system = new System(File);
    
   system->set_parameters		(parameters);
   system->set_stepLength		(stepLength);
@@ -119,7 +123,8 @@ void analytical(int nCycles,
   cout << "----------------------------------\n\n\n";
 }
 
-void metropolis(int nCycles,
+void metropolis(bool File,
+		int nCycles,
 		int nParticles,
 		int nDimensions,
 		double stepLength,
@@ -131,7 +136,7 @@ void metropolis(int nCycles,
 
   cout << "Initializing brute force Metropolis system...\n";
 
-  System* system = new System();
+  System* system = new System(File);
    
   system->set_parameters		(parameters);
   system->set_stepLength		(stepLength);
@@ -158,7 +163,8 @@ void metropolis(int nCycles,
   cout << "----------------------------------\n\n\n";
 }
 
-void importanceSampling(int nCycles,
+void importanceSampling(bool File,
+			int nCycles,
 			int nParticles,
 			int nDimensions,
 			double stepLength,
@@ -168,7 +174,7 @@ void importanceSampling(int nCycles,
 {
 /* Importance Sampling */
   cout << "Initializing Importance Sampling system...\n";
-  System* system = new System();
+  System* system = new System(File);
 
   system->set_parameters		(parameters);
   system->set_stepLength		(stepLength);
@@ -196,7 +202,8 @@ void importanceSampling(int nCycles,
   printf("Microseconds: %i \n",system->get_timer()->elapsedTimeMicro());
 }
 
-void interacting(int nCycles,
+void interacting(bool File,
+		 int nCycles,
 	         int nParticles,
 		 int nDimensions,
 		 double stepLength,
@@ -209,7 +216,7 @@ void interacting(int nCycles,
   
   cout << "Initializing interacting harmonic oscillator...\n";
 
-  System* system = new System();
+  System* system = new System(File);
 
   system->set_parameters		(parameters);
   system->set_stepLength		(stepLength);
@@ -225,7 +232,8 @@ void interacting(int nCycles,
   cout << "Starting timer...\n";
   
   system->get_timer()->startTimer  ();
-  system->runMetropolis    ();
+  system->runMetropolis		   ();
+  //system->runImportanceSampling	   ();
   system->get_timer()->stopTimer   ();
   cout << "----------------------------------\n";
   cout << "              Timers              \n";

@@ -3,10 +3,10 @@
 using std::cout;
 using std::endl;
 
-//System::System ()
-//{
-//  my_oFile.open("outData.out");
-//}
+System::System (bool File)
+{
+  my_File = File;
+}
 
 bool System::metropolis ()
 {
@@ -25,7 +25,7 @@ bool System::metropolis ()
   chosenDimension = dimension(my_generator);
 
   waveFunctionOld = my_waveFunction->evaluate(); 
-
+  
   my_particles[chosenParticle]->changePosition(chosenDimension, randomMove);
 
   waveFunctionNew = my_waveFunction->evaluate();
@@ -33,6 +33,7 @@ bool System::metropolis ()
   waveFunctionsCompared = (waveFunctionNew*waveFunctionNew)/
 		         (waveFunctionOld*waveFunctionOld);
   
+
   if (waveFunctionsCompared < 1.0){
     if (waveFunctionsCompared < my_uniform(my_generator)){
       my_particles[chosenParticle]->changePosition(chosenDimension, -randomMove);
@@ -112,7 +113,7 @@ void System::runMetropolis ()
 
   unsigned  seed;
   bool accepted = false;
-  my_sampler	= new Sampler(this);
+  my_sampler	= new Sampler(this, my_File);
   clock::duration d = clock::now() - my_start;
   seed = d.count();
   my_generator.seed(seed);
@@ -140,7 +141,7 @@ void System::runImportanceSampling ()
 
   unsigned  seed;
   bool accepted = false;
-  my_sampler	= new Sampler(this);
+  my_sampler	= new Sampler(this,my_File);
   clock::duration d = clock::now() - my_start;
   seed = d.count();
   my_generator.seed(seed);

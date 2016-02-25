@@ -25,7 +25,10 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
 
 	 r += seperation*seperation;
       }
-      vInt += (r < my_bosonSize2) * 1e10;
+      r = sqrt(r);
+      if (r < my_bosonSize2){
+	vInt += 1e10;
+      }
       //cout << vInt << endl;
     }
   }

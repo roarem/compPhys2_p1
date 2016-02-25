@@ -18,6 +18,7 @@ class System
 {
  
   public:
+    System			    (bool File);
     bool metropolis		    ();
     bool importanceSampling	    ();
     void runMetropolis		    ();
@@ -57,6 +58,7 @@ class System
     
   protected:
     //std::ofstream my_oFile;
+    bool my_File		     = false;
     int my_nDimensions		     = 0;
     int my_nParticles		     = 0;
     int my_nCycles		     = 0;
