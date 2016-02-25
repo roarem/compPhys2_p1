@@ -18,19 +18,21 @@ void interacting(int,int,int,double,double,double,double,std::vector<double>);
 int main (){
 
   int	  nDimensions     = 3;
-  int 	  nParticles      = 5;
-  int 	  nCycles	  = (int) 1e6;
+  int 	  nParticles      = 10;
+  int 	  nCycles	  = (int) 1e4;
 
   double  omega		  = 1.0;
   double  alpha		  = 0.5;
   double  gamma		  = 2.82843;
+  //double  gamma		  = 1.0;
+  double  beta		  = gamma;
   double  bosonSize	  = 0.0043;
-  double  stepLength	  = 0.01;
+  double  stepLength	  = 0.10;
   //double  timeStep	  = 0.01;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
 
-  std::vector<double> parameters {alpha, omega, gamma};
+  std::vector<double> parameters {alpha, omega, gamma, beta};
 
   int chosenOne = 5;
 

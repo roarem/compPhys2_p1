@@ -10,7 +10,6 @@ HarmonicOscillatorInteracting::HarmonicOscillatorInteracting(System* system,
 
 double HarmonicOscillatorInteracting::computeLocalEnergy ()
 {
-  double seperation	      =	  0;
   double r		      =   0;
   double vInt		      =	  0;
 
@@ -21,16 +20,15 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
       r = 0;
       for (int d = 0 ; d < my_system->get_nDimensions() ; d++){
 
-	 seperation = my_system->get_particle()[p1]->get_position()[d] -
-		      my_system->get_particle()[p2]->get_position()[d];
+	 const double seperation = my_system->get_particle()[p1]->get_position()[d] -
+				   my_system->get_particle()[p2]->get_position()[d];
 
 	 r += seperation*seperation;
       }
-      vInt += (r < my_bosonSize2) * 1e8;
+      vInt += (r < my_bosonSize2) * 1e10;
       //cout << vInt << endl;
     }
   }
-
   return vInt + vExt;
 }
       

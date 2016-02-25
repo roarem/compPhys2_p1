@@ -19,15 +19,12 @@ double HarmonicOscillator::computeLocalEnergy ()
   
   for (int p = 0 ; p < my_system->get_nParticles() ; p++){
     for (int d = 0 ; d < my_system->get_nDimensions() ; d++){
+      const double x = my_system->get_particle()[p]->get_position()[d];
       if (d==2){
-	potEnergy += my_system->get_particle()[p]->get_position()[d]*
-		     my_system->get_particle()[p]->get_position()[d]*
-		     gamma2;
+	potEnergy += x*x*gamma2;
       }
       else{
-        potEnergy += my_system->get_particle()[p]->get_position()[d]*
-		     my_system->get_particle()[p]->get_position()[d]*
-		     omega2;
+        potEnergy += x*x*omega2;
 
       }
       doubleDerivative += my_system->get_waveFunction()->

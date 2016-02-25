@@ -47,12 +47,9 @@ void Sampler::printResults ()
   double derivativeStep	    = my_system->get_derivativeStep();
   double expectationValue   = cumulativeEnergy/(double)my_stepNumber;
   double expectationValue2  = cumulativeEnergy2/(double)my_stepNumber;
-  double variance	    = expectationValue - expectationValue * expectationValue;
-  double standardDeviation  = sqrt(variance);
-//  double variance	=  (cumulativeEnergy2 - cumulativeEnergy*
-//			   cumulativeEnergy/(double)my_stepNumber)/
-//			   (double)my_stepNumber;
+  double variance	    = (expectationValue2 - expectationValue * expectationValue);
   double acceptanceRatio= cumulativeAcceptanceRate/(double)my_stepNumber;
+
   printf("\n");
   printf("\033[1;44m====================  System Data ====================\033[1;m\n");
   printf("\033[0;93mNumber of particles:     %i\033[0;m\n",nParticles);

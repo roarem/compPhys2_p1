@@ -13,9 +13,9 @@ double TrialWaveFunction::evaluate ()
 
   const double alpha = my_system->get_parameters()[0];
 
-  for (int i = 0 ; i < my_system->get_nParticles() ; i++){
-    for (int j = 0 ; j < my_system->get_nDimensions() ; j++){
-      const double x = my_system->get_particle()[i]->get_position()[j];
+  for (int p = 0 ; p < my_system->get_nParticles() ; p++){
+    for (int d = 0 ; d < my_system->get_nDimensions() ; d++){
+      const double x = my_system->get_particle()[p]->get_position()[d];
       r2 += x*x;
     }
   }
