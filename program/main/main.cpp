@@ -18,7 +18,7 @@ void interacting(bool,int,int,int,double,double,double,double,std::vector<double
  
 int main (){
 
-  bool	  File		  = true;
+  bool	  File		  = false;
 
   int	  nDimensions     = 3;
   int 	  nParticles      = 10;

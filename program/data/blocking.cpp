@@ -4,22 +4,37 @@
 #include <string>
 #include <sys/stat.h>
 
-void readFile (double*, int);
+int  getFileSize ();
+double* readFile (int);
 
 int main()
 {
   
   int	  nSamples;
-  double  results;
+  double*  results;
   
-  readFile(&results, nSamples);
+  nSamples = getFileSize();
+  results = readFile(nSamples);
   std::cout << nSamples << std::endl;
-
+  std::cout << results[10000] << std::endl;
   return 0;
 }
 
-void readFile (double &output, int n)
+double* readFile (int n)
 {
+  double* output;
+  output = new double [n];
+  std::ostringstream ost;
+  std::ifstream inFile;
+  inFile.open(ost.str().c_str(), std::ios::in | std::ios::binary);
+  inFile.read((char*)&(output[n]),n);
+  inFile.close();
+  return output;
+}
+
+int getFileSize ()
+{
+  int n;
   struct stat result;
   
   if(stat("energies.out", &result) == 0){
@@ -28,11 +43,5 @@ void readFile (double &output, int n)
   else{
     std::cerr << "error in getting file size" << std::endl;
   }
-
-  output = new double[n];
-  std::ostringstream ost;
-  std::ifstream inFile;
-  inFile.open(ost.str().c_str(), std::ios::in | std::ios::binary);
-  inFile.read((char*)&(output[n]),result.st_size);
-  inFile.close();
+  return n;
 }
