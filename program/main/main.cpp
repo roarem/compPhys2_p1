@@ -30,7 +30,7 @@ int main (){
   //double  gamma		  = 1.0;
   double  beta		  = gamma;
   double  bosonSize	  = 0.0043;
-  double  stepLength	  = 1.0;
+  double  stepLength	  = 0.1;
   //double  timeStep	  = 0.01;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
