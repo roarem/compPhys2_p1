@@ -6,6 +6,7 @@ import os
 class Make:
 
     def __init__(self, root_folder, dev_folders, build_folder):
+        
         self.root_folder = root_folder+'/'
         self.dev_folders = dev_folders
         self.build_folder = self.root_folder+build_folder+'/'
@@ -29,7 +30,7 @@ class Make:
             print(outString)
             folder = self.root_folder+folder+'/'
             cpile = sub.Popen(['make','-C',folder],stdout=sub.PIPE,stderr=sub.PIPE)
-            cpile.wait()
+            #cpile.wait()
             cpile_out = cpile.stdout.read().decode('utf-8')
             cpile_err = cpile.stderr.read().decode('utf-8')
             print("\033[1;41m"+cpile_err+"\033[1;m")
@@ -38,6 +39,7 @@ class Make:
             copy = sub.Popen('cp '+folder+'*.o '+self.build_folder,shell=True)
             print(' ')
             print('-'*100+'\n')
+
         print('.'*100)
         print('Done compiling everything, starting on the linking.')    
         time.sleep(0.01)

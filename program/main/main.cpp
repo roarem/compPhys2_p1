@@ -1,4 +1,9 @@
 #include "../System/System.h"
+#include "../System/Particle.h"
+#include "../Sampler/Sampler.h"
+#include "../Hamiltonian/Hamiltonian.h"
+#include "../WaveFunction/WaveFunction.h"
+#include "../InitialState/InitialState.h"
 #include "../Hamiltonian/HarmonicOscillatorAna.h"
 #include "../Hamiltonian/HarmonicOscillator.h"
 #include "../Hamiltonian/HarmonicOscillatorInteracting.h"
@@ -22,10 +27,10 @@ int main (){
 
   int	  nDimensions     = 3;
   int 	  nParticles      = 10;
-  int 	  nCycles	  = (int) 1e5;
+  int 	  nCycles	  = (int) 1e4;
 
   double  omega		  = 1.0;
-  double  alpha		  = 0.5;
+  double  alpha		  = 0.3;
   double  gamma		  = 2.82843;
   //double  gamma		  = 1.0;
   double  beta		  = gamma;
