@@ -7,7 +7,7 @@ Sampler::Sampler(System* system, bool File){
   my_system	= system;
   my_stepNumber = 0;
   if (File)
-    my_oFile.open("data/energies.out", std::ios::out | std::ios::binary);
+    my_oFile.open("energies.out", std::ios::out | std::ios::binary);
 }
 
 void Sampler::sample (bool accepted)

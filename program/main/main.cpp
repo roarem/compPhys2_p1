@@ -23,14 +23,14 @@ void interacting(bool,int,int,int,double,double,double,double,std::vector<double
  
 int main (){
 
-  bool	  File		  = false;
+  bool	  File		  = true;
 
   int	  nDimensions     = 3;
-  int 	  nParticles      = 10;
-  int 	  nCycles	  = (int) 1e4;
+  int 	  nParticles      = 100;
+  int 	  nCycles	  = (int) 1e6;
 
   double  omega		  = 1.0;
-  double  alpha		  = 0.3;
+  double  alpha		  = 0.5;
   double  gamma		  = 2.82843;
   //double  gamma		  = 1.0;
   double  beta		  = gamma;

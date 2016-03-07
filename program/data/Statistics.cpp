@@ -1,5 +1,4 @@
 #include "Statistics.h"
-#include <iostream>
 
 Statistics::Statistics (double* data, int nSamples)
 {
@@ -43,8 +42,9 @@ void Statistics::Blocking (int minBlockSize, int maxBlockSize, int nBlockSamples
 {
   
   int nBlocks = int(my_nSamples/nBlockSamples);
-  int blockStepLength, blockSize;
-  ofstream outFile;
+  int blockStepLength;
+  int blockSize;
+  std::ofstream outFile;
   outFile.open("blocked.out", ios::out);
 
   blockValues = new double[nBlocks];
