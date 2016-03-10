@@ -1,4 +1,5 @@
 #include "Statistics.h"
+#include <iostream>
 
 Statistics::Statistics (double* data, int nSamples)
 {
@@ -25,6 +26,7 @@ void Statistics::meanAndVariance (double* values, int nSamples)
    double value2Mean	= 0;
 
    for (int i = 0 ; i < nSamples ; i++){
+     //std::cout << values[i] << std::endl;
      value	=   values[i];
      valueSum	+=  value;
      value2Sum	+=  value*value; 
@@ -53,9 +55,10 @@ void Statistics::Blocking (int minBlockSize, int maxBlockSize, int nBlockSamples
     
   for (int i = 0 ; i < nBlockSamples ; i++){
     blockSize = minBlockSize + i*blockStepLength;
-    
+    //std::cout<<blockSize<<std::endl; 
     for (int j = 0 ; j < nBlocks ; j++){
       blockValues[j] = mean(my_data+j*blockSize, blockSize);
+      //blockValues[j] = mean(&(my_data[j*blockSize]), blockSize);
     }
 
   meanAndVariance(blockValues, nBlocks);

@@ -36,23 +36,24 @@ void Sampler::sample (bool accepted)
 
 void Sampler::printResults ()
 {
-  if (my_oFile.is_open())
+  if (my_oFile.is_open()){
     my_oFile.close();
+  }
   else
   {
-    int	 nParticles	    = my_system->get_nParticles();
-    int	 nDimensions	    = my_system->get_nDimensions(); 
-    double nCycles	    = my_system->get_nCycles();
-    double alpha		    = my_system->get_parameters()[0];
-    double omega		    = my_system->get_parameters()[1];
-    double gamma		    = my_system->get_parameters()[2];
-//    double timeStep	    = my_system->get_timeStep();
-    double stepLength	    = my_system->get_stepLength();
-    double derivativeStep	    = my_system->get_derivativeStep();
-    double expectationValue   = cumulativeEnergy/(double)my_stepNumber;
-    double expectationValue2  = cumulativeEnergy2/(double)my_stepNumber;
-    double variance	    = (expectationValue2 - expectationValue * expectationValue);
-    double acceptanceRatio= cumulativeAcceptanceRate/(double)my_stepNumber;
+    int	 nParticles	       = my_system->get_nParticles();
+    int	 nDimensions	       = my_system->get_nDimensions(); 
+    double nCycles	       = my_system->get_nCycles();
+    double alpha	       = my_system->get_parameters()[0];
+    double omega	       = my_system->get_parameters()[1];
+    double gamma	       = my_system->get_parameters()[2];
+//    double timeStep	       = my_system->get_timeStep();
+    double stepLength	       = my_system->get_stepLength();
+    double derivativeStep      = my_system->get_derivativeStep();
+    double expectationValue    = cumulativeEnergy/(double)my_stepNumber;
+    double expectationValue2   = cumulativeEnergy2/(double)my_stepNumber;
+    double variance	       = (expectationValue2 - expectationValue * expectationValue);
+    double acceptanceRatio     = cumulativeAcceptanceRate/(double)my_stepNumber;
 
     printf("\n");
     printf("\033[1;44m====================  System Data ====================\033[1;m\n");
@@ -63,6 +64,7 @@ void Sampler::printResults ()
     printf("\033[0;93mOmega:                   %f\033[0;m\n",omega);
     printf("\033[0;93mGamma:                   %f\033[0;m\n",gamma);
     printf("\033[0;93mStep length:             %f\033[0;m\n",stepLength);
+    printf("\033[0;93mNumber of steps:	       %i\033[0;m\n",my_stepNumber);
 //    printf("\033[0;93mTime step:               %f\033[0;m\n",timeStep);
     printf("\033[0;93mDerivative step:         %f\033[0;m\n",derivativeStep);
     printf("\033[1;105m~~~~~~~~~~~~~~~~~~~~~ Results ~~~~~~~~~~~~~~~~~~~~~~~~\033[1;m\n");

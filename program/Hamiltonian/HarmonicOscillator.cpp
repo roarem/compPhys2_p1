@@ -16,8 +16,8 @@ double HarmonicOscillator::computeLocalEnergy ()
   double alpha		      = my_system->get_parameters()[0];
   double omega2		      = my_system->get_parameters()[1]*
 				my_system->get_parameters()[1];
-  double gamma2		      = my_system->get_parameters()[2]*
-				my_system->get_parameters()[2];
+  double gamma		      = my_system->get_parameters()[2];
+  double gamma2		      = gamma*gamma;
   double waveFunctionCurrent  = my_system->get_waveFunction()->evaluate();
   
   
@@ -26,19 +26,20 @@ double HarmonicOscillator::computeLocalEnergy ()
       const double x = my_system->get_particle()[p]->get_position()[d];
       if (d==2){
 	potEnergy += x*x*gamma2;
+	kinEnergy -= (2*alpha*gamma*x*x - 1)*gamma;
       }
       else{
-        potEnergy += x*x*omega2;
-
+	kinEnergy -= (2*alpha*x*x - 1);
+        potEnergy += x*x;//*omega2;
       }
-      //kinEnergy -= (2*alpha*x*x - nD);
-      doubleDerivative += my_system->get_waveFunction()->
-			  computeDoubleDerivative(p,d,waveFunctionCurrent);
+
+//      doubleDerivative += my_system->get_waveFunction()->
+//			  computeDoubleDerivative(p,d,waveFunctionCurrent);
     }
   }
 
-  kinEnergy = -0.5*doubleDerivative/waveFunctionCurrent;
-  //kinEnergy = kinEnergy*alpha;
+  //kinEnergy = -0.5*doubleDerivative/waveFunctionCurrent;
+  kinEnergy = kinEnergy*alpha;
   potEnergy = 0.5*potEnergy;
 		  
   return kinEnergy + potEnergy;

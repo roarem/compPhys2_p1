@@ -23,11 +23,11 @@ void interacting(bool,int,int,int,double,double,double,double,std::vector<double
  
 int main (){
 
-  bool	  File		  = false;
+  bool	  File		  = true;
 
   int	  nDimensions     = 3;
   int 	  nParticles      = 10;
-  int 	  nCycles	  = (int) 1e5;
+  int 	  nCycles	  = (int) 1e4;
 
   double  omega		  = 1.0;
   double  alpha		  = 0.5;
@@ -42,7 +42,7 @@ int main (){
 
   std::vector<double> parameters {alpha, omega, gamma, beta};
 
-  int chosenOne = 2;
+  int chosenOne = 5;
 
   switch (chosenOne)
   {

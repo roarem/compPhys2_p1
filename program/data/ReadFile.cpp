@@ -1,4 +1,5 @@
 #include "ReadFile.h"
+#include <iostream>
 
 ReadFile::ReadFile (ifstream* is)
 {
@@ -9,8 +10,8 @@ ReadFile::ReadFile (ifstream* is)
 void ReadFile::readFile ()
 {
   streampos size;
-  
   size = my_is->tellg() ;
+  std::cout << size << std::endl;
   my_size = size;
   my_memblock = new char [size];
   my_is->seekg (0, ios::beg);
