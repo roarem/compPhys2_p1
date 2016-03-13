@@ -25,13 +25,13 @@ void Sampler::sample (bool accepted)
   {
     my_oFile.write(reinterpret_cast<char *>(&localEnergy),sizeof(double));
   }
-  else
-  {
+  //else
+  //{
     cumulativeEnergy	    += localEnergy;
     cumulativeEnergy2	    += localEnergy*localEnergy;
     cumulativeAcceptanceRate  += accepted;
     my_stepNumber		    += 1;
-  }
+  //}
 } 
 
 void Sampler::printResults ()
@@ -39,8 +39,8 @@ void Sampler::printResults ()
   if (my_oFile.is_open()){
     my_oFile.close();
   }
-  else
-  {
+  //else
+  //{
     int	 nParticles	       = my_system->get_nParticles();
     int	 nDimensions	       = my_system->get_nDimensions(); 
     double nCycles	       = my_system->get_nCycles();
@@ -71,5 +71,5 @@ void Sampler::printResults ()
     printf("\033[0;91mExpectation Value:       %e\033[0;m\n",expectationValue);
     printf("\033[0;91mVariance:                %e\033[0;m\n",variance);
     printf("\033[0;91mAcceptance ratio:        %f\033[0;m\n",acceptanceRatio);
-  }
+  //}
 }

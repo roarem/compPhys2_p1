@@ -4,7 +4,7 @@ project("compPhys2_proj1" CXX)
 
 
 
-set(GCC_COMPILE_FLAGS "--std=c++11")
+set(GCC_COMPILE_FLAGS "-O3 --std=c++11")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COMPILE_FLAGS}")
 
 set(SOURCES 
@@ -16,11 +16,9 @@ set(SOURCES
   System/Particle.cpp
   System/System.cpp
   WaveFunction/WaveFunction.cpp
-  WaveFunction/TrialWaveFunctionAna.cpp
   WaveFunction/TrialWaveFunctionInteracting.cpp
   WaveFunction/TrialWaveFunction.cpp
   Hamiltonian/HarmonicOscillator.cpp
-  Hamiltonian/HarmonicOscillatorAna.cpp
   Hamiltonian/HarmonicOscillatorInteracting.cpp
   Hamiltonian/Hamiltonian.cpp
   )
@@ -36,8 +34,6 @@ set(HEADERS
   WaveFunction/TrialWaveFunction.h
   WaveFunction/WaveFunction.h
   WaveFunction/TrialWaveFunctionInteracting.h
-  WaveFunction/TrialWaveFunctionAna.h
-  Hamiltonian/HarmonicOscillatorAna.h
   Hamiltonian/HarmonicOscillatorInteracting.h
   Hamiltonian/Hamiltonian.h
   Hamiltonian/HarmonicOscillator.h

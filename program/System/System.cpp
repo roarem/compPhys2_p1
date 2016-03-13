@@ -157,6 +157,9 @@ void System::runImportanceSampling ()
   my_sampler->printResults();
 }
 
+void System::set_analytical (bool analytical)
+{ my_analytical = analytical;}
+
 void System::set_nDimensions (int nDimensions)
 { my_nDimensions = nDimensions; }
 

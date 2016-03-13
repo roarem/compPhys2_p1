@@ -23,6 +23,7 @@ class System
     bool importanceSampling	    ();
     void runMetropolis		    ();
     void runImportanceSampling	    ();
+    void set_analytical		    (bool analytical);
     void set_nDimensions	    (int nDimensions);
     void set_nParticles	  	    (int nParticles);
     void set_nCycles	  	    (int nCycles);
@@ -36,6 +37,7 @@ class System
     void set_Timer		    (class Timer* timer);
     void set_parameters		    (std::vector<double> parameters);
     
+    bool    get_analytical		(){return my_analytical;}
     int	    get_nDimensions		(){return my_nDimensions;}
     int     get_nParticles	    	(){return my_nParticles;}
     int	    get_nCycles			(){return my_nCycles;}
@@ -59,6 +61,7 @@ class System
   protected:
     //std::ofstream my_oFile;
     bool my_File		     = false;
+    bool my_analytical		     = true;
     int my_nDimensions		     = 0;
     int my_nParticles		     = 0;
     int my_nCycles		     = 0;

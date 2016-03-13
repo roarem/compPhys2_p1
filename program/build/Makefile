@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/roar/fys4411/compPhys2_p1/program
+CMAKE_SOURCE_DIR = /home/rat/fys4411/compPhys2_p1/program
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/roar/fys4411/compPhys2_p1/program/build
+CMAKE_BINARY_DIR = /home/rat/fys4411/compPhys2_p1/program/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -176,33 +176,6 @@ Hamiltonian/HarmonicOscillator.s: Hamiltonian/HarmonicOscillator.cpp.s
 Hamiltonian/HarmonicOscillator.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.s
 .PHONY : Hamiltonian/HarmonicOscillator.cpp.s
-
-Hamiltonian/HarmonicOscillatorAna.o: Hamiltonian/HarmonicOscillatorAna.cpp.o
-
-.PHONY : Hamiltonian/HarmonicOscillatorAna.o
-
-# target to build an object file
-Hamiltonian/HarmonicOscillatorAna.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o
-.PHONY : Hamiltonian/HarmonicOscillatorAna.cpp.o
-
-Hamiltonian/HarmonicOscillatorAna.i: Hamiltonian/HarmonicOscillatorAna.cpp.i
-
-.PHONY : Hamiltonian/HarmonicOscillatorAna.i
-
-# target to preprocess a source file
-Hamiltonian/HarmonicOscillatorAna.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.i
-.PHONY : Hamiltonian/HarmonicOscillatorAna.cpp.i
-
-Hamiltonian/HarmonicOscillatorAna.s: Hamiltonian/HarmonicOscillatorAna.cpp.s
-
-.PHONY : Hamiltonian/HarmonicOscillatorAna.s
-
-# target to generate assembly for a file
-Hamiltonian/HarmonicOscillatorAna.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.s
-.PHONY : Hamiltonian/HarmonicOscillatorAna.cpp.s
 
 Hamiltonian/HarmonicOscillatorInteracting.o: Hamiltonian/HarmonicOscillatorInteracting.cpp.o
 
@@ -447,33 +420,6 @@ WaveFunction/TrialWaveFunction.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.s
 .PHONY : WaveFunction/TrialWaveFunction.cpp.s
 
-WaveFunction/TrialWaveFunctionAna.o: WaveFunction/TrialWaveFunctionAna.cpp.o
-
-.PHONY : WaveFunction/TrialWaveFunctionAna.o
-
-# target to build an object file
-WaveFunction/TrialWaveFunctionAna.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o
-.PHONY : WaveFunction/TrialWaveFunctionAna.cpp.o
-
-WaveFunction/TrialWaveFunctionAna.i: WaveFunction/TrialWaveFunctionAna.cpp.i
-
-.PHONY : WaveFunction/TrialWaveFunctionAna.i
-
-# target to preprocess a source file
-WaveFunction/TrialWaveFunctionAna.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.i
-.PHONY : WaveFunction/TrialWaveFunctionAna.cpp.i
-
-WaveFunction/TrialWaveFunctionAna.s: WaveFunction/TrialWaveFunctionAna.cpp.s
-
-.PHONY : WaveFunction/TrialWaveFunctionAna.s
-
-# target to generate assembly for a file
-WaveFunction/TrialWaveFunctionAna.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.s
-.PHONY : WaveFunction/TrialWaveFunctionAna.cpp.s
-
 WaveFunction/TrialWaveFunctionInteracting.o: WaveFunction/TrialWaveFunctionInteracting.cpp.o
 
 .PHONY : WaveFunction/TrialWaveFunctionInteracting.o
@@ -570,9 +516,6 @@ help:
 	@echo "... Hamiltonian/HarmonicOscillator.o"
 	@echo "... Hamiltonian/HarmonicOscillator.i"
 	@echo "... Hamiltonian/HarmonicOscillator.s"
-	@echo "... Hamiltonian/HarmonicOscillatorAna.o"
-	@echo "... Hamiltonian/HarmonicOscillatorAna.i"
-	@echo "... Hamiltonian/HarmonicOscillatorAna.s"
 	@echo "... Hamiltonian/HarmonicOscillatorInteracting.o"
 	@echo "... Hamiltonian/HarmonicOscillatorInteracting.i"
 	@echo "... Hamiltonian/HarmonicOscillatorInteracting.s"
@@ -600,9 +543,6 @@ help:
 	@echo "... WaveFunction/TrialWaveFunction.o"
 	@echo "... WaveFunction/TrialWaveFunction.i"
 	@echo "... WaveFunction/TrialWaveFunction.s"
-	@echo "... WaveFunction/TrialWaveFunctionAna.o"
-	@echo "... WaveFunction/TrialWaveFunctionAna.i"
-	@echo "... WaveFunction/TrialWaveFunctionAna.s"
 	@echo "... WaveFunction/TrialWaveFunctionInteracting.o"
 	@echo "... WaveFunction/TrialWaveFunctionInteracting.i"
 	@echo "... WaveFunction/TrialWaveFunctionInteracting.s"

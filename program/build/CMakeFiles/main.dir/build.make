@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/roar/fys4411/compPhys2_p1/program
+CMAKE_SOURCE_DIR = /home/rat/fys4411/compPhys2_p1/program
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/roar/fys4411/compPhys2_p1/program/build
+CMAKE_BINARY_DIR = /home/rat/fys4411/compPhys2_p1/program/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/main/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main/main.cpp.o: ../main/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main/main.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/main/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/main/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/main/main.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/main/main.cpp
 
 CMakeFiles/main.dir/main/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/main/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/main/main.cpp > CMakeFiles/main.dir/main/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/main/main.cpp > CMakeFiles/main.dir/main/main.cpp.i
 
 CMakeFiles/main.dir/main/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/main/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/main/main.cpp -o CMakeFiles/main.dir/main/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/main/main.cpp -o CMakeFiles/main.dir/main/main.cpp.s
 
 CMakeFiles/main.dir/main/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/main.dir/main/main.cpp.o.provides.build: CMakeFiles/main.dir/main/mai
 
 CMakeFiles/main.dir/InitialState/InitialState.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/InitialState/InitialState.cpp.o: ../InitialState/InitialState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/InitialState/InitialState.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/InitialState/InitialState.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/InitialState/InitialState.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/InitialState/InitialState.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/InitialState/InitialState.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/InitialState/InitialState.cpp
 
 CMakeFiles/main.dir/InitialState/InitialState.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/InitialState/InitialState.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/InitialState/InitialState.cpp > CMakeFiles/main.dir/InitialState/InitialState.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/InitialState/InitialState.cpp > CMakeFiles/main.dir/InitialState/InitialState.cpp.i
 
 CMakeFiles/main.dir/InitialState/InitialState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/InitialState/InitialState.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/InitialState/InitialState.cpp -o CMakeFiles/main.dir/InitialState/InitialState.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/InitialState/InitialState.cpp -o CMakeFiles/main.dir/InitialState/InitialState.cpp.s
 
 CMakeFiles/main.dir/InitialState/InitialState.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/main.dir/InitialState/InitialState.cpp.o.provides.build: CMakeFiles/m
 
 CMakeFiles/main.dir/InitialState/RandomUniform.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/InitialState/RandomUniform.cpp.o: ../InitialState/RandomUniform.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/InitialState/RandomUniform.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/InitialState/RandomUniform.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/InitialState/RandomUniform.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/InitialState/RandomUniform.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/InitialState/RandomUniform.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/InitialState/RandomUniform.cpp
 
 CMakeFiles/main.dir/InitialState/RandomUniform.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/InitialState/RandomUniform.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/InitialState/RandomUniform.cpp > CMakeFiles/main.dir/InitialState/RandomUniform.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/InitialState/RandomUniform.cpp > CMakeFiles/main.dir/InitialState/RandomUniform.cpp.i
 
 CMakeFiles/main.dir/InitialState/RandomUniform.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/InitialState/RandomUniform.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/InitialState/RandomUniform.cpp -o CMakeFiles/main.dir/InitialState/RandomUniform.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/InitialState/RandomUniform.cpp -o CMakeFiles/main.dir/InitialState/RandomUniform.cpp.s
 
 CMakeFiles/main.dir/InitialState/RandomUniform.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/main.dir/InitialState/RandomUniform.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/main.dir/Sampler/ProgressBar.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/Sampler/ProgressBar.cpp.o: ../Sampler/ProgressBar.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/Sampler/ProgressBar.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Sampler/ProgressBar.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/Sampler/ProgressBar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/Sampler/ProgressBar.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Sampler/ProgressBar.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/Sampler/ProgressBar.cpp
 
 CMakeFiles/main.dir/Sampler/ProgressBar.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/Sampler/ProgressBar.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/Sampler/ProgressBar.cpp > CMakeFiles/main.dir/Sampler/ProgressBar.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/Sampler/ProgressBar.cpp > CMakeFiles/main.dir/Sampler/ProgressBar.cpp.i
 
 CMakeFiles/main.dir/Sampler/ProgressBar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/Sampler/ProgressBar.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/Sampler/ProgressBar.cpp -o CMakeFiles/main.dir/Sampler/ProgressBar.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/Sampler/ProgressBar.cpp -o CMakeFiles/main.dir/Sampler/ProgressBar.cpp.s
 
 CMakeFiles/main.dir/Sampler/ProgressBar.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/main.dir/Sampler/ProgressBar.cpp.o.provides.build: CMakeFiles/main.di
 
 CMakeFiles/main.dir/Sampler/Timer.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/Sampler/Timer.cpp.o: ../Sampler/Timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/Sampler/Timer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Sampler/Timer.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/Sampler/Timer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/Sampler/Timer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Sampler/Timer.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/Sampler/Timer.cpp
 
 CMakeFiles/main.dir/Sampler/Timer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/Sampler/Timer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/Sampler/Timer.cpp > CMakeFiles/main.dir/Sampler/Timer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/Sampler/Timer.cpp > CMakeFiles/main.dir/Sampler/Timer.cpp.i
 
 CMakeFiles/main.dir/Sampler/Timer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/Sampler/Timer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/Sampler/Timer.cpp -o CMakeFiles/main.dir/Sampler/Timer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/Sampler/Timer.cpp -o CMakeFiles/main.dir/Sampler/Timer.cpp.s
 
 CMakeFiles/main.dir/Sampler/Timer.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/main.dir/Sampler/Timer.cpp.o.provides.build: CMakeFiles/main.dir/Samp
 
 CMakeFiles/main.dir/Sampler/Sampler.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/Sampler/Sampler.cpp.o: ../Sampler/Sampler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/Sampler/Sampler.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Sampler/Sampler.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/Sampler/Sampler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/Sampler/Sampler.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Sampler/Sampler.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/Sampler/Sampler.cpp
 
 CMakeFiles/main.dir/Sampler/Sampler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/Sampler/Sampler.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/Sampler/Sampler.cpp > CMakeFiles/main.dir/Sampler/Sampler.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/Sampler/Sampler.cpp > CMakeFiles/main.dir/Sampler/Sampler.cpp.i
 
 CMakeFiles/main.dir/Sampler/Sampler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/Sampler/Sampler.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/Sampler/Sampler.cpp -o CMakeFiles/main.dir/Sampler/Sampler.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/Sampler/Sampler.cpp -o CMakeFiles/main.dir/Sampler/Sampler.cpp.s
 
 CMakeFiles/main.dir/Sampler/Sampler.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/main.dir/Sampler/Sampler.cpp.o.provides.build: CMakeFiles/main.dir/Sa
 
 CMakeFiles/main.dir/System/Particle.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/System/Particle.cpp.o: ../System/Particle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/System/Particle.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/System/Particle.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/System/Particle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/System/Particle.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/System/Particle.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/System/Particle.cpp
 
 CMakeFiles/main.dir/System/Particle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/System/Particle.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/System/Particle.cpp > CMakeFiles/main.dir/System/Particle.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/System/Particle.cpp > CMakeFiles/main.dir/System/Particle.cpp.i
 
 CMakeFiles/main.dir/System/Particle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/System/Particle.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/System/Particle.cpp -o CMakeFiles/main.dir/System/Particle.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/System/Particle.cpp -o CMakeFiles/main.dir/System/Particle.cpp.s
 
 CMakeFiles/main.dir/System/Particle.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/main.dir/System/Particle.cpp.o.provides.build: CMakeFiles/main.dir/Sy
 
 CMakeFiles/main.dir/System/System.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/System/System.cpp.o: ../System/System.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/System/System.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/System/System.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/System/System.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/System/System.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/System/System.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/System/System.cpp
 
 CMakeFiles/main.dir/System/System.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/System/System.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/System/System.cpp > CMakeFiles/main.dir/System/System.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/System/System.cpp > CMakeFiles/main.dir/System/System.cpp.i
 
 CMakeFiles/main.dir/System/System.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/System/System.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/System/System.cpp -o CMakeFiles/main.dir/System/System.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/System/System.cpp -o CMakeFiles/main.dir/System/System.cpp.s
 
 CMakeFiles/main.dir/System/System.cpp.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/main.dir/System/System.cpp.o.provides.build: CMakeFiles/main.dir/Syst
 
 CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o: ../WaveFunction/WaveFunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.cpp
 
 CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.cpp > CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.cpp > CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.i
 
 CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.cpp -o CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.cpp -o CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.s
 
 CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o.requires:
 
@@ -273,42 +273,18 @@ CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o.provides: CMakeFiles/main.di
 CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o.provides.build: CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o
 
 
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../WaveFunction/TrialWaveFunctionAna.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionAna.cpp
-
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionAna.cpp > CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.i
-
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionAna.cpp -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.s
-
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o.requires:
-
-.PHONY : CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o.requires
-
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o.provides: CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o.requires
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o.provides.build
-.PHONY : CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o.provides
-
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o.provides.build: CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o
-
-
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o: ../WaveFunction/TrialWaveFunctionInteracting.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.cpp
 
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.cpp > CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.cpp > CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.i
 
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.cpp -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.cpp -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.s
 
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o.requires:
 
@@ -323,16 +299,16 @@ CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o.provides.bui
 
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o: ../WaveFunction/TrialWaveFunction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunction.cpp
 
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunction.cpp > CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunction.cpp > CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.i
 
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunction.cpp -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunction.cpp -o CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.s
 
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o.requires:
 
@@ -347,16 +323,16 @@ CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o: ../Hamiltonian/HarmonicOscillator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.cpp
 
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.cpp > CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.cpp > CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.i
 
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.cpp -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.cpp -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.s
 
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o.requires:
 
@@ -369,42 +345,18 @@ CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o.provides: CMakeFiles/ma
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o.provides.build: CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o
 
 
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../Hamiltonian/HarmonicOscillatorAna.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorAna.cpp
-
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorAna.cpp > CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.i
-
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorAna.cpp -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.s
-
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o.requires:
-
-.PHONY : CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o.requires
-
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o.provides: CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o.requires
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o.provides.build
-.PHONY : CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o.provides
-
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o.provides.build: CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o
-
-
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o: ../Hamiltonian/HarmonicOscillatorInteracting.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.cpp
 
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.cpp > CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.cpp > CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.i
 
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.cpp -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.cpp -o CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.s
 
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o.requires:
 
@@ -419,16 +371,16 @@ CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o.provides.bui
 
 CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o: ../Hamiltonian/Hamiltonian.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o -c /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o -c /home/rat/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.cpp
 
 CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.cpp > CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/rat/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.cpp > CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.i
 
 CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/roar/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.cpp -o CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/rat/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.cpp -o CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.s
 
 CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o.requires:
 
@@ -452,11 +404,9 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/System/Particle.cpp.o" \
 "CMakeFiles/main.dir/System/System.cpp.o" \
 "CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o" \
-"CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o" \
 "CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o" \
 "CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o" \
 "CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o" \
-"CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o" \
 "CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o" \
 "CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o"
 
@@ -472,16 +422,14 @@ main: CMakeFiles/main.dir/Sampler/Sampler.cpp.o
 main: CMakeFiles/main.dir/System/Particle.cpp.o
 main: CMakeFiles/main.dir/System/System.cpp.o
 main: CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o
-main: CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o
 main: CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o
 main: CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o
 main: CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o
-main: CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o
 main: CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o
 main: CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -498,11 +446,9 @@ CMakeFiles/main.dir/requires: CMakeFiles/main.dir/Sampler/Sampler.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/System/Particle.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/System/System.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o.requires
-CMakeFiles/main.dir/requires: CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o.requires
-CMakeFiles/main.dir/requires: CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o.requires
 CMakeFiles/main.dir/requires: CMakeFiles/main.dir/Hamiltonian/Hamiltonian.cpp.o.requires
 
@@ -513,6 +459,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd /home/roar/fys4411/compPhys2_p1/program/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/roar/fys4411/compPhys2_p1/program /home/roar/fys4411/compPhys2_p1/program /home/roar/fys4411/compPhys2_p1/program/build /home/roar/fys4411/compPhys2_p1/program/build /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/rat/fys4411/compPhys2_p1/program/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rat/fys4411/compPhys2_p1/program /home/rat/fys4411/compPhys2_p1/program /home/rat/fys4411/compPhys2_p1/program/build /home/rat/fys4411/compPhys2_p1/program/build /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

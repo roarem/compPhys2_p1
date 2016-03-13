@@ -10,33 +10,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/3.4.3/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/3.4.3/CompilerIdCXX/a.out"
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
+Change Dir: /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_137f9/fast"
-/usr/bin/make -f CMakeFiles/cmTC_137f9.dir/build.make CMakeFiles/cmTC_137f9.dir/build
-make[1]: Entering directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_137f9.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_137f9.dir/testCXXCompiler.cxx.o -c /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_137f9
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_137f9.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_137f9.dir/testCXXCompiler.cxx.o  -o cmTC_137f9 
-make[1]: Leaving directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_576c3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_576c3.dir/build.make CMakeFiles/cmTC_576c3.dir/build
+make[1]: Entering directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_576c3.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_576c3.dir/testCXXCompiler.cxx.o -c /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_576c3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_576c3.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_576c3.dir/testCXXCompiler.cxx.o  -o cmTC_576c3 
+make[1]: Leaving directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
+Change Dir: /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_46ebd/fast"
-/usr/bin/make -f CMakeFiles/cmTC_46ebd.dir/build.make CMakeFiles/cmTC_46ebd.dir/build
-make[1]: Entering directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_46ebd.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_46ebd.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.4/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_46ebd
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46ebd.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_46ebd.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_46ebd  
+Run Build Command:"/usr/bin/make" "cmTC_5e8fe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5e8fe.dir/build.make CMakeFiles/cmTC_5e8fe.dir/build
+make[1]: Entering directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5e8fe.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_5e8fe.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.4/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_5e8fe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e8fe.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_5e8fe.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_5e8fe  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper
@@ -46,23 +46,23 @@ Thread model: posix
 gcc version 5.3.0 (GCC) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_46ebd' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2 -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccb7JIzm.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_46ebd /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../.. CMakeFiles/cmTC_46ebd.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o
-make[1]: Leaving directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5e8fe' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2 -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHtejlB.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5e8fe /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../.. CMakeFiles/cmTC_5e8fe.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o
+make[1]: Leaving directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_46ebd/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_46ebd.dir/build.make CMakeFiles/cmTC_46ebd.dir/build]
-  ignore line: [make[1]: Entering directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_46ebd.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_46ebd.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.4/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_46ebd]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46ebd.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_46ebd.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_46ebd  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_5e8fe/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_5e8fe.dir/build.make CMakeFiles/cmTC_5e8fe.dir/build]
+  ignore line: [make[1]: Entering directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_5e8fe.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_5e8fe.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.4/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_5e8fe]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e8fe.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_5e8fe.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_5e8fe  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper]
@@ -72,13 +72,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 5.3.0 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_46ebd' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2 -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccb7JIzm.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_46ebd /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../.. CMakeFiles/cmTC_46ebd.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5e8fe' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2 -plugin /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHtejlB.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5e8fe /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../.. CMakeFiles/cmTC_5e8fe.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtend.o /usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crtn.o]
     arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccb7JIzm.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccHtejlB.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -92,7 +92,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_46ebd] ==> ignore
+    arg [cmTC_5e8fe] ==> ignore
     arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../../../lib/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/crtbegin.o] ==> ignore
@@ -101,7 +101,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/lib/../lib] ==> dir [/lib/../lib]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../..] ==> dir [/usr/lib/gcc/x86_64-unknown-linux-gnu/5.3.0/../../..]
-    arg [CMakeFiles/cmTC_46ebd.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_5e8fe.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -128,17 +128,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
+Change Dir: /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_315e1/fast"
-/usr/bin/make -f CMakeFiles/cmTC_315e1.dir/build.make CMakeFiles/cmTC_315e1.dir/build
-make[1]: Entering directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_315e1.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_315e1.dir/feature_tests.cxx.o -c /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_315e1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_315e1.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_315e1.dir/feature_tests.cxx.o  -o cmTC_315e1 
-make[1]: Leaving directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_6b721/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6b721.dir/build.make CMakeFiles/cmTC_6b721.dir/build
+make[1]: Entering directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_6b721.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_6b721.dir/feature_tests.cxx.o -c /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_6b721
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6b721.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_6b721.dir/feature_tests.cxx.o  -o cmTC_6b721 
+make[1]: Leaving directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -201,17 +201,17 @@ make[1]: Leaving directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeF
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
+Change Dir: /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_7f9b1/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7f9b1.dir/build.make CMakeFiles/cmTC_7f9b1.dir/build
-make[1]: Entering directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_7f9b1.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_7f9b1.dir/feature_tests.cxx.o -c /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_7f9b1
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f9b1.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_7f9b1.dir/feature_tests.cxx.o  -o cmTC_7f9b1 
-make[1]: Leaving directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_021fc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_021fc.dir/build.make CMakeFiles/cmTC_021fc.dir/build
+make[1]: Entering directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_021fc.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_021fc.dir/feature_tests.cxx.o -c /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_021fc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_021fc.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_021fc.dir/feature_tests.cxx.o  -o cmTC_021fc 
+make[1]: Leaving directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -274,17 +274,17 @@ make[1]: Leaving directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeF
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
+Change Dir: /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_afeb0/fast"
-/usr/bin/make -f CMakeFiles/cmTC_afeb0.dir/build.make CMakeFiles/cmTC_afeb0.dir/build
-make[1]: Entering directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_afeb0.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_afeb0.dir/feature_tests.cxx.o -c /home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_afeb0
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_afeb0.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_afeb0.dir/feature_tests.cxx.o  -o cmTC_afeb0 
-make[1]: Leaving directory '/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_3ea9d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3ea9d.dir/build.make CMakeFiles/cmTC_3ea9d.dir/build
+make[1]: Entering directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3ea9d.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_3ea9d.dir/feature_tests.cxx.o -c /home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_3ea9d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ea9d.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_3ea9d.dir/feature_tests.cxx.o  -o cmTC_3ea9d 
+make[1]: Leaving directory '/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

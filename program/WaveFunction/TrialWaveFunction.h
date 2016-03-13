@@ -9,5 +9,4 @@ class TrialWaveFunction : public WaveFunction
     double computeDoubleDerivative  (int p, int d, double waveFunctionCurrent);
     double computeDerivative	    (int p, int d, double waveFunctionCurrent);
     double computeQuantumForce	    (int p, int d, double waveFunctionCurrent);
-    double computeEnergy	    (){return 0;}
 };

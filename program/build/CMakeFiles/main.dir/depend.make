@@ -22,17 +22,6 @@ CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o: ../System/Particle.h
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o: ../System/System.h
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillator.cpp.o: ../WaveFunction/WaveFunction.h
 
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../Hamiltonian/Hamiltonian.h
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../Hamiltonian/HarmonicOscillatorAna.cpp
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../Hamiltonian/HarmonicOscillatorAna.h
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../InitialState/InitialState.h
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../Sampler/ProgressBar.h
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../Sampler/Sampler.h
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../Sampler/Timer.h
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../System/Particle.h
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../System/System.h
-CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorAna.cpp.o: ../WaveFunction/WaveFunction.h
-
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o: ../Hamiltonian/Hamiltonian.h
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o: ../Hamiltonian/HarmonicOscillator.h
 CMakeFiles/main.dir/Hamiltonian/HarmonicOscillatorInteracting.cpp.o: ../Hamiltonian/HarmonicOscillatorInteracting.cpp
@@ -120,17 +109,6 @@ CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o: ../WaveFunction/TrialW
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o: ../WaveFunction/TrialWaveFunction.h
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunction.cpp.o: ../WaveFunction/WaveFunction.h
 
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../Hamiltonian/Hamiltonian.h
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../InitialState/InitialState.h
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../Sampler/ProgressBar.h
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../Sampler/Sampler.h
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../Sampler/Timer.h
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../System/Particle.h
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../System/System.h
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../WaveFunction/TrialWaveFunctionAna.cpp
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../WaveFunction/TrialWaveFunctionAna.h
-CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionAna.cpp.o: ../WaveFunction/WaveFunction.h
-
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o: ../Hamiltonian/Hamiltonian.h
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o: ../InitialState/InitialState.h
 CMakeFiles/main.dir/WaveFunction/TrialWaveFunctionInteracting.cpp.o: ../Sampler/ProgressBar.h
@@ -155,7 +133,6 @@ CMakeFiles/main.dir/WaveFunction/WaveFunction.cpp.o: ../WaveFunction/WaveFunctio
 
 CMakeFiles/main.dir/main/main.cpp.o: ../Hamiltonian/Hamiltonian.h
 CMakeFiles/main.dir/main/main.cpp.o: ../Hamiltonian/HarmonicOscillator.h
-CMakeFiles/main.dir/main/main.cpp.o: ../Hamiltonian/HarmonicOscillatorAna.h
 CMakeFiles/main.dir/main/main.cpp.o: ../Hamiltonian/HarmonicOscillatorInteracting.h
 CMakeFiles/main.dir/main/main.cpp.o: ../InitialState/InitialState.h
 CMakeFiles/main.dir/main/main.cpp.o: ../InitialState/RandomUniform.h
@@ -165,7 +142,6 @@ CMakeFiles/main.dir/main/main.cpp.o: ../Sampler/Timer.h
 CMakeFiles/main.dir/main/main.cpp.o: ../System/Particle.h
 CMakeFiles/main.dir/main/main.cpp.o: ../System/System.h
 CMakeFiles/main.dir/main/main.cpp.o: ../WaveFunction/TrialWaveFunction.h
-CMakeFiles/main.dir/main/main.cpp.o: ../WaveFunction/TrialWaveFunctionAna.h
 CMakeFiles/main.dir/main/main.cpp.o: ../WaveFunction/TrialWaveFunctionInteracting.h
 CMakeFiles/main.dir/main/main.cpp.o: ../WaveFunction/WaveFunction.h
 CMakeFiles/main.dir/main/main.cpp.o: ../main/main.cpp
