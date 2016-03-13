@@ -21,11 +21,11 @@ void interacting(bool,bool,int,int,int,double,double,double,double,std::vector<d
  
 int main (){
 
-  bool	  File		  = true;
-  bool	  analytical	  = false;
+  bool	  File		  = false;
+  bool	  analytical	  = true;
 
   int	  nDimensions     = 3;
-  int 	  nParticles      = 10;
+  int 	  nParticles      = 500;
   int 	  nCycles	  = (int) 1e6;
 
   double  omega		  = 1.0;
@@ -45,8 +45,10 @@ int main (){
   {
     case 0:
       metropolis(File,analytical,nCycles,nParticles,nDimensions,
-		 stepLength,equilibration,derivativeStep,parameters);
+		 stepLength,equilibration,derivativeStep,
+		 parameters);
       break;
+
     case 1:
       importanceSampling(File,analytical,nCycles,nParticles,nDimensions,                   
 			 stepLength,equilibration,derivativeStep,
@@ -54,25 +56,6 @@ int main (){
       break;
 
     case 2:
-      metropolis(File,analytical,nCycles,nParticles,nDimensions,
-		 stepLength,equilibration,derivativeStep,
-		 parameters);
-
-      importanceSampling(File,analytical,nCycles,nParticles,nDimensions,                   
-			 stepLength,equilibration,derivativeStep,
-			 parameters);
-      break;
-
-    case 3:
-      metropolis(File,analytical,nCycles,nParticles,nDimensions,
-		 stepLength,equilibration,derivativeStep,
-		 parameters);
-      interacting(File,analytical,nCycles,nParticles,nDimensions,
-		  stepLength,equilibration,derivativeStep,bosonSize,
-		  parameters);
-      break;
-
-    case 4:
       gamma = 2.82843;
       interacting(File,analytical,nCycles,nParticles,nDimensions,
 		  stepLength,equilibration,derivativeStep,bosonSize,

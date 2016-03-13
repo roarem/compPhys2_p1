@@ -13,20 +13,16 @@ class ReadFile:
     def get_data(self):
         return self.data
 
-
 class Statistics:
 
     def __init__(self,data):
 
         self.data       = data
         self.Npoints    = len(self.data)
-        self.meanValue  = 0
-        self.varValues  = 0
         self.stdValues  = 0
-        self.blockSize  = 0
-        
+        self.blockSize  = 0 
+
     def blocking(self,minBlock, maxBlock, nBlockSamples):
-        
         
         nBlocks = int(self.Npoints/nBlockSamples)
         blockValues = np.zeros(nBlocks)
@@ -34,8 +30,10 @@ class Statistics:
         blockStepLength = int((maxBlock - minBlock)/nBlockSamples)
     
         blockSize = minBlock + np.arange(nBlockSamples)*blockStepLength
+
         varValues   = np.zeros(len(blockSize))
         stdValues   = np.zeros(len(blockSize))
+
         for i,size in enumerate(blockSize):
             for j in range(nBlocks-1):
                 blockValues[j] = np.mean(self.data[j*size:(j+1)*size])
@@ -43,31 +41,34 @@ class Statistics:
             varVal = np.var(blockValues)
             varValues[i] = varVal
             stdValues[i] = np.sqrt(varVal/(self.Npoints/size))
-            #print(stdValues[i])
 
-        self.varValues = varValues[::-1]
         self.stdValues = stdValues[::-1]
         self.blockSize = blockSize[::-1]
-    '''
-    def mean(self, data):
-        
-        return np.sum(data)/len(data)
+    
+    def plotting(self, save=True):
 
-    def variance(self, data):
+        fig, ax = plt.subplots()
+        ax.plot(self.blockSize,self.stdValues)
+        ax.set_xlabel("Block size")
+        ax.set_ylabel("$\sigma$")
 
-        valueSquared    = np.sum(np.square(data))/len(data)
-        valueMean       = self.mean(data) 
+        if save:
+            plt.savefig("STDBlocking.pdf")
+        else:
+            plt.show()
+    
+    def writeData(self):
+        with open("outBlock.out","w") as out:
+            for col1, col2 in zip(self.blockSize,self.stdValues):
+                out.write("{},{}\n".format(col1,col2))
 
-        varValue = valueSquared - valueMean**2
-        return varValue
-    '''
+
 
 if __name__=="__main__":
     filename    = "energies.out"
     read        = ReadFile(filename)
     stats       = Statistics(read.get_data())
-    stats.blocking(1,6000,3000)
+    stats.blocking(1,6000,5000)
     
-    plt.plot(stats.blockSize,stats.stdValues)
-    plt.show()
-    #print(stats.STDValue,stats.meanValue,stats.varValue)
+    stats.writeData()
+    stats.plotting(save=False)
