@@ -14,11 +14,11 @@ Starting timer...
 [1;105m~~~~~~~~~~~~~~~~~~~~~ Results ~~~~~~~~~~~~~~~~~~~~~~~~[1;m
 [0;91mExpectation Value:       2.500000e+02[0;m
 [0;91mVariance:                0.000000e+00[0;m
-[0;91mAcceptance ratio:        0.996379[0;m
+[0;91mAcceptance ratio:        0.996494[0;m
 ----------------------------------
               Timers              
        Importance Sampling        
 ----------------------------------
 Seconds     : 10 
-Milliseconds: 10858 
-Microseconds: 10858407 
+Milliseconds: 10450 
+Microseconds: 10450144 

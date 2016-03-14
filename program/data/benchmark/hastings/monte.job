@@ -1,0 +1,6 @@
+#!/bin/bash
+#SBATCH --partition=smaug-a
+#SBATCH --ntasks=1  
+#SBATCH --time=24:00:00
+#SBATCH --job-name=monteCarlo
+./1e6numd1p500.x > 1e6numd1p500

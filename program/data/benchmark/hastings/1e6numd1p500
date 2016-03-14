@@ -13,15 +13,15 @@ Starting timer...
 [0;93mDerivative step:         0.001000[0;m
 [1;105m~~~~~~~~~~~~~~~~~~~~~ Results ~~~~~~~~~~~~~~~~~~~~~~~~[1;m
 [0;91mExpectation Value:       2.500000e+02[0;m
-[0;91mVariance:                8.258212e-09[0;m
-[0;91mAcceptance ratio:        0.967787[0;m
+[0;91mVariance:                3.885361e-09[0;m
+[0;91mAcceptance ratio:        0.968383[0;m
 ----------------------------------
               Timers              
             Brute force           
 ----------------------------------
-Seconds     : 1504 
-Milliseconds: 1504609 
-Microseconds: 1504609518 
+Seconds     : 1390 
+Milliseconds: 1390252 
+Microseconds: 1390252447 
 ----------------------------------
 
 
