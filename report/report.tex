@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 
 \usepackage{amsmath}
+\usepackage{hyperref}
 \usepackage{bm}
 
 \begin{document}
@@ -54,32 +55,52 @@
     \end{array}
   \end{equation}  
  
-
+  \paragraph{Analytical local energy $E_L$}
+   
+  Using natural units and setting the interaction potential to zero and $\beta = 1$,
+  $\Psi_T$ becomes $exp[-\alpha r^2]$. The second derivative will then be
+  \begin{equation}
+    \nabla^2\Psi_T = \nabla^2 e^{-\alpha r^2} = \nabla -\alpha 2r e^{-\alpha r^2}%
+    = \alpha e^{-\alpha r^2}(1 - 2\alpha r^2)
+  \end{equation}
+  %
+  Giving us the expression for the local energy
+  %
+  \begin{equation}
+    E_L = \frac{\nabla^2 \Psi_T}{\Psi_T} = \alpha (1 - 2\alpha r^2)
+  \end{equation}
 
   \newpage
+  \appendix
+  \section{Benchmarks}
   Benchmarking for $10^6$ cycles for analytical and numerical solutions
 
+  \subsection{Brute force Metropolis algorithm}
+  \subsubsection{Analytical}
+  \input{tables/hastings_ana1dim.tex}
+  \newline
+  \input{tables/hastings_ana2dim.tex}
+  \newline
+  \input{tables/hastings_ana3dim.tex}
+  \vspace{1cm}
+  \newline
+  \subsubsection{Numerical}
+  \input{tables/hastings_num1dim.tex}
+  \newline
+  \input{tables/hastings_num2dim.tex}
+  \newline
+  \input{tables/hastings_num3dim.tex}
+
+  \subsection{Metropolis algorithm with Importance sampling}
   \input{tables/imp_ana1dim.tex}
   \newline
   \input{tables/imp_ana2dim.tex}
   \newline
   \input{tables/imp_ana3dim.tex}
   \newline
-  \input{tables/hastings_ana1dim.tex}
-  \newline
-  \input{tables/hastings_ana2dim.tex}
-  \newline
-  \input{tables/hastings_ana3dim.tex}
-  \newline
   \input{tables/imp_num1dim.tex}
   \newline
   \input{tables/imp_num2dim.tex}
   \newline
   \input{tables/imp_num3dim.tex}
-  \newline
-  \input{tables/hastings_num1dim.tex}
-  \newline
-  \input{tables/hastings_num2dim.tex}
-  \newline
-  \input{tables/hastings_num3dim.tex}
 \end{document}
