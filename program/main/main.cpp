@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "../System/System.h"
 #include "../System/Particle.h"
 #include "../Sampler/Sampler.h"
@@ -19,27 +20,28 @@ void importanceSampling(bool,bool,int,int,int,double,double,double,std::vector<d
 void interacting(bool,bool,int,int,int,double,double,double,double,std::vector<double>);
 
  
-int main (){
+int main (int argc,char* argv[]){
 
-  bool	  File		  = false;
-  bool	  analytical	  = true;
+  
+  bool	  File		  = true;
+  bool	  analytical	  = false;
 
-  int	  nDimensions     = 3;
-  int 	  nParticles      = 500;
+  int	  nDimensions     = atoi(argv[1]);
+  int 	  nParticles      = atoi(argv[2]);
   int 	  nCycles	  = (int) 1e6;
 
   double  omega		  = 1.0;
-  double  alpha		  = 0.50;
+  double  alpha		  = 0.5;
   double  gamma		  = 1.0;
   double  beta		  = 2.82843;
   double  bosonSize	  = 0.0043;
-  double  stepLength	  = 0.1;
+  double  stepLength	  = 1.7;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
 
   std::vector<double> parameters {alpha, omega, gamma, beta};
 
-  int chosenOne = 1;
+  int chosenOne = 0;
 
   switch (chosenOne)
   {

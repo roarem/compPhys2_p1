@@ -1,1 +1,1 @@
-/home/rat/fys4411/compPhys2_p1/program/build/CMakeFiles/main.dir
+/home/roarem/compPhys2_p1/program/build/CMakeFiles/main.dir
