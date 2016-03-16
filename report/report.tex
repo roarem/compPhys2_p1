@@ -1,59 +1,32 @@
 \documentclass[12pt]{article}
 
+\usepackage{listings}
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{bm}
 
+\lstdefinestyle{c++}{
+basicstyle=\scriptsize\ttfamily,
+frame=single,
+}
 \begin{document}
 
 \section{Method}
 
   The Hamiltonian for the we are using has the following form
 
-  \begin{equation}
-     H = \sum_i^N \left(\frac{-\hbar^2}{2m}\nabla^2_i + V_{ext}(\bm{r}_i)\right) + %
-     \sum_{i< j}^N V_{int}(\bm{r}_i,\bm{r}_j)
-  \end{equation}
 
   where the external potential given by the boson trap
 
-  \begin{equation}
-    V_{ext}(\bm{r}) = \left\{
-    \begin{array}{lr}
-      \frac{1}{2}m\omega_{ho}^2r^2 & \text{Spherical}\\
-      \frac{1}{2}m[\omega_{ho}^2(x^2 + y^2) + \omega_z z^2] & \text{Elliptical}
-    \end{array}
-    \right.
-  \end{equation}
 
   and a repulsive potential due to bosons interaction given by
 
-  \begin{equation}
-    V_{int}(|\bm{r}_i - \bm{r}_j|) = \left\{
-    \begin{array}{lr}
-      \inf & |\bm{r}_i - \bm{r}_j| \leq a\\
-      0 & |\bm{r}_i - \bm{r}_j| > a
-    \end{array}
-    \right.
-  \end{equation}
-
   As for the trial wavefunction for the ground state with $N$ atoms
 
-  \begin{equation}
-    \Psi_T({\bf R})=\Psi_T({\bf r}_1, {\bf r}_2, \dots {\bf r}_N,\alpha,\beta)=\prod_i%
-    g(\alpha,\beta,{\bf r}_i)\prod_{i<j}f(a,|{\bf r}_i-{\bf r}_j|),
-  \end{equation}
 
   with $\alpha, \beta$ as variational parameters. The correlation function 
   $f(a,|{\bf r}_i-{\bf r}_j|)$ is given by
 
-  \begin{equation}
-    f(a,|{\bf r}_i-{\bf r}_j|)=\Bigg\{
-    \begin{array}{ll}
-      0 & {|{\bf r}_i-{\bf r}_j|} \leq {a}\\
-	(1-\frac{a}{|{\bf r}_i-{\bf r}_j|}) & {|{\bf r}_i-{\bf r}_j|} > {a}.
-    \end{array}
-  \end{equation}  
  
   \paragraph{Analytical local energy $E_L$}
    
@@ -70,37 +43,101 @@
     E_L = \frac{\nabla^2 \Psi_T}{\Psi_T} = \alpha (1 - 2\alpha r^2)
   \end{equation}
 
+  \section{Introduction}
+  Since it has been shown that Bose-Einstein condensation occur in gases of alkali 
+  atoms confined in magnetic traps, understanding the confined Bose systems has 
+  become a popular field. In this project I have tried to calculate the ground 
+  state energy of various number of trapped bosons using Variational Monte Carlo 
+  calculations with a specific trial wavefunction. Firstly using the spherical 
+  harmonic oscillator as a trap with no interaction between the particles, then
+  swtiching to an elliptical trap. Where in both cases I calculate both the 
+  analytical and numerical solution. Also running the calculations with and 
+  without a repulsive potential due to the fact that bosons have a size.
+
+  \section{Method}
+  \subsection{System}
+  A two-body Hamiltonian of this system is on the form
+  \begin{equation}
+     H = \sum_i^N \left(\frac{-\hbar^2}{2m}\nabla^2_i + V_{ext}(\bm{r}_i)\right) + %
+     \sum_{i< j}^N V_{int}(\bm{r}_i,\bm{r}_j)
+  \end{equation}
+  where the external potential for the trap is for the spherical and elliptical part
+  given by
+  \begin{equation}
+    V_{ext}(\bm{r}) = \left\{%
+      \begin{array}{lr}
+	\frac{1}{2}m\omega^2r^2 & \text{Spherical}\\
+	\frac{1}{2}m[\omega^2(x^2 + y^2) + \gamma^2z^2] & \text{Elliptical}
+      \end{array}
+      \right.
+  \end{equation}
+  where $\omega$ is the trap potential strength, and in the elliptical trap $\gamma$ is
+  the strength in z-direction.
+  The internal potential which represents the repulsion when two boson gets close is
+  \begin{equation}
+    V_{int}(|\bm{r}_i - \bm{r}_j|) = \left\{%
+    \begin{array}{lr}
+      \infty & |\bm{r}_i - \bm{r}_j| \leq a\\
+      0 & |\bm{r}_i - \bm{r}_j| > a
+    \end{array}
+    \right.
+  \end{equation}
+  with $a$ as the hard-core diamater of the bosons.
+  Setting up the system with a trial wavefunction $\Psi_T$ for the ground state of the form
+  \begin{equation}
+    \Psi_T({\bf R})=\Psi_T({\bf r}_1, {\bf r}_2, \dots {\bf r}_N,\alpha,\beta)=\prod_i%
+    g(\alpha,\beta,{\bf r}_i)\prod_{i<j}f(a,|{\bf r}_i-{\bf r}_j|),
+  \end{equation}
+  using $\alpha$ and $\beta$ as variational parameters, and 
+  \[ g(\alpha, \beta, \bm{r}_i) = e^{-\alpha(x_i^2 + y_i^2 + \beta z_i^2)} \]
+  and
+  \begin{equation}
+    f(a,|{\bf r}_i-{\bf r}_j|)=\Bigg\{
+    \begin{array}{ll}
+      0 & {|{\bf r}_i-{\bf r}_j|} \leq {a}\\
+	(1-\frac{a}{|{\bf r}_i-{\bf r}_j|}) & {|{\bf r}_i-{\bf r}_j|} > {a}.
+    \end{array}
+  \end{equation}  
+  %
+  For the simplest cases where I set the boson size $a = 0$ and $\beta = 1$ the 
+  trial wavefunction becomes 
+  \begin{equation}
+    \Psi_T(\bm{R}) = e^{-\alpha r^2}
+    \label{eq:psi1}
+  \end{equation}
+  Calculating the double derivative of the wavefunction returns
+  \begin{equation}
+    \nabla^2\Psi_T = \nabla^2 e^{-\alpha r^2} = \nabla -\alpha 2r e^{-\alpha r^2}%
+    = \alpha e^{-\alpha r^2}(1 - 2\alpha r^2)
+  \end{equation}
+  then inserting this result into the expression for the local energy yields
+  \begin{equation}
+    E_L(\bm{R}) = \frac{1}{\Psi_T(\bm{R})}H\Psi_T(\bm{R}) = \alpha(1-2\alpha r^2)
+  \end{equation}
+  %
+  which is the analytical experssion for the local energy in a spherical trap 
+  without interaction.
+  For a simple test case I use 1 dimension, 1 particle, $\alpha = 1/2$ and position $x=0$ 
+  %
+  \[E_L (0) = \frac{1}{2}(1-2\frac{1}{2}0) = \frac{1}{2}\]
+  %
+  \subsection{Numerical method}
+  For the first part I use a Variational Monte Carlo program with a brute force Metropolis
+  sampling to calculate the ground state energy. This is done by first placing the system in
+  a random, Gaussian distributed position around 0 with a $\sigma = 1/\sqrt{2}$. Evaluating the
+  wavefunction according equation \ref{eq:psi1}. Then choosing a random particle and dimension,
+  and moving it with a Gaussian distribution to a new position. Do the same evaluation for
+  the new position and comparing
+  \[\frac{|\Psi_{New}|^2}{|\Psi_{Old}|^2}\]
+  Then by taking a random, uniformly distributed number between 0 and 1 and compare it
+  to the ratio between the new and old wavefunction. If the ratio is larger I accept
+  the new step, if not I revert back to the old position. Then lastly I sample the energy for
+  the resulting system.
+  \lstinputlisting[caption=Brute force Metropolis, style=c++]{codes/bruteForceMetro.cpp}
+  When using this method I get the result which is shown in table \ref{h:a1} and is
+  in correspondence with what is expected from the analytical solution.
+  
   \newpage
   \appendix
-  \section{Benchmarks}
-  Benchmarking for $10^6$ cycles for analytical and numerical solutions
-
-  \subsection{Brute force Metropolis algorithm}
-  \subsubsection{Analytical}
-  \input{tables/hastings_ana1dim.tex}
-  \newline
-  \input{tables/hastings_ana2dim.tex}
-  \newline
-  \input{tables/hastings_ana3dim.tex}
-  \vspace{1cm}
-  \newline
-  \subsubsection{Numerical}
-  \input{tables/hastings_num1dim.tex}
-  \newline
-  \input{tables/hastings_num2dim.tex}
-  \newline
-  \input{tables/hastings_num3dim.tex}
-
-  \subsection{Metropolis algorithm with Importance sampling}
-  \input{tables/imp_ana1dim.tex}
-  \newline
-  \input{tables/imp_ana2dim.tex}
-  \newline
-  \input{tables/imp_ana3dim.tex}
-  \newline
-  \input{tables/imp_num1dim.tex}
-  \newline
-  \input{tables/imp_num2dim.tex}
-  \newline
-  \input{tables/imp_num3dim.tex}
+  \input{appendix.tex}
 \end{document}
