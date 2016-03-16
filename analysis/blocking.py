@@ -38,9 +38,10 @@ class Statistics:
             for j in range(nBlocks-1):
                 blockValues[j] = np.mean(self.data[j*size:(j+1)*size])
 
-            varVal = np.var(blockValues)
+            varVal = np.sum(blockValues)/len(blockValues)#np.var(blockValues)
+            varVal2 = np.sum(blockValues*blockValues)/len(blockValues)
             varValues[i] = varVal
-            stdValues[i] = np.sqrt(varVal/(self.Npoints/size))
+            stdValues[i] = np.sqrt((varVal2 - varVal*varVal)/(self.Npoints/size)) #np.sqrt(varVal/(self.Npoints/size))
 
         self.stdValues = stdValues[::-1]
         self.blockSize = blockSize[::-1]
@@ -68,7 +69,7 @@ if __name__=="__main__":
     filename    = "energies.out"
     read        = ReadFile(filename)
     stats       = Statistics(read.get_data())
-    stats.blocking(1,6000,5000)
+    stats.blocking(1,20000,15000)
     
     stats.writeData()
     stats.plotting(save=False)

@@ -4,44 +4,15 @@
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{bm}
+\usepackage{xcolor}
 
 \lstdefinestyle{c++}{
 basicstyle=\scriptsize\ttfamily,
 frame=single,
+language=C,
+keywordstyle=\bfseries\color{green!40!black},
 }
 \begin{document}
-
-\section{Method}
-
-  The Hamiltonian for the we are using has the following form
-
-
-  where the external potential given by the boson trap
-
-
-  and a repulsive potential due to bosons interaction given by
-
-  As for the trial wavefunction for the ground state with $N$ atoms
-
-
-  with $\alpha, \beta$ as variational parameters. The correlation function 
-  $f(a,|{\bf r}_i-{\bf r}_j|)$ is given by
-
- 
-  \paragraph{Analytical local energy $E_L$}
-   
-  Using natural units and setting the interaction potential to zero and $\beta = 1$,
-  $\Psi_T$ becomes $exp[-\alpha r^2]$. The second derivative will then be
-  \begin{equation}
-    \nabla^2\Psi_T = \nabla^2 e^{-\alpha r^2} = \nabla -\alpha 2r e^{-\alpha r^2}%
-    = \alpha e^{-\alpha r^2}(1 - 2\alpha r^2)
-  \end{equation}
-  %
-  Giving us the expression for the local energy
-  %
-  \begin{equation}
-    E_L = \frac{\nabla^2 \Psi_T}{\Psi_T} = \alpha (1 - 2\alpha r^2)
-  \end{equation}
 
   \section{Introduction}
   Since it has been shown that Bose-Einstein condensation occur in gases of alkali 
@@ -108,34 +79,76 @@ frame=single,
   Calculating the double derivative of the wavefunction returns
   \begin{equation}
     \nabla^2\Psi_T = \nabla^2 e^{-\alpha r^2} = \nabla -\alpha 2r e^{-\alpha r^2}%
-    = \alpha e^{-\alpha r^2}(1 - 2\alpha r^2)
+    = 2\alpha e^{-\alpha r^2}(2\alpha r^2-1)
   \end{equation}
   then inserting this result into the expression for the local energy yields
   \begin{equation}
-    E_L(\bm{R}) = \frac{1}{\Psi_T(\bm{R})}H\Psi_T(\bm{R}) = \alpha(1-2\alpha r^2)
+    E_L(\bm{R}) = \frac{1}{\Psi_T(\bm{R})}H\Psi_T(\bm{R}) = 2\alpha(2\alpha r^2-1)
   \end{equation}
   %
   which is the analytical experssion for the local energy in a spherical trap 
   without interaction.
-  For a simple test case I use 1 dimension, 1 particle, $\alpha = 1/2$ and position $x=0$ 
+  %For a simple test case I use 1 dimension, 1 particle, $\alpha = 1/2$  
   %
-  \[E_L (0) = \frac{1}{2}(1-2\frac{1}{2}0) = \frac{1}{2}\]
+
   %
   \subsection{Numerical method}
+  \subsubsection{Brute force Metropolis}
   For the first part I use a Variational Monte Carlo program with a brute force Metropolis
-  sampling to calculate the ground state energy. This is done by first placing the system in
-  a random, Gaussian distributed position around 0 with a $\sigma = 1/\sqrt{2}$. Evaluating the
-  wavefunction according equation \ref{eq:psi1}. Then choosing a random particle and dimension,
-  and moving it with a Gaussian distribution to a new position. Do the same evaluation for
-  the new position and comparing
+  sampling to calculate the ground state energy. The Metropolis algorithm compares the 
+  probability of being in the old position $A_{j\rightarrow i}$ against the probability
+  of being in a position in a chosen direction $A_{i\rightarrow j}$.
+  \begin{equation}
+    \frac{A_{j\rightarrow i}}{A_{i\rightarrow j}} = %
+    \frac{p_i T_{i\rightarrow j}}{p_j T_{j\rightarrow i}}
+  \end{equation}
+  where $T$ is the transition probability and $p$ is the probability distribution.
+  Given that the transition probability is independent of direction we are left with the
+  \begin{equation}
+    \frac{A_{j\rightarrow i}}{A_{i\rightarrow j}} = %
+    \frac{p_i}{p_j}
+  \end{equation}
+  The Metropolis choice is to maximize the $A$ values so preferring
+  \begin{equation}
+    A_{j\rightarrow i} = \text{min}\left(1,\frac{p_i}{p_j}\right)
+  \end{equation}
+  This is done by first placing the system in a random, Gaussian distributed position 
+  around 0 with a $\sigma = 1/\sqrt{2}$. Evaluating the wavefunction according to 
+  equation \ref{eq:psi1}. Then choosing a random particle and dimension, and moving 
+  it with a Gaussian distribution to a new position. Do the same evaluation for the 
+  new position and comparing
   \[\frac{|\Psi_{New}|^2}{|\Psi_{Old}|^2}\]
   Then by taking a random, uniformly distributed number between 0 and 1 and compare it
   to the ratio between the new and old wavefunction. If the ratio is larger I accept
   the new step, if not I revert back to the old position. Then lastly I sample the energy for
   the resulting system.
   \lstinputlisting[caption=Brute force Metropolis, style=c++]{codes/bruteForceMetro.cpp}
-  When using this method I get the result which is shown in table \ref{h:a1} and is
-  in correspondence with what is expected from the analytical solution.
+  When using this method I get the result which is shown in table \ref{h:a1}. This result is
+  in exact correspondence to the analytical solution.
+  \subsubsection{Importance sampling}
+  To make the choice of sampling more relevant I use importance sampling.
+  Here there is a biased direction in the new step which is dependent on the trial wavefunction.
+  The new position is given as the solutions to Langevin equation,
+  \begin{equation}
+    y = x + DF(x)\Delta t + \xi\sqrt{\Delta t}
+  \end{equation}
+  Here $x$ is the old position, $D$ is the diffusion coefficient, $F(x)$ quantum force and $\xi$
+  is a normal distributed random variable.
+  The quantum force is given by 
+  \begin{equation}
+    {\bf F}= 2\frac{1}{\Psi_T}\nabla\Psi_T
+  \end{equation}
+  which gives the walker an incentive to go towards areas where the wavefunction is large.
+  The new comparison is now
+  \begin{equation}
+    \frac{G(x,y,\Delta t)|\Psi_T(y)|^2}{G(y,x,\Delta t)|\Psi_T(x)|^2}
+  \end{equation}
+  where 
+  \[ G(y,x,\Delta t) = \frac{1}{(4\pi D\Delta t)^{3N/2}}e^{-(y-x-D\Delta tF(x))^2/4D\Delta t}\]
+  \subsubsection{Interacting}
+
+  
+
   
   \newpage
   \appendix
