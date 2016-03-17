@@ -1,0 +1,52 @@
+#./hastings/main 1 1   1	0  > hastings/anad1p1
+#./hastings/main 1 10  1	0  > hastings/anad1p10
+#./hastings/main 1 100 1	0  > hastings/anad1p100
+#./hastings/main 1 500 1	0  > hastings/anad1p500
+#./hastings/main 2 1   1 0  > hastings/anad2p1
+#./hastings/main 2 10  1 0  > hastings/anad2p10
+#./hastings/main 2 100 1	0  > hastings/anad2p100
+#./hastings/main 2 500 1	0  > hastings/anad2p500
+#./hastings/main 3 1   1 0  > hastings/anad3p1
+#./hastings/main 3 10  1 0  > hastings/anad3p10
+#./hastings/main 3 100 1	0  > hastings/anad3p100
+#./hastings/main 3 500 1	0  > hastings/anad3p500
+#
+#./hastings/main 1 1   0	0  > hastings/numd1p1
+#./hastings/main 1 10  0	0  > hastings/numd1p10
+#./hastings/main 1 100 0	0  > hastings/numd1p100
+#./hastings/main 1 500 0	0  > hastings/numd1p500
+#./hastings/main 2 1   0 0  > hastings/numd2p1
+#./hastings/main 2 10  0 0  > hastings/numd2p10
+#./hastings/main 2 100 0	0  > hastings/numd2p100
+#./hastings/main 2 500 0	0  > hastings/numd2p500
+#./hastings/main 3 1   0 0  > hastings/numd3p1
+#./hastings/main 3 10  0 0  > hastings/numd3p10
+#./hastings/main 3 100 0	0  > hastings/numd3p100
+#./hastings/main 3 500 0	0  > hastings/numd3p500
+#
+./imp/main 1 1   1  0  > imp/anad1p1
+./imp/main 1 10  1  0  > imp/anad1p10
+./imp/main 1 100 1  0  > imp/anad1p100
+./imp/main 1 500 1  0  > imp/anad1p500
+./imp/main 2 1   1  0  > imp/anad2p1
+./imp/main 2 10  1  0  > imp/anad2p10
+./imp/main 2 100 1  0  > imp/anad2p100
+./imp/main 2 500 1  0  > imp/anad2p500
+./imp/main 3 1   1  0  > imp/anad3p1
+./imp/main 3 10  1  0  > imp/anad3p10
+./imp/main 3 100 1  0  > imp/anad3p100
+./imp/main 3 500 1  0  > imp/anad3p500
+
+./imp/main 1 1   0  0  > imp/numd1p1
+./imp/main 1 10  0  0  > imp/numd1p10
+./imp/main 1 100 0  0  > imp/numd1p100
+./imp/main 1 500 0  0  > imp/numd1p500
+./imp/main 2 1   0  0  > imp/numd2p1
+./imp/main 2 10  0  0  > imp/numd2p10
+./imp/main 2 100 0  0  > imp/numd2p100
+./imp/main 2 500 0  0  > imp/numd2p500
+./imp/main 3 1   0  0  > imp/numd3p1
+./imp/main 3 10  0  0  > imp/numd3p10
+./imp/main 3 100 0  0  > imp/numd3p100
+./imp/main 3 500 0  0  > imp/numd3p500
+

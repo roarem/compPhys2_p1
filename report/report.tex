@@ -17,11 +17,11 @@ keywordstyle=\bfseries\color{green!40!black},
   \section{Introduction}
   Since it has been shown that Bose-Einstein condensation occur in gases of alkali 
   atoms confined in magnetic traps, understanding the confined Bose systems has 
-  become a popular field. In this project I have tried to calculate the ground 
+  become a popular field. In this project we have tried to calculate the ground 
   state energy of various number of trapped bosons using Variational Monte Carlo 
   calculations with a specific trial wavefunction. Firstly using the spherical 
   harmonic oscillator as a trap with no interaction between the particles, then
-  swtiching to an elliptical trap. Where in both cases I calculate both the 
+  swtiching to an elliptical trap. Where in both cases we calculate both the 
   analytical and numerical solution. Also running the calculations with and 
   without a repulsive potential due to the fact that bosons have a size.
 
@@ -70,7 +70,7 @@ keywordstyle=\bfseries\color{green!40!black},
     \end{array}
   \end{equation}  
   %
-  For the simplest cases where I set the boson size $a = 0$ and $\beta = 1$ the 
+  For the simplest cases where we set the boson size $a = 0$ and $\beta = 1$ the 
   trial wavefunction becomes 
   \begin{equation}
     \Psi_T(\bm{R}) = e^{-\alpha r^2}
@@ -88,13 +88,13 @@ keywordstyle=\bfseries\color{green!40!black},
   %
   which is the analytical experssion for the local energy in a spherical trap 
   without interaction.
-  %For a simple test case I use 1 dimension, 1 particle, $\alpha = 1/2$  
+  %For a simple test case we use 1 dimension, 1 particle, $\alpha = 1/2$  
   %
 
   %
   \subsection{Numerical method}
   \subsubsection{Brute force Metropolis}
-  For the first part I use a Variational Monte Carlo program with a brute force Metropolis
+  For the first part we use a Variational Monte Carlo program with a brute force Metropolis
   sampling to calculate the ground state energy. The Metropolis algorithm compares the 
   probability of being in the old position $A_{j\rightarrow i}$ against the probability
   of being in a position in a chosen direction $A_{i\rightarrow j}$.
@@ -119,14 +119,14 @@ keywordstyle=\bfseries\color{green!40!black},
   new position and comparing
   \[\frac{|\Psi_{New}|^2}{|\Psi_{Old}|^2}\]
   Then by taking a random, uniformly distributed number between 0 and 1 and compare it
-  to the ratio between the new and old wavefunction. If the ratio is larger I accept
-  the new step, if not I revert back to the old position. Then lastly I sample the energy for
+  to the ratio between the new and old wavefunction. If the ratio is larger we accept
+  the new step, if not we revert back to the old position. Then lastly we sample the energy for
   the resulting system.
   \lstinputlisting[caption=Brute force Metropolis, style=c++]{codes/bruteForceMetro.cpp}
-  When using this method I get the result which is shown in table \ref{h:a1}. This result is
+  When using this method we get the result which is shown in table \ref{h:a1}. This result is
   in exact correspondence to the analytical solution.
   \subsubsection{Importance sampling}
-  To make the choice of sampling more relevant I use importance sampling.
+  To make the choice of sampling more relevant we use importance sampling.
   Here there is a biased direction in the new step which is dependent on the trial wavefunction.
   The new position is given as the solutions to Langevin equation,
   \begin{equation}
@@ -148,7 +148,16 @@ keywordstyle=\bfseries\color{green!40!black},
   \subsubsection{Interacting}
 
   
-
+  \section{Results}
+  With the brute force Metropolis method and analytical calculation of the wavefunction the
+  results are exactly right, as seen in table for 1 dimension, $10^5$ cycles and steplength
+  of 1.7. This gives an accpetance rate of about 50\%. With lower step length the acceptance
+  rate would go up, but then the energies would be sampled at a more narrow range and we could not
+  be sure if it is the acutal ground state.
+  \input{tables/hastings_ana1dim.tex}\\
+  In table \ref{tab:ha2} and \ref{tab:ha3} the runs have been done with the same parameters but with
+  2 and 3 dimensions. The result is the same with only a slight increase in time for the highest
+  number of particles.
   
   \newpage
   \appendix

@@ -1,17 +1,15 @@
 #*-*coding: utf-8 *-*
 import re
-import fnmatch
 import os
 
 class ReadFile:
 
-    def start(self,string):
-        self.string="\\begin{tabular}{|l|l|l|l|l|}\n"+\
+    def start(self):
+        self.string="\\begin{table}[h!]\n"+\
+                "\\begin{tabular}{|l|l|l|l|l|}\n"+\
                 "\\hline \n"+\
-                "N particles & $<E>$ & Variance & Accepted & Time [ms]\\\ \n "+\
+                "N particles & $<E>$ & Variance & Accepted & Time [s]\\\ \n "+\
                 "\\hline \n"
-                #"\\multicolumn{5}{|c|}{%s}\\\ \n"%string+\
-                #"\\hline \n"+\
 
     def collect(self,inFile=None):
 
@@ -19,50 +17,37 @@ class ReadFile:
         temp_string = "" 
 
         for i,line in enumerate(inFile):
-            print(line)
+            #print(i,line)
             line = ansi_escape.sub("",line)
-            if i==4:
+            if i==5:
                 particles = line.split()[-1]
-                temp_string += "{} & ".format(line.split()[-1])
-            if i==14:
                 temp_string += "{} & ".format(line.split()[-1])
             if i==15:
                 temp_string += "{} & ".format(line.split()[-1])
             if i==16:
                 temp_string += "{} & ".format(line.split()[-1])
-            if i==22:
-                temp_string += "{} ".format(line.split()[-1])
-        if int(particles) == 500:
-            self.string += temp_string+"\\\ \\hline \n"
-        else:
-            self.string += temp_string+"\\\ \\hline \n"
+            if i==17:
+                temp_string += "{} & ".format(line.split()[-1])
+            if i==23:
+                seconds = int(line.split()[-1])/1000
+                temp_string += "{} ".format(seconds)
+        
+        self.string += temp_string+"\\\ \\hline \n"
 
     def end(self,label):
-        self.string += "\label{%s} \n"%label+"\end{tabular}"
+        self.string += "\end{tabular}\n"+"\label{%s} \n"%label+\
+                "\end{table} \n"
 
 if __name__=="__main__":
-    read = ReadFile()
+    tablemaker = ReadFile()
     
     for method in ["hastings","imp"]:
-        for d in [1,2,3]:
-            with open("tables/{}_ana{}dim.tex".format(method,d),'w') as outfile:
-                read.start("Analytical {}D".format(d))
-                for p in [1,10,100,500]:
-                    for filename in os.listdir("{}/anad{}p{}".format(method,d,p)):
-                        if fnmatch.fnmatch(filename, 'slurm*'):
-                            inFile = filename
-                    with open("{}/anad{}p{}/{}".format(method,d,p,filename),'r') as infile:
-                        print(infile.read())
-                        read.collect(infile)
-                read.end("tab:"+method[0]+"a{}".format(d))
-                outfile.write(read.string)
-            with open("tables/{}_num{}dim.tex".format(method,d),'w') as outfile:
-                read.start("Numerical {}D".format(d))
-                for p in [1,10,100,500]:
-                    for filename in os.listdir("{}/numd{}p{}".format(method,d,p)):
-                        if fnmatch.fnmatch(filename, 'slurm*'):
-                            inFile = filename
-                    with open("{}/numd{}p{}/{}".format(method,d,p,inFile),'r') as infile:
-                        read.collect(infile)
-                read.end("tab:"+method[0]+"n{}".format(d))
-                outfile.write(read.string)
+        for anaNum in ["ana","num"]:
+            for d in [1,2,3]:
+                with open("tables/{}_{}{}dim.tex".format(method,anaNum,d),'w') as outfile:
+                    tablemaker.start()
+                    for p in [1,10,100,500]:
+                        with open("steplong/{}/{}d{}p{}".format(method,anaNum,d,p),'r') as infile:
+                            tablemaker.collect(infile)
+                    tablemaker.end("tab:"+method[0]+"{}{}".format(anaNum[0],d))
+                    outfile.write(tablemaker.string)

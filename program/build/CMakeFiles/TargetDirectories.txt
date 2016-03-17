@@ -1,1 +1,1 @@
-/home/roarem/compPhys2_p1/program/build/CMakeFiles/main.dir
+/home/roar/fys4411/compPhys2_p1/program/build/CMakeFiles/main.dir

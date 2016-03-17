@@ -1,0 +1,13 @@
+./main 1 1 > anad1p1
+./main 1 10 > anad1p10
+./main 1 100 > anad1p100
+./main 1 500 > anad1p500
+./main 2 1 > anad2p1
+./main 2 10 > anad2p10
+./main 2 100 > anad2p100
+./main 2 500 > anad2p500
+./main 3 1 > anad3p1
+./main 3 10 > anad3p10
+./main 3 100 > anad3p100
+./main 3 500 > anad3p500
+

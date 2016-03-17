@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/roarem/compPhys2_p1/program/Hamiltonian/Hamiltonian.h
+/home/roar/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.h
 ../System/System.h
-/home/roarem/compPhys2_p1/program/System/System.h
+/home/roar/fys4411/compPhys2_p1/program/System/System.h
 
-/home/roarem/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.h
+/home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.h
 Hamiltonian.h
-/home/roarem/compPhys2_p1/program/Hamiltonian/Hamiltonian.h
+/home/roar/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.h
 
-/home/roarem/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.h
+/home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.h
 HarmonicOscillator.h
-/home/roarem/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.h
+/home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.h
 
-/home/roarem/compPhys2_p1/program/InitialState/InitialState.h
+/home/roar/fys4411/compPhys2_p1/program/InitialState/InitialState.h
 ../System/System.h
-/home/roarem/compPhys2_p1/program/System/System.h
+/home/roar/fys4411/compPhys2_p1/program/System/System.h
 
-/home/roarem/compPhys2_p1/program/InitialState/RandomUniform.h
+/home/roar/fys4411/compPhys2_p1/program/InitialState/RandomUniform.h
 InitialState.h
-/home/roarem/compPhys2_p1/program/InitialState/InitialState.h
+/home/roar/fys4411/compPhys2_p1/program/InitialState/InitialState.h
 
-/home/roarem/compPhys2_p1/program/Sampler/ProgressBar.h
+/home/roar/fys4411/compPhys2_p1/program/Sampler/ProgressBar.h
 sys/ioctl.h
 -
 iostream
@@ -36,23 +36,23 @@ iomanip
 cstring
 -
 
-/home/roarem/compPhys2_p1/program/Sampler/Sampler.h
+/home/roar/fys4411/compPhys2_p1/program/Sampler/Sampler.h
 ../System/System.h
-/home/roarem/compPhys2_p1/program/System/System.h
+/home/roar/fys4411/compPhys2_p1/program/System/System.h
 Timer.h
-/home/roarem/compPhys2_p1/program/Sampler/Timer.h
+/home/roar/fys4411/compPhys2_p1/program/Sampler/Timer.h
 ProgressBar.h
-/home/roarem/compPhys2_p1/program/Sampler/ProgressBar.h
+/home/roar/fys4411/compPhys2_p1/program/Sampler/ProgressBar.h
 
-/home/roarem/compPhys2_p1/program/Sampler/Timer.h
+/home/roar/fys4411/compPhys2_p1/program/Sampler/Timer.h
 ../System/System.h
-/home/roarem/compPhys2_p1/program/System/System.h
+/home/roar/fys4411/compPhys2_p1/program/System/System.h
 
-/home/roarem/compPhys2_p1/program/System/Particle.h
+/home/roar/fys4411/compPhys2_p1/program/System/Particle.h
 System.h
-/home/roarem/compPhys2_p1/program/System/System.h
+/home/roar/fys4411/compPhys2_p1/program/System/System.h
 
-/home/roarem/compPhys2_p1/program/System/System.h
+/home/roar/fys4411/compPhys2_p1/program/System/System.h
 iostream
 -
 fstream
@@ -68,51 +68,51 @@ cmath
 string
 -
 Particle.h
-/home/roarem/compPhys2_p1/program/System/Particle.h
+/home/roar/fys4411/compPhys2_p1/program/System/Particle.h
 ../Sampler/Sampler.h
-/home/roarem/compPhys2_p1/program/Sampler/Sampler.h
+/home/roar/fys4411/compPhys2_p1/program/Sampler/Sampler.h
 ../Hamiltonian/Hamiltonian.h
-/home/roarem/compPhys2_p1/program/Hamiltonian/Hamiltonian.h
+/home/roar/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.h
 ../WaveFunction/WaveFunction.h
-/home/roarem/compPhys2_p1/program/WaveFunction/WaveFunction.h
+/home/roar/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.h
 ../InitialState/InitialState.h
-/home/roarem/compPhys2_p1/program/InitialState/InitialState.h
+/home/roar/fys4411/compPhys2_p1/program/InitialState/InitialState.h
 
-/home/roarem/compPhys2_p1/program/WaveFunction/TrialWaveFunction.h
+/home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunction.h
 WaveFunction.h
-/home/roarem/compPhys2_p1/program/WaveFunction/WaveFunction.h
+/home/roar/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.h
 
-/home/roarem/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.h
+/home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.h
 TrialWaveFunction.h
-/home/roarem/compPhys2_p1/program/WaveFunction/TrialWaveFunction.h
+/home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunction.h
 
-/home/roarem/compPhys2_p1/program/WaveFunction/WaveFunction.h
+/home/roar/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.h
 ../System/System.h
-/home/roarem/compPhys2_p1/program/System/System.h
+/home/roar/fys4411/compPhys2_p1/program/System/System.h
 
-/home/roarem/compPhys2_p1/program/main/main.cpp
+/home/roar/fys4411/compPhys2_p1/program/main/main.cpp
 stdlib.h
 -
 ../System/System.h
-/home/roarem/compPhys2_p1/program/System/System.h
+/home/roar/fys4411/compPhys2_p1/program/System/System.h
 ../System/Particle.h
-/home/roarem/compPhys2_p1/program/System/Particle.h
+/home/roar/fys4411/compPhys2_p1/program/System/Particle.h
 ../Sampler/Sampler.h
-/home/roarem/compPhys2_p1/program/Sampler/Sampler.h
+/home/roar/fys4411/compPhys2_p1/program/Sampler/Sampler.h
 ../Hamiltonian/Hamiltonian.h
-/home/roarem/compPhys2_p1/program/Hamiltonian/Hamiltonian.h
+/home/roar/fys4411/compPhys2_p1/program/Hamiltonian/Hamiltonian.h
 ../WaveFunction/WaveFunction.h
-/home/roarem/compPhys2_p1/program/WaveFunction/WaveFunction.h
+/home/roar/fys4411/compPhys2_p1/program/WaveFunction/WaveFunction.h
 ../InitialState/InitialState.h
-/home/roarem/compPhys2_p1/program/InitialState/InitialState.h
+/home/roar/fys4411/compPhys2_p1/program/InitialState/InitialState.h
 ../Hamiltonian/HarmonicOscillator.h
-/home/roarem/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.h
+/home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillator.h
 ../Hamiltonian/HarmonicOscillatorInteracting.h
-/home/roarem/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.h
+/home/roar/fys4411/compPhys2_p1/program/Hamiltonian/HarmonicOscillatorInteracting.h
 ../WaveFunction/TrialWaveFunction.h
-/home/roarem/compPhys2_p1/program/WaveFunction/TrialWaveFunction.h
+/home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunction.h
 ../WaveFunction/TrialWaveFunctionInteracting.h
-/home/roarem/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.h
+/home/roar/fys4411/compPhys2_p1/program/WaveFunction/TrialWaveFunctionInteracting.h
 ../InitialState/RandomUniform.h
-/home/roarem/compPhys2_p1/program/InitialState/RandomUniform.h
+/home/roar/fys4411/compPhys2_p1/program/InitialState/RandomUniform.h
 

@@ -22,26 +22,52 @@ void interacting(bool,bool,int,int,int,double,double,double,double,std::vector<d
  
 int main (int argc,char* argv[]){
 
-  
-  bool	  File		  = true;
-  bool	  analytical	  = false;
+  bool File;
+  bool analytical;
+  int  nDimensions;
+  int  nParticles;
+  if (argc == 5)
+  {
+    File	      = atoi(argv[4]);
+    analytical  = atoi(argv[3]);
+    nDimensions = atoi(argv[1]);
+    nParticles  = atoi(argv[2]);
+  }
+  else if (argc == 4)
+  {
+    File	      = false;
+    analytical  = atoi(argv[3]);
+    nDimensions = atoi(argv[1]);
+    nParticles  = atoi(argv[2]);
+  }
+  else if (argc == 3)
+  {
+    File	      = false;
+    analytical  = true;
+    nDimensions = atoi(argv[1]);
+    nParticles  = atoi(argv[2]);
+  }
+  else 
+  {
+    cout << "Usage: ./program Ndim Npart (analytical writeToFile)\n";
+    exit (EXIT_FAILURE);
+  }
+  cout << nDimensions << endl;
 
-  int	  nDimensions     = atoi(argv[1]);
-  int 	  nParticles      = atoi(argv[2]);
-  int 	  nCycles	  = (int) 1e6;
+  int 	  nCycles	  = (int) 1e5;
 
   double  omega		  = 1.0;
   double  alpha		  = 0.5;
   double  gamma		  = 1.0;
   double  beta		  = 2.82843;
   double  bosonSize	  = 0.0043;
-  double  stepLength	  = 1.7;
+  double  stepLength	  = 0.05;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
 
   std::vector<double> parameters {alpha, omega, gamma, beta};
 
-  int chosenOne = 0;
+  int chosenOne = 1;
 
   switch (chosenOne)
   {
