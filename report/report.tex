@@ -149,16 +149,22 @@ keywordstyle=\bfseries\color{green!40!black},
 
   
   \section{Results}
-  With the brute force Metropolis method and analytical calculation of the wavefunction the
-  results are exactly right, as seen in table for 1 dimension, $10^5$ cycles and steplength
+  
+  \input{tables/hastings_ana1dim.tex}
+  With the brute force Metropolis method and analytical calculation of the Laplacian the
+  results are exactly right, as seen in table for 1 dimension, $10^5$ cycles and step length
   of 1.7. This gives an accpetance rate of about 50\%. With lower step length the acceptance
   rate would go up, but then the energies would be sampled at a more narrow range and we could not
   be sure if it is the acutal ground state.
-  \input{tables/hastings_ana1dim.tex}\\
   In table \ref{tab:ha2} and \ref{tab:ha3} the runs have been done with the same parameters but with
   2 and 3 dimensions. The result is the same with only a slight increase in time for the highest
   number of particles.
+
+  \input{tables/hastings_num1dim.tex}
+   
   
+
+   
   \newpage
   \appendix
   \input{appendix.tex}

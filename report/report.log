@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.15)  17 MAR 2016 13:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.15)  17 MAR 2016 14:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -254,7 +254,11 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
-) (./report.aux)
+) (./report.aux
+
+LaTeX Warning: Label `tab:hn1' multiply defined.
+
+)
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -274,7 +278,7 @@ LaTeX Font Info:    ... okay on input line 15.
 \c@lstlisting=\count118
 \AtBeginShipoutBox=\box30
 Package hyperref Info: Link coloring OFF on input line 15.
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -325,35 +329,41 @@ Overfull \hbox (2.7087pt too wide) in paragraph at lines 12--13
 
 LaTeX Warning: Reference `h:a1' on page 3 undefined on input line 126.
 
-[3] (./tables/hastings_ana1dim.tex) [4] (./appendix.tex
-(./tables/hastings_ana2dim.tex) (./tables/hastings_ana3dim.tex) [5]
-(./tables/hastings_num1dim.tex) (./tables/hastings_num2dim.tex)
-(./tables/hastings_num3dim.tex) [6] (./tables/imp_ana1dim.tex)
-(./tables/imp_ana2dim.tex) (./tables/imp_ana3dim.tex) [7]
-(./tables/imp_num1dim.tex) (./tables/imp_num2dim.tex) (./tables/imp_num3dim.tex
-))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
+[3] (./tables/hastings_ana1dim.tex) (./tables/hastings_num1dim.tex
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [4] (./appendix.tex (./tables/hastings_ana2dim.tex)
+(./tables/hastings_ana3dim.tex) [5] (./tables/hastings_num1dim.tex)
+(./tables/hastings_num2dim.tex) (./tables/hastings_num3dim.tex) [6]
+(./tables/imp_ana1dim.tex) (./tables/imp_ana2dim.tex) (./tables/imp_ana3dim.tex
+) [7] (./tables/imp_num1dim.tex) (./tables/imp_num2dim.tex)
+(./tables/imp_num3dim.tex))
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 171.
  [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 171.
  (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 171.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 171.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 6BBC43DB56420F4CA66ECBF2CD0F1496;1497.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 171.
  ) 
 Here is how much of TeX's memory you used:
- 7344 strings out of 495028
- 104899 string characters out of 6181497
- 221275 words of memory out of 5000000
- 10409 multiletter control sequences out of 15000+600000
+ 7349 strings out of 495028
+ 104979 string characters out of 6181497
+ 221402 words of memory out of 5000000
+ 10411 multiletter control sequences out of 15000+600000
  11198 words of font info for 40 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 32i,10n,59p,223b,1082s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,9n,59p,223b,1082s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -366,10 +376,10 @@ type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 s/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on report.pdf (8 pages, 151905 bytes).
+Output written on report.pdf (8 pages, 152210 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 206 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
+ 233 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
  177 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -52,8 +52,6 @@ int main (int argc,char* argv[]){
     cout << "Usage: ./program Ndim Npart (analytical writeToFile)\n";
     exit (EXIT_FAILURE);
   }
-  cout << nDimensions << endl;
-
   int 	  nCycles	  = (int) 1e5;
 
   double  omega		  = 1.0;
@@ -61,13 +59,13 @@ int main (int argc,char* argv[]){
   double  gamma		  = 1.0;
   double  beta		  = 2.82843;
   double  bosonSize	  = 0.0043;
-  double  stepLength	  = 0.05;
+  double  stepLength	  = 1.7;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
 
   std::vector<double> parameters {alpha, omega, gamma, beta};
 
-  int chosenOne = 1;
+  int chosenOne = 2;
 
   switch (chosenOne)
   {
