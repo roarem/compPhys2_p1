@@ -42,7 +42,7 @@ int main (int argc,char* argv[]){
   }
   else if (argc == 3)
   {
-    File	      = false;
+    File        = false;
     analytical  = true;
     nDimensions = atoi(argv[1]);
     nParticles  = atoi(argv[2]);

@@ -45,7 +45,7 @@ class System
     double  get_stepLength	    	(){return my_stepLength;}
     double  get_derivativeStep	    	(){return my_derivativeStep;}
     double  get_derivativeStep2	    	(){return my_derivativeStep2;}
-
+    double  get_equilibration		(){return my_equilibrationFraction;}
     std::vector<double>& get_parameters	(){return my_parameters;}
     //std::ofstream get_oFile		(){return my_oFile;}
 

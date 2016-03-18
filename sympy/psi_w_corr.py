@@ -18,4 +18,4 @@ def uder():
     print(u_mark.simplify())
     print(u_2mark.simplify())
 
-uder()
+nabla2()

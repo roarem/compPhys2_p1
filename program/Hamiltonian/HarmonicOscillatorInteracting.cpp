@@ -1,6 +1,6 @@
 #include "HarmonicOscillatorInteracting.h"
 
-HarmonicOscillatorInteracting::HarmonicOscillatorInteracting(System* system, 
+HarmonicOscillatorInteracting::HarmonicOscillatorInteracting(System* system,
 							     double bosonSize):
   HarmonicOscillator(system)
 {
@@ -10,69 +10,92 @@ HarmonicOscillatorInteracting::HarmonicOscillatorInteracting(System* system,
 
 double HarmonicOscillatorInteracting::computeLocalEnergy ()
 {
-  double r		      =   0;
-  double vInt		      =	  0;
 
-  double vExt = HarmonicOscillator::computeLocalEnergy();
+  int nP	= my_system->get_nParticles();
+  int nD	= my_system->get_nDimensions();
+  double Vint	= 0;
+  double Vext	= 0;
 
-  for (int p1 = 0 ; p1 < my_system->get_nParticles()-1 ; p1++){
-    for (int p2 = p1 + 1 ; p2 < my_system->get_nParticles() ; p2++){
-      r = 0;
-      for (int d = 0 ; d < my_system->get_nDimensions() ; d++){
+  double alpha  = my_system->get_parameters()[0];
+  double omega2 = my_system->get_parameters()[1]*
+		  my_system->get_parameters()[1];
+  double gamma2 = my_system->get_parameters()[2]*
+                  my_system->get_parameters()[2];
+  double beta   = my_system->get_parameters()[3];
 
-	 const double seperation = my_system->get_particle()[p1]->get_position()[d] -
-				   my_system->get_particle()[p2]->get_position()[d];
+  double alpha2 = alpha*alpha;
+  double boson  = my_bosonSize;
 
-	 r += seperation*seperation;
-      }
-      r = sqrt(r);
-      if (r < my_bosonSize2){
-	vInt += 1e10;
-      }
-      //cout << vInt << endl;
-    }
-  }
-  return vInt + vExt;
-}
-     
-double HarmonicOscillatorInteracting::correlationFunction ()
-{
-  
-  int nP    = my_system->get_nParticles();
-  int nD    = my_system->get_nDimensions();
-  
-  const double alpha  = my_system->get_parameters()[0];
-  const double beta   = my_system->get_parameters()[3];
-  const double alpha2 = alpha*alpha;
-  const double abterm = 4*alpha - 2*alpha*beta;
-  const double boson  = my_bosonSize;
-  const double boson2 =	my_bosonSize2;
+  double first_of_all	= 0;
+  double first_sum	= 0;
+  double ij_sum		= 0;
+  double last_sum	= 0;
+  double r		= 0;
 
-  for (int p1 = 0 ; p1 < nP-1 ; p1++){
-    
-    for (int p2 = p1 + 1 ; p2 < nP ; p2++){
+  for (int k = 0 ; k < nP-1 ; k++){
+
+    const double xk = my_system->get_particle()[k]->get_position()[0];
+    const double yk = my_system->get_particle()[k]->get_position()[1];
+    const double zk = my_system->get_particle()[k]->get_position()[2];
+    r += xk*xk + yk*yk + zk*zk*gamma2;
+
+    const double doubleDeriv = 4*alpha2*(xk*xk + yk*yk + beta*beta*zk*zk)
+				- 2 - beta;
+
+    first_of_all += doubleDeriv;
+
+    for (int j = k + 1 ; j < nP ; j++){
+      const double xkj	      = xk - my_system->get_particle()[j]->get_position()[0];
+      const double ykj 	      = yk - my_system->get_particle()[j]->get_position()[1];
+      const double zkj 	      = zk - my_system->get_particle()[j]->get_position()[2];
+      const double rkj 	      = sqrt(xkj*xkj + ykj*ykj + zkj*zkj);
+      const double ukj_mark   = u_mark (rkj);
+      const double ukj_2mark  = u_2mark (rkj);
+
+      const double grad_dot_rkj = xk*xkj + yk*ykj + beta*zk*zkj;
+      first_sum += grad_dot_rkj*ukj_mark/rkj;
+
+
+      last_sum += ukj_2mark + 2*ukj_mark/rkj;
+      
+      if (rkj < my_bosonSize)
+	Vint += 1e10;
+
       const double rij	= 0;
-      const double x1 = my_system->get_particle()[p1]->get_postition()[0];
-      const double x2 = my_system->get_particle()[p1]->get_postition()[0];
-      const double y1 = my_system->get_particle()[p1]->get_postition()[1];
-      const double y2 = my_system->get_particle()[p1]->get_postition()[1];
-      const double z1 = my_system->get_particle()[p1]->get_postition()[2];
-      const double z2 = my_system->get_particle()[p1]->get_postition()[2];
-      const double sep  = (x1-x2+ y1-y2 +z1-z2)*(x1-x2+ y1-y2 +z1-z2);
 
-      rij = sqrt(sep);
+      for (int i = k + 1 ; i < nP ; i++){
+        const double xki = xk - my_system->get_particle()[i]->get_position()[0];
+        const double yki = yk - my_system->get_particle()[i]->get_position()[1];
+        const double zki = zk - my_system->get_particle()[i]->get_position()[2];
+	const double rki = sqrt(xki*xki + yki*yki + zki*zki);
 
-      const double Deriv       = -2*alpha*(2*x1+2*y1+beta*z1)
-      const double doubleDeriv = 4*alpha2*(x1*x1 + y1*y1 + beta*beta*z1*z1)-
-				 abterm;
-      const double u_mark      = -my_bosonSize/(2*rij*(my_bosonSize - sqrt(rij)));
-      const double u_2mark     = boson*(boson*(-boson + sqrt(r)) + 3*(boson - sqrt(r))**2)/(4*r**2*(boson - sqrt(r))**3) ;
+	const double rki_rkj_dot = xki*xkj + yki*ykj + zki*zkj;
+	const double uki_mark = u_mark(rki);
 
-
+	ij_sum += rki_rkj_dot*uki_mark/rki;
+      }
+      ij_sum *= ukj_mark/rkj;
     }
+    first_sum *= -2*alpha;
   }
+  const double xk = my_system->get_particle()[nP-1]->get_position()[0];
+  const double yk = my_system->get_particle()[nP-1]->get_position()[1];
+  const double zk = my_system->get_particle()[nP-1]->get_position()[2];
+  r += xk*xk + yk*yk + zk*zk*gamma2;
+  Vext = 0.5*r;
+
+  double Laplacian=  ij_sum + last_sum + first_sum + first_of_all;
+   
+  return Vext + Vint + Laplacian;
 }
 
+double HarmonicOscillatorInteracting::u_mark (double r)
+{
+  return my_bosonSize/(r*(r - my_bosonSize));
+}
 
-
-
+double HarmonicOscillatorInteracting::u_2mark (double r)
+{
+  double value = (my_bosonSize*(my_bosonSize - 2*r)) / (r*r*(r-my_bosonSize)*(r - my_bosonSize));
+  return value;
+}

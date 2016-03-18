@@ -1,4 +1,5 @@
 \begin{table}[h!]
+\centering 
 \begin{tabular}{|l|l|l|l|l|}
 \hline 
 N particles & $<E>$ & Variance & Accepted & Time [s]\\ 
@@ -8,5 +9,10 @@ N particles & $<E>$ & Variance & Accepted & Time [s]\\
 100 & 5.000000e+01 & 3.092282e-11 & 0.551551 & 2.868 \\ \hline 
 500 & 2.500000e+02 & 3.419700e-10 & 0.550273 & 61.191 \\ \hline 
 \end{tabular}
+\caption{%
+	  Benchmark of the brute force Metropolis method with %
+	  numerical calculation of the Laplacian. Using $10^5$ %
+	  cycles and a step length of 1.7.%
+	}
 \label{tab:hn1} 
 \end{table} 

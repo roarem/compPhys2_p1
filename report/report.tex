@@ -5,7 +5,8 @@
 \usepackage{hyperref}
 \usepackage{bm}
 \usepackage{xcolor}
-
+\usepackage[margin=3cm]{geometry}
+\usepackage{graphicx}
 \lstdefinestyle{c++}{
 basicstyle=\scriptsize\ttfamily,
 frame=single,
@@ -88,10 +89,25 @@ keywordstyle=\bfseries\color{green!40!black},
   %
   which is the analytical experssion for the local energy in a spherical trap 
   without interaction.
-  %For a simple test case we use 1 dimension, 1 particle, $\alpha = 1/2$  
-  %
-
-  %
+  \subsubsection{Interacting local energy}
+  \begin{flalign*}
+    \nabla_k^2\Psi_T({\bf R})&=%
+    \nabla_k^2\phi_k\prod_{i\neq k}\phi_i \exp \left(\sum_{i<j}\right)\\
+    &+\nabla_k\phi_k\prod_{i\neq k}\phi_i\sum_{i\neq k}%
+    \nabla_k u_{ij}\exp\left(\sum_{i<j}u_ij\right)\\
+    &+ \nabla_k\phi_k\prod_{i\neq k}\phi_i\exp \left(\sum_{i<j}\right)%
+    \sum_{i\neq k}\nabla_k u_{ij} \\
+    &+ \prod_i\phi_i\sum_{i<j}u_{ij}%
+    \exp \left(\sum_{i<j}u_{ij}\right)\sum_{j\neq k}\nabla_k u_{ij}\\
+    &+\prod_i\phi_i\exp \left(\sum_{i<j}u_{ij}\right)\sum_{j\neq k}\nabla^2_k u_{ij}
+  \end{flalign*}
+  dividing by the wavefunction gives us
+  \begin{flalign*}
+    \frac{1}{\Psi_T({\bf R})}\nabla_k^2\Psi_T({\bf R}) &= \frac{\nabla^2_k\phi_k}{\phi_k} %
+    +2\frac{\nabla_k\phi_k}{\phi_k}\sum_{j\neq k}\nabla_k u_{ij} %
+    +\sum_{i\le j}u_{ij}\sum_{j\neq k}\nabla_k u_{ij}%
+    + \sum_{j\neq k}\nabla^2_k u_{ij}\\
+  \end{flalign*}
   \subsection{Numerical method}
   \subsubsection{Brute force Metropolis}
   For the first part we use a Variational Monte Carlo program with a brute force Metropolis
@@ -123,7 +139,7 @@ keywordstyle=\bfseries\color{green!40!black},
   the new step, if not we revert back to the old position. Then lastly we sample the energy for
   the resulting system.
   \lstinputlisting[caption=Brute force Metropolis, style=c++]{codes/bruteForceMetro.cpp}
-  When using this method we get the result which is shown in table \ref{h:a1}. This result is
+  When using this method we get the result which is shown in table \ref{tab:ha1}. This result is
   in exact correspondence to the analytical solution.
   \subsubsection{Importance sampling}
   To make the choice of sampling more relevant we use importance sampling.
@@ -132,8 +148,8 @@ keywordstyle=\bfseries\color{green!40!black},
   \begin{equation}
     y = x + DF(x)\Delta t + \xi\sqrt{\Delta t}
   \end{equation}
-  Here $x$ is the old position, $D$ is the diffusion coefficient, $F(x)$ quantum force and $\xi$
-  is a normal distributed random variable.
+  Here $x$ is the old position, $\Delta t$ the step unit, $D$ is the diffusion coefficient, 
+  $F(x)$ quantum force and $\xi$ is a normal distributed random variable.
   The quantum force is given by 
   \begin{equation}
     {\bf F}= 2\frac{1}{\Psi_T}\nabla\Psi_T
@@ -147,9 +163,11 @@ keywordstyle=\bfseries\color{green!40!black},
   \[ G(y,x,\Delta t) = \frac{1}{(4\pi D\Delta t)^{3N/2}}e^{-(y-x-D\Delta tF(x))^2/4D\Delta t}\]
   \subsubsection{Interacting}
 
+  \newpage
   
   \section{Results}
-  
+ 
+  \subsubsection{Brute force Metropolis}
   \input{tables/hastings_ana1dim.tex}
   With the brute force Metropolis method and analytical calculation of the Laplacian the
   results are exactly right, as seen in table for 1 dimension, $10^5$ cycles and step length
@@ -159,13 +177,48 @@ keywordstyle=\bfseries\color{green!40!black},
   In table \ref{tab:ha2} and \ref{tab:ha3} the runs have been done with the same parameters but with
   2 and 3 dimensions. The result is the same with only a slight increase in time for the highest
   number of particles.
-
-  \input{tables/hastings_num1dim.tex}
-   
-  
-
-   
   \newpage
+  \input{tables/hastings_num1dim.tex}
+  Using numerical derivation to find the Laplacian slows the speed of the program by about 200 times
+  for 500 particles. The precision is the same as with the analytical calculation and so is the 
+  acceptance rate. This tells us that using the numerical calculation is a bad choice when the 
+  analytical solution is available for the brute force Metropolis. The same results continuos when
+  increasing to 2 and 3 dimensions, as shown in \ref{tab:hn2} and \ref{tab:hn3}.
+  
+  \subsubsection{Importance sampling}
+  \input{tables/imp_ana1dim.tex}
+  Given the difference in how the step length is implemented in the two different methods it is
+  hard to make any direct comparison of them. The energy and variance have the same values as is
+  to be expected and the time difference is negligeble in the range we have tested here.
+  \newpage
+  \input{tables/imp_num1dim.tex}
+  The results for the Metropolis importance sampling algorithm has shown to be much the same as for
+  the brute force method, with the obvious difference in acceptance ratio which is not comparable.
+  Also here the CPU-time is almost identical.
+
+  \newpage
+
+  \subsubsection{Time comparison}
+  \begin{figure}[h!]
+    \centerline{
+    \includegraphics[scale=0.49]{graphs/Npart_time.pdf}
+  }
+    \caption{The x-axis is number of particles and y-axis are number of particles per time/step %
+	     unit. The lower the graph goes, the more time per particle the program spends. %
+	     This shows that the numerical Laplacians loses effectiveness as the number of %
+	     particles grows, as for the analytical solutions the methods seem to converge %
+	     toward a top.%
+	     }
+    
+  \end{figure}
+  For the analytical solutions the time spent on other operations than calculating the energies
+  is high for lower number of particles, and as we try more particles the time spent on calculating
+  the laplacian dominates and the graph seem to converge to a number around 1000 particles per unit
+  step. With the numerical calculation of the Laplacian the effectiveness of the computation
+  decreases steeply.
+
+
+
   \appendix
   \input{appendix.tex}
 \end{document}

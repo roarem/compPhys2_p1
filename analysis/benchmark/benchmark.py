@@ -6,6 +6,7 @@ class ReadFile:
 
     def start(self):
         self.string="\\begin{table}[h!]\n"+\
+                "\\centering \n"+\
                 "\\begin{tabular}{|l|l|l|l|l|}\n"+\
                 "\\hline \n"+\
                 "N particles & $<E>$ & Variance & Accepted & Time [s]\\\ \n "+\

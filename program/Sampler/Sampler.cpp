@@ -6,8 +6,14 @@ using std::endl;
 Sampler::Sampler(System* system, bool File){
   my_system	= system;
   my_stepNumber = 0;
-  if (File)
-    my_oFile.open("energies.out", std::ios::out | std::ios::binary);
+  if (File){
+    my_oEnergies.open("energies.out", std::ios::out | std::ios::binary);
+    my_oPositions.open("positions.out",std::ios::out);
+    my_oPositions << my_system->get_nCycles()*(1-my_system->get_equilibration()) << " "
+		  << my_system->get_nParticles()  << " "
+		  << my_system->get_nDimensions() << "\n";
+  }
+    
 }
 
 void Sampler::sample (bool accepted)
@@ -21,9 +27,19 @@ void Sampler::sample (bool accepted)
 
   double localEnergy = my_system->get_hamiltonian()->computeLocalEnergy();
 
-  if (my_oFile.is_open())
+  if (my_oEnergies.is_open())
   {
-    my_oFile.write(reinterpret_cast<char *>(&localEnergy),sizeof(double));
+    my_oEnergies.write(reinterpret_cast<char *>(&localEnergy),sizeof(double));
+    for (int p = 0 ; p < my_system->get_nParticles() ; p++){
+      for (int d = 0 ; d < my_system->get_nDimensions() ; d++){
+	my_oPositions << my_system->get_particle()[p]->get_position()[d];
+	if (d+1 < my_system->get_nDimensions())
+	  my_oPositions << ",";
+      }
+      if (p+1 < my_system->get_nParticles())
+	my_oPositions << ";";
+    }
+    my_oPositions << "\n";
   }
   //else
   //{
@@ -36,9 +52,11 @@ void Sampler::sample (bool accepted)
 
 void Sampler::printResults ()
 {
-  if (my_oFile.is_open()){
-    my_oFile.close();
-  }
+  if (my_oEnergies.is_open())
+    my_oEnergies.close();
+  if (my_oPositions.is_open())
+    my_oPositions.close();
+
   //else
   //{
     int	 nParticles	       = my_system->get_nParticles();
@@ -64,7 +82,7 @@ void Sampler::printResults ()
     printf("\033[0;93mOmega:                   %f\033[0;m\n",omega);
     printf("\033[0;93mGamma:                   %f\033[0;m\n",gamma);
     printf("\033[0;93mStep length:             %f\033[0;m\n",stepLength);
-    printf("\033[0;93mNumber of steps:	       %i\033[0;m\n",my_stepNumber);
+    printf("\033[0;93mNumber of steps	       %i\033[0;m\n",my_stepNumber);
 //    printf("\033[0;93mTime step:               %f\033[0;m\n",timeStep);
     printf("\033[0;93mDerivative step:         %f\033[0;m\n",derivativeStep);
     printf("\033[1;105m~~~~~~~~~~~~~~~~~~~~~ Results ~~~~~~~~~~~~~~~~~~~~~~~~\033[1;m\n");

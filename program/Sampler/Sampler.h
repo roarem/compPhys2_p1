@@ -13,7 +13,8 @@ class Sampler {
     double get_cumuEn (){return cumulativeEnergy;}
 
   protected:
-    std::ofstream my_oFile;
+    std::ofstream my_oEnergies;
+    std::ofstream my_oPositions;
     int	    my_nCycles		      = 0;
     int	    my_stepNumber	      = 0;
     double  cumulativeEnergy	      = 0;
