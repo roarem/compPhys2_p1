@@ -28,7 +28,7 @@ int main (int argc,char* argv[]){
   int  nParticles;
   if (argc == 5)
   {
-    File	      = atoi(argv[4]);
+    File	= atoi(argv[4]);
     analytical  = atoi(argv[3]);
     nDimensions = atoi(argv[1]);
     nParticles  = atoi(argv[2]);
@@ -61,7 +61,7 @@ int main (int argc,char* argv[]){
   double  bosonSize	  = 0.0043;
   double  stepLength	  = 1.7;
   double  equilibration	  = 0.1;
-  double  derivativeStep  = 0.001;
+  double  derivativeStep  = 1e-5;
 
   std::vector<double> parameters {alpha, omega, gamma, beta};
 
@@ -82,7 +82,8 @@ int main (int argc,char* argv[]){
       break;
 
     case 2:
-      gamma = 2.82843;
+      parameters[2] = 2.82843;
+      
       interacting(File,analytical,nCycles,nParticles,nDimensions,
 		  stepLength,equilibration,derivativeStep,bosonSize,
 		  parameters);

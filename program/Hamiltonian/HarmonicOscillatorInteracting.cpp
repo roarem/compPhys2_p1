@@ -1,4 +1,5 @@
 #include "HarmonicOscillatorInteracting.h"
+#include <iomanip>
 
 HarmonicOscillatorInteracting::HarmonicOscillatorInteracting(System* system,
 							     double bosonSize):
@@ -15,6 +16,14 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
   int nD	= my_system->get_nDimensions();
   double Vint	= 0;
   double Vext	= 0;
+ /* 
+  for(int p = 0 ; p < nP ; p++){
+    for(int d = 0 ; d < nD ; d++){
+      my_system->get_particle()[p]->get_position()[d] = (p==0 ? 0.5 : (p==1?-0.5 : 0));
+    }
+  }
+  */
+
 
   double alpha  = my_system->get_parameters()[0];
   double omega2 = my_system->get_parameters()[1]*
@@ -25,7 +34,9 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
 
   double alpha2 = alpha*alpha;
   double boson  = my_bosonSize;
+  double Laplacian = 0;
 
+if (my_system->get_analytical()){
   double first_of_all	= 0;
   double first_sum	= 0;
   double ij_sum		= 0;
@@ -84,9 +95,37 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
   r += xk*xk + yk*yk + zk*zk*gamma2;
   Vext = 0.5*r;
 
-  double Laplacian=  ij_sum + last_sum + first_sum + first_of_all;
-   
-  return Vext + Vint + Laplacian;
+  Laplacian=  ij_sum + last_sum + first_sum + first_of_all;
+}   
+else{
+  const double waveFunctionCurrent = my_system->get_waveFunction()->evaluate();
+  double laplacian = 0;
+  Vint = 0;
+  Vext = 0;
+  for(int p = 0 ; p < nP ; p++){
+    double r2  = 0;
+
+    for (int k = p+1 ; k < nP ; k++){
+      double xsep2 = 0;
+
+      for (int d = 0 ; d < nD ; d++){
+	const double x1 = my_system->get_particle()[p]->get_position()[d];
+	const double x2 = my_system->get_particle()[k]->get_position()[d];
+	xsep2 += (x1 - x2)*(x1 - x2);
+      }
+      Vint += (xsep2 < my_bosonSize*my_bosonSize)*1e10;
+    }
+    for (int d = 0 ; d < nD ; d++){
+      const double x = my_system->get_particle()[p]->get_position()[d];
+      r2 += x*x*(d != 2 ? 1 : gamma2);
+      laplacian += my_system->get_waveFunction()->computeDoubleDerivative(p,d,waveFunctionCurrent);
+    }
+    Vext += 0.5*r2;
+  }
+  Laplacian = -0.5*laplacian/waveFunctionCurrent;
+}
+  double energy = Laplacian + Vint + Vext;
+  return energy;
 }
 
 double HarmonicOscillatorInteracting::u_mark (double r)

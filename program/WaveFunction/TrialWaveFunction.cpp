@@ -22,7 +22,7 @@ double TrialWaveFunction::evaluate ()
   return exp(-alpha*r2);
 }
 
-
+/*
 double TrialWaveFunction::computeDoubleDerivative(int p, int d, double waveFunctionCurrent)
 {
   double doubleDerivative     = 0;
@@ -41,10 +41,10 @@ double TrialWaveFunction::computeDoubleDerivative(int p, int d, double waveFunct
   doubleDerivative += waveFunctionPlus + waveFunctionMinus - 2*waveFunctionCurrent;
   
   doubleDerivative = doubleDerivative/my_system->get_derivativeStep2();
-  
+cout << doubleDerivative << endl;
   return doubleDerivative;
 }
-
+*/
 double TrialWaveFunction::computeDerivative(int p, int d, double waveFunctionCurrent)
 {
   double derivative	    = 0;
