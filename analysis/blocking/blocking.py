@@ -48,7 +48,7 @@ class Statistics:
     def plotting(self, save=True):
 
         fig, ax = plt.subplots()
-        ax.plot(self.blockSize,self.stdValues[::-1])
+        ax.plot(self.blockSize,self.stdValues)
         ax.set_xlabel("Block size")
         ax.set_ylabel("$\sigma$")
         #ax.set_yscale("log")

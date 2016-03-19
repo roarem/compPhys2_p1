@@ -1,3 +1,2 @@
-program/build
-program/analysis
-
+program/build/**/*
+*.out

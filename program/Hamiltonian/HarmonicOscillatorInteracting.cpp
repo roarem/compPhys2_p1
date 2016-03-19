@@ -16,15 +16,7 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
   int nD	= my_system->get_nDimensions();
   double Vint	= 0;
   double Vext	= 0;
- /* 
-  for(int p = 0 ; p < nP ; p++){
-    for(int d = 0 ; d < nD ; d++){
-      my_system->get_particle()[p]->get_position()[d] = (p==0 ? 0.5 : (p==1?-0.5 : 0));
-    }
-  }
-  */
-
-
+  double Laplacian = 0;
   double alpha  = my_system->get_parameters()[0];
   double omega2 = my_system->get_parameters()[1]*
 		  my_system->get_parameters()[1];
@@ -34,7 +26,6 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
 
   double alpha2 = alpha*alpha;
   double boson  = my_bosonSize;
-  double Laplacian = 0;
 
 if (my_system->get_analytical()){
   double first_of_all	= 0;
@@ -48,10 +39,11 @@ if (my_system->get_analytical()){
     const double xk = my_system->get_particle()[k]->get_position()[0];
     const double yk = my_system->get_particle()[k]->get_position()[1];
     const double zk = my_system->get_particle()[k]->get_position()[2];
+
     r += xk*xk + yk*yk + zk*zk*gamma2;
 
-    const double doubleDeriv = 4*alpha2*(xk*xk + yk*yk + beta*beta*zk*zk)
-				- 2 - beta;
+    const double doubleDeriv = 4*alpha2*(xk*xk + yk*yk + beta*beta*zk*zk) - 
+			      (2 - beta)/(2*alpha);
 
     first_of_all += doubleDeriv;
 
@@ -94,7 +86,7 @@ if (my_system->get_analytical()){
   const double zk = my_system->get_particle()[nP-1]->get_position()[2];
   r += xk*xk + yk*yk + zk*zk*gamma2;
   Vext = 0.5*r;
-
+  //cout << ij_sum << "  " << last_sum << "  " << first_sum << "  " << first_of_all << endl;
   Laplacian=  ij_sum + last_sum + first_sum + first_of_all;
 }   
 else{
@@ -125,6 +117,7 @@ else{
   Laplacian = -0.5*laplacian/waveFunctionCurrent;
 }
   double energy = Laplacian + Vint + Vext;
+  //cout << energy << "  " << Laplacian << "  " << Vint << "  " << Vext << endl;
   return energy;
 }
 
