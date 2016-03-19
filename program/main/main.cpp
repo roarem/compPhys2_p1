@@ -52,14 +52,14 @@ int main (int argc,char* argv[]){
     cout << "Usage: ./program Ndim Npart (analytical writeToFile)\n";
     exit (EXIT_FAILURE);
   }
-  int 	  nCycles	  = (int) 1e5;
+  int 	  nCycles	  = (int) 1e4;
 
   double  omega		  = 1.0;
   double  alpha		  = 0.5;
   double  gamma		  = 1.0;
   double  beta		  = 2.82843;
   double  bosonSize	  = 0.0043;
-  double  stepLength	  = 0.005;
+  double  stepLength	  = 0.05;
   double  equilibration	  = 0.1;
   double  derivativeStep  = 0.001;
 

@@ -69,7 +69,7 @@ if __name__=="__main__":
     filename    = "energies.out"
     read        = ReadFile(filename)
     stats       = Statistics(read.get_data())
-    stats.blocking(1,10000,7000)
+    stats.blocking(1,1e5,4*1e4)
     
     stats.writeData()
     stats.plotting(save=False)
