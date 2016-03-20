@@ -56,12 +56,11 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
       const double ukj_2mark  = u_2mark (rkj);
 
       const double grad_dot_rkj = -(xk*xkj + yk*ykj + beta*zk*zkj);
+
       first_sum += grad_dot_rkj*ukj_mark/rkj;
-
-
-      last_sum += ukj_2mark + 2*ukj_mark/rkj;
+      last_sum	+= ukj_2mark + 2*ukj_mark/rkj;
       
-      Vint += (rkj < my_bosonSize)*1e10;
+      Vint += (rkj*rkj < my_bosonSize2)*1e10;
 
       for (int i = k + 1 ; i < nP ; i++){
         const double xki = xk - my_system->get_particle()[i]->get_position()[0];
@@ -69,8 +68,8 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
         const double zki = zk - my_system->get_particle()[i]->get_position()[2];
 	const double rki = sqrt(xki*xki + yki*yki + zki*zki);
 
-	const double rki_rkj_dot = xki*xkj + yki*ykj + zki*zkj;
-	const double uki_mark = u_mark(rki);
+	const double rki_rkj_dot  = xki*xkj + yki*ykj + zki*zkj;
+	const double uki_mark	  = u_mark(rki);
 
 	ij_sum += rki_rkj_dot*uki_mark/rki;
       }
@@ -81,8 +80,10 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
   const double xk = my_system->get_particle()[nP-1]->get_position()[0];
   const double yk = my_system->get_particle()[nP-1]->get_position()[1];
   const double zk = my_system->get_particle()[nP-1]->get_position()[2];
-  r += xk*xk + yk*yk + zk*zk*gamma2;
-  Vext = 0.5*r;
+
+  r	+= xk*xk + yk*yk + zk*zk*gamma2;
+  Vext	= 0.5*r;
+
   //cout << ij_sum << "  " << last_sum << "  " << first_sum << "  " << first_of_all << endl;
   Laplacian=  ij_sum + last_sum + 2*first_sum + first_of_all;
   
@@ -107,7 +108,7 @@ Vext	  = 0;
 	const double x2 = my_system->get_particle()[k]->get_position()[d];
 	xsep2 += (x1 - x2)*(x1 - x2);
       }
-      Vint += (xsep2 < my_bosonSize*my_bosonSize)*1e10;
+      Vint += (xsep2 < my_bosonSize2)*1e10;
     }
     for (int d = 0 ; d < nD ; d++){
       const double x = my_system->get_particle()[p]->get_position()[d];
@@ -119,10 +120,10 @@ Vext	  = 0;
   Laplacian = laplacian/waveFunctionCurrent;
 //}
   const double numerical = -0.5*Laplacian + Vint + Vext;
-  cout << "energy difference: " << numerical-analytical << endl;
+  //cout << numerical-analytical << endl;
   //cout << energy << "  " << Laplacian << "  " << Vint << "  " << Vext << endl;
   double energy = -0.5*Laplacian + Vint + Vext;
-
+  energy = analytical;
   return energy;
 }
 

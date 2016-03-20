@@ -1,5 +1,6 @@
 \documentclass[12pt]{article}
 
+\usepackage{cite}
 \usepackage{listings}
 \usepackage{amsmath}
 \usepackage{hyperref}
@@ -55,12 +56,14 @@ keywordstyle=\bfseries\color{green!40!black},
     \right.
   \end{equation}
   with $a$ as the hard-core diamater of the bosons.
-  Setting up the system with a trial wavefunction $\Psi_T$ for the ground state of the form
+  Using the trial wavefunction proposed in equation 6 from the article by DuBois and Glyde 
+  \cite{BEcond} 
   \begin{equation}
     \Psi_T({\bf R})=\Psi_T({\bf r}_1, {\bf r}_2, \dots {\bf r}_N,\alpha,\beta)=\prod_i%
     g(\alpha,\beta,{\bf r}_i)\prod_{i<j}f(a,|{\bf r}_i-{\bf r}_j|),
+    \label{eq:psit}
   \end{equation}
-  using $\alpha$ and $\beta$ as variational parameters, and 
+  with $\alpha$ and $\beta$ as variational parameters, and 
   \[ g(\alpha, \beta, \bm{r}_i) = e^{-\alpha(x_i^2 + y_i^2 + \beta z_i^2)} \]
   and
   \begin{equation}
@@ -90,25 +93,49 @@ keywordstyle=\bfseries\color{green!40!black},
   which is the analytical experssion for the local energy in a spherical trap 
   without interaction.
   \subsubsection{Interacting local energy}
+  To get the analytical solution for the interacting case we use the full $\Psi_T$\ref{eq:psit},
+  rewriting $g(\alpha,\beta,{\bm r}_i)$ and $f(a,|{\bm r}_i-{\bm r}_j|)$ with 
+  $r_{ij} = |{\bm r}_i-{\bm r}_j|$ to $\phi({\bm r}_i)$ and $u(r_{ij}) = \ln f(r_{ij})$ 
+  respectivly. 
+
+  %
+  %
+  %
+  %
+  % First and second derivative of full trial wavefunction
+  \newcommand{\pk}{\phi({\bm r}_k)}
+  \newcommand{\sumjk}{\sum_{j\neq k}}
+  \newcommand{\ur}[1]{u(r_{#1})}
+  \begin{flalign*}
+    \nabla_k\Psi_T({\bm R})%
+    &= \nabla_k \prod_i\phi({\bm r}_i) \exp\left[\sum_{i<j}\ur{ij}\right]\\
+    &= \nabla_k \pk \prod_{i\neq k}\phi({\bm r}_i)\exp\left[\sum_{i<j}\ur{ij}\right] +%
+    \prod_i \phi({\bm r}_i)\exp\left[\sum_{i<j}\ur{ij}\right]\sumjk\nabla_k\ur{ij}\\
+  \end{flalign*}
+  And dertivating a second time gives us
   \begin{flalign*}
     \nabla_k^2\Psi_T({\bf R})&=%
-    \nabla_k^2\phi_k\prod_{i\neq k}\phi_i \exp \left(\sum_{i<j}\right)\\
-    &+\nabla_k\phi_k\prod_{i\neq k}\phi_i\sum_{i\neq k}%
-    \nabla_k u_{ij}\exp\left(\sum_{i<j}u_ij\right)\\
-    &+ \nabla_k\phi_k\prod_{i\neq k}\phi_i\exp \left(\sum_{i<j}\right)%
-    \sum_{i\neq k}\nabla_k u_{ij} \\
-    &+ \prod_i\phi_i\sum_{i<j}u_{ij}%
-    \exp \left(\sum_{i<j}u_{ij}\right)\sum_{j\neq k}\nabla_k u_{ij}\\
-    &+\prod_i\phi_i\exp \left(\sum_{i<j}u_{ij}\right)\sum_{j\neq k}\nabla^2_k u_{ij}
+    \nabla_k^2\pk\prod_{i\neq k}\phi({\bm r}_i) \exp \left(\sum_{i<j}\ur{ij}\right)\\
+    &+\nabla_k\pk\prod_{i\neq k}\phi_i\sum_{i\neq k}%
+    \nabla_k \ur{ij}\exp\left[\sum_{i<j}\ur{ij}\right]\\
+    &+ \nabla_k\pk\prod_{i\neq k}\phi({\bm r}_i)\exp\left[\sum_{i<j}\ur{ij}\right]%
+    \sum_{i\neq k}\nabla_k \ur{ij} \\
+    &+ \prod_i\phi({\bm r}_i)\sum_{i<j}\ur{ij}%
+    \exp \left[\sum_{i<j}\ur{ij}\right]\sumjk\nabla_k \ur{ij}\\
+    &+\prod_i\phi({\bm r}_i)\exp\left[\sum_{i<j}\ur{ij}\right]\sumjk\nabla^2_k \ur{ij}
   \end{flalign*}
   dividing by the wavefunction gives us
   \begin{flalign*}
-    \frac{1}{\Psi_T({\bf R})}\nabla_k^2\Psi_T({\bf R}) &= \frac{\nabla^2_k\phi_k}{\phi_k} %
-    +2\frac{\nabla_k\phi_k}{\phi_k}\sum_{j\neq k}\nabla_k u_{ij} %
-    +\sum_{i\le j}u_{ij}\sum_{j\neq k}\nabla_k u_{ij}%
-    + \sum_{j\neq k}\nabla^2_k u_{ij}\\
+    \frac{1}{\Psi_T({\bf R})}\nabla_k^2\Psi_T({\bf R}) &= \frac{\nabla^2_k\pk}{\pk} %
+    +2\frac{\nabla_k\pk}{\pk}\sumjk\nabla_k \ur{ij}\\
+    &+\sum_{i\le j}\ur{ij}\sumjk\nabla_k \ur{ij}%
+    + \sumjk\nabla^2_k \ur{ij}\\
   \end{flalign*}
-  \subsection{Numerical method}
+  %
+  %
+  %
+  %
+  
   \subsubsection{Brute force Metropolis}
   For the first part we use a Variational Monte Carlo program with a brute force Metropolis
   sampling to calculate the ground state energy. The Metropolis algorithm compares the 
@@ -221,4 +248,6 @@ keywordstyle=\bfseries\color{green!40!black},
 
   \appendix
   \input{appendix.tex}
+  \bibliographystyle{unsrt}
+  \bibliography{report}
 \end{document}
