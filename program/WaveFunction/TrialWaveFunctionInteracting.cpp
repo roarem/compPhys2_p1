@@ -23,16 +23,16 @@ double TrialWaveFunctionInteracting::evaluate ()
     for (int p2 =  p1 + 1; p2 < my_system->get_nParticles() ; p2++){
       rij2 = 0;
       for (int d = 0 ; d < my_system->get_nDimensions() ; d++){
-	const double seperation = my_system->get_particle()[p1]->get_position()[d] -
-				  my_system->get_particle()[p2]->get_position()[d];
-	rij2 += seperation*seperation;
+	      const double seperation = my_system->get_particle()[p1]->get_position()[d] -
+				                          my_system->get_particle()[p2]->get_position()[d];
+	      rij2 += seperation*seperation;
       }
       rij = sqrt(rij2);
       if (rij > my_bosonSize){
-	correlationFunction *= (1 -my_bosonSize/rij);
+	      correlationFunction *= (1 -my_bosonSize/rij);
       }
       else{
-	return 0;
+	      return 0;
       }
     }
   }

@@ -14,22 +14,43 @@ frame=single,
 language=C,
 keywordstyle=\bfseries\color{green!40!black},
 }
+\title{Variational Monte Carlo studies of bosonic systems}
+\author{Roar Emaus}
 \begin{document}
-
+\maketitle
+  \begin{abstract}
+    The purpose of this project was to use Variational Monte Carlo (VMC) calculations
+    to find the ground state energy of a trapped bosonic system in a harmonic oscillator.
+    Using Metropolis methods with and without interaction, looking for effiecency and 
+    accuracy using blocking as an error analysis.
+    For the brute force and Importance Sampling methods without interaction the results
+    were exact with our trial wavefunction. Using the analytical solutions of the
+    Laplacians reduced the CPU-time usage significantlty and the solutions were without
+    variance. 
+    The interacting method became problematic where only a small number of particles
+    with the numerical solutions gave results that were similiar to the benchmarks
+    recieved by email.
+  \end{abstract}
+  \newpage
+  \tableofcontents
+  \newpage
   \section{Introduction}
-  Since it has been shown that Bose-Einstein condensation occur in gases of alkali 
-  atoms confined in magnetic traps, understanding the confined Bose systems has 
-  become a popular field. In this project we have tried to calculate the ground 
-  state energy of various number of trapped bosons using Variational Monte Carlo 
-  calculations with a specific trial wavefunction. Firstly using the spherical 
-  harmonic oscillator as a trap with no interaction between the particles, then
-  swtiching to an elliptical trap. Where in both cases we calculate both the 
-  analytical and numerical solution. Also running the calculations with and 
-  without a repulsive potential due to the fact that bosons have a size.
+  The Bose-Einstein condensate in gases of trapped alkali atoms have low density
+  and can therefore be studied considering two body collisions. This making it
+  a good test for the accuracies of our methods.
+  Here we are going to simulate 2 different systems with different number of particles
+  in harmonic oscillator traps using a trial wavefunction\cite{BEcond}, 
+  taking measurments for the ground state energy. The systems being with and without
+  interaction, where both will be tested with brute force Metropolis and Importance
+  Sampling. The report starts with a Method section to describe the theory behind, then
+  introducing the results and a conclusion.
 
   \section{Method}
+
   \subsection{System}
-  A two-body Hamiltonian of this system is on the form
+  Using the oscillators and wavefunctions found in DuBois and Glydes \cite{BEcond}
+  article we have the following terms.
+  A two-body Hamiltonian of this system of the form
   \begin{equation}
      H = \sum_i^N \left(\frac{-\hbar^2}{2m}\nabla^2_i + V_{ext}(\bm{r}_i)\right) + %
      \sum_{i< j}^N V_{int}(\bm{r}_i,\bm{r}_j)
@@ -56,8 +77,7 @@ keywordstyle=\bfseries\color{green!40!black},
     \right.
   \end{equation}
   with $a$ as the hard-core diamater of the bosons.
-  Using the trial wavefunction proposed in equation 6 from the article by DuBois and Glyde 
-  \cite{BEcond} 
+  The trial wave function we are using have the form
   \begin{equation}
     \Psi_T({\bf R})=\Psi_T({\bf r}_1, {\bf r}_2, \dots {\bf r}_N,\alpha,\beta)=\prod_i%
     g(\alpha,\beta,{\bf r}_i)\prod_{i<j}f(a,|{\bf r}_i-{\bf r}_j|),
@@ -80,7 +100,8 @@ keywordstyle=\bfseries\color{green!40!black},
     \Psi_T(\bm{R}) = e^{-\alpha r^2}
     \label{eq:psi1}
   \end{equation}
-  Calculating the double derivative of the wavefunction returns
+  With $r^2 = x^2 + y^2 + z^2$, $\omega = \gamma = 1$. Calculating the double derivative 
+  of the wavefunction returns
   \begin{equation}
     \nabla^2\Psi_T = \nabla^2 e^{-\alpha r^2} = \nabla -\alpha 2r e^{-\alpha r^2}%
     = 2\alpha e^{-\alpha r^2}(2\alpha r^2-1)
@@ -92,8 +113,9 @@ keywordstyle=\bfseries\color{green!40!black},
   %
   which is the analytical experssion for the local energy in a spherical trap 
   without interaction.
+
   \subsubsection{Interacting local energy}
-  To get the analytical solution for the interacting case we use the full $\Psi_T$\ref{eq:psit},
+  To get the analytical solution for the interacting case we use the full $\Psi_T({\bm R})$\ref{eq:psit},
   rewriting $g(\alpha,\beta,{\bm r}_i)$ and $f(a,|{\bm r}_i-{\bm r}_j|)$ with 
   $r_{ij} = |{\bm r}_i-{\bm r}_j|$ to $\phi({\bm r}_i)$ and $u(r_{ij}) = \ln f(r_{ij})$ 
   respectivly. 
@@ -116,21 +138,34 @@ keywordstyle=\bfseries\color{green!40!black},
   \begin{flalign*}
     \nabla_k^2\Psi_T({\bf R})&=%
     \nabla_k^2\pk\prod_{i\neq k}\phi({\bm r}_i) \exp \left(\sum_{i<j}\ur{ij}\right)\\
-    &+\nabla_k\pk\prod_{i\neq k}\phi_i\sum_{i\neq k}%
+    &+\nabla_k\pk\prod_{i\neq k}\phi({\bm r}_i)\sumjk%
     \nabla_k \ur{ij}\exp\left[\sum_{i<j}\ur{ij}\right]\\
-    &+ \nabla_k\pk\prod_{i\neq k}\phi({\bm r}_i)\exp\left[\sum_{i<j}\ur{ij}\right]%
-    \sum_{i\neq k}\nabla_k \ur{ij} \\
-    &+ \prod_i\phi({\bm r}_i)\sum_{i<j}\ur{ij}%
-    \exp \left[\sum_{i<j}\ur{ij}\right]\sumjk\nabla_k \ur{ij}\\
-    &+\prod_i\phi({\bm r}_i)\exp\left[\sum_{i<j}\ur{ij}\right]\sumjk\nabla^2_k \ur{ij}
+    &+ \nabla_k\pk\prod_{i\neq k}\phi({\bm r}_i)%
+    \sumjk\nabla_k \ur{ij}\exp\left[\sum_{i<j}\ur{ij}\right] \\
+    &+ \left(\sumjk\nabla_k \ur{ij}\sum_{i\neq k}\nabla_k \ur{ij}\right)%
+    \prod_i\phi({\bm r}_i)\exp \left[\sum_{i<j}\ur{ij}\right]\\
+    &+\left(\nabla_k\cdot\sumjk\nabla_k \ur{ij}\right)\prod_i\phi({\bm r}_i)\exp\left[\sum_{i<j}\ur{ij}\right]
   \end{flalign*}
   dividing by the wavefunction gives us
   \begin{flalign*}
     \frac{1}{\Psi_T({\bf R})}\nabla_k^2\Psi_T({\bf R}) &= \frac{\nabla^2_k\pk}{\pk} %
     +2\frac{\nabla_k\pk}{\pk}\sumjk\nabla_k \ur{ij}\\
-    &+\sum_{i\le j}\ur{ij}\sumjk\nabla_k \ur{ij}%
-    + \sumjk\nabla^2_k \ur{ij}\\
+    &+\left(\sumjk\nabla_k \ur{ij}\sum_{i\neq k}\nabla_k \ur{ij}\right)%
+    + \left(\nabla_k\cdot\sumjk\nabla_k \ur{ij}\right)\\
   \end{flalign*}
+  Taking the gradient of $u(r_{ij})$ gives us 
+  \[ \nabla_k u(r_{ij}) = \frac{({\bm r}_k - {\bm r}_{j})}{r_{kj}}u'(r_{ij}) \]
+  and substituting that into the equation gives 
+  \begin{flalign*}
+    \frac{1}{\Psi_T({\bf R})}\nabla_k^2\Psi_T({\bf R})  &=%
+    \frac{\nabla^2_k\pk}{\pk} + 2\frac{\nabla_k\pk}{\pk}\sumjk%
+    \frac{({\bm r}_k - {\bm r}_{j})}{r_{kj}}u'(r_{kj}) \\
+    &+\sumjk\frac{({\bm r}_k - {\bm r}_j)}{r_{kj}}u'(r_{kj})%
+    \frac{({\bm r}_k - {\bm r}_i)}{r_{ki}}u'(r_{ki})\\
+    &+\sumjk\left(u''(r_{kj}) + \frac{2}{r_{kj}}u(r_{kj})\right)
+  \end{flalign*}
+  I did not finalize the last term on my own, but this is the analytic local
+  energy which will be used for the interacting bosons.
   %
   %
   %
@@ -138,9 +173,10 @@ keywordstyle=\bfseries\color{green!40!black},
   
   \subsubsection{Brute force Metropolis}
   For the first part we use a Variational Monte Carlo program with a brute force Metropolis
-  sampling to calculate the ground state energy. The Metropolis algorithm compares the 
-  probability of being in the old position $A_{j\rightarrow i}$ against the probability
-  of being in a position in a chosen direction $A_{i\rightarrow j}$.
+  sampling to calculate the ground state energy. The Metropolis algorithm uses the 
+  probability density functions of the wave function, comparing the function in the old  
+  position $A_{j\rightarrow i}$ against the function after moving the system one iteration
+  into a new, uniform random position chosen  $A_{i\rightarrow j}$.
   \begin{equation}
     \frac{A_{j\rightarrow i}}{A_{i\rightarrow j}} = %
     \frac{p_i T_{i\rightarrow j}}{p_j T_{j\rightarrow i}}
@@ -151,7 +187,7 @@ keywordstyle=\bfseries\color{green!40!black},
     \frac{A_{j\rightarrow i}}{A_{i\rightarrow j}} = %
     \frac{p_i}{p_j}
   \end{equation}
-  The Metropolis choice is to maximize the $A$ values so preferring
+  The Metropolis choice is to maximize the $A$ values
   \begin{equation}
     A_{j\rightarrow i} = \text{min}\left(1,\frac{p_i}{p_j}\right)
   \end{equation}
@@ -159,7 +195,7 @@ keywordstyle=\bfseries\color{green!40!black},
   around 0 with a $\sigma = 1/\sqrt{2}$. Evaluating the wavefunction according to 
   equation \ref{eq:psi1}. Then choosing a random particle and dimension, and moving 
   it with a Gaussian distribution to a new position. Do the same evaluation for the 
-  new position and comparing
+  new position and compare
   \[\frac{|\Psi_{New}|^2}{|\Psi_{Old}|^2}\]
   Then by taking a random, uniformly distributed number between 0 and 1 and compare it
   to the ratio between the new and old wavefunction. If the ratio is larger we accept
@@ -168,8 +204,9 @@ keywordstyle=\bfseries\color{green!40!black},
   \lstinputlisting[caption=Brute force Metropolis, style=c++]{codes/bruteForceMetro.cpp}
   When using this method we get the result which is shown in table \ref{tab:ha1}. This result is
   in exact correspondence to the analytical solution.
+
   \subsubsection{Importance sampling}
-  To make the choice of sampling more relevant we use importance sampling.
+  To increase the relevance in our choice of movement we use importance sampling.
   Here there is a biased direction in the new step which is dependent on the trial wavefunction.
   The new position is given as the solutions to Langevin equation,
   \begin{equation}
@@ -188,23 +225,44 @@ keywordstyle=\bfseries\color{green!40!black},
   \end{equation}
   where 
   \[ G(y,x,\Delta t) = \frac{1}{(4\pi D\Delta t)^{3N/2}}e^{-(y-x-D\Delta tF(x))^2/4D\Delta t}\]
-  \subsubsection{Interacting}
+  is the Greens function of the Fokker-Planck equation
+  \[ \frac{\partial^2P}{\partial t} = \sum_i D\frac{\partial}{\partial {\bm x}_i}%
+  ({\bm x}_i-{\bm F}_i)P({\bm x},t) \]
+
+  \subsubsection{Blocking}
+  The stochastic nature of a Monte Carlo simulation opens up for the same analysis as we 
+  would do on experimental data. For uncorrelated measurements we could use 
+  \[ \sigma = \sqrt{\frac{1}{N}(\langle E^2\rangle - \langle E\rangle^2)} \]
+  as the standard deviation $\sigma$, but in the case of an interacting system we need
+  to take into account the correlation between samples. Therefore we need to add a 
+  autocorrelation function with our variance \cite{mjh}
+  \footnote{Computational Physics Lecture notes, 2015, page 412, equation (12.18)} %
+  \[ \sigma = \sqrt{\frac{1+2\tau\Delta t}{N} (\langle E^2\rangle - \langle E\rangle^2)} \]
+  where $\tau$ is the autocorrelation time, $N$ number of samples and $\Delta t$ the step length. 
+  To caluclate this correlation factor we use the method of blocking. By dividing our
+  samples up in blocks and calculate the variance and mean for each block, then increase
+  the block size until we find blocks which are uncorrelated, we can extract the $\tau = n\Delta t$,
+  $n$ being the block size.
+  
+  \subsubsection{One body density}
+  The one body density is the probability of finding a particle a distance ${\bm r_i}$ from
+  origo. Where then the probability density function can be calculated by 
+  \[ \rho({\bm r_k}) = \int d{\bm r}_i|\Psi_T({\bm r_k,\bm r_i})|^2 ,\quad i\neq k\]
 
   \newpage
-  
   \section{Results}
  
   \subsubsection{Brute force Metropolis}
   \input{tables/hastings_ana1dim.tex}
   With the brute force Metropolis method and analytical calculation of the Laplacian the
   results are exactly right, as seen in table for 1 dimension, $10^5$ cycles and step length
-  of 1.7. This gives an accpetance rate of about 50\%. With lower step length the acceptance
-  rate would go up, but then the energies would be sampled at a more narrow range and we could not
-  be sure if it is the acutal ground state.
+  of 1.7. The choice of step length is to get an accpetance rate of about 50\%. 
+  With lower step length the acceptance rate would go up, but then the energies would be 
+  sampled at a more narrow range and we could not be sure if it is the acutal ground state.
   In table \ref{tab:ha2} and \ref{tab:ha3} the runs have been done with the same parameters but with
   2 and 3 dimensions. The result is the same with only a slight increase in time for the highest
   number of particles.
-  \newpage
+
   \input{tables/hastings_num1dim.tex}
   Using numerical derivation to find the Laplacian slows the speed of the program by about 200 times
   for 500 particles. The precision is the same as with the analytical calculation and so is the 
@@ -217,14 +275,15 @@ keywordstyle=\bfseries\color{green!40!black},
   Given the difference in how the step length is implemented in the two different methods it is
   hard to make any direct comparison of them. The energy and variance have the same values as is
   to be expected and the time difference is negligeble in the range we have tested here.
-  \newpage
+
   \input{tables/imp_num1dim.tex}
   The results for the Metropolis importance sampling algorithm has shown to be much the same as for
-  the brute force method, with the obvious difference in acceptance ratio which is not comparable.
-  Also here the CPU-time is almost identical.
+  the brute force method, with the obvious difference in acceptance ratio which is not comparable 
+  due to the way we choose the time/step length. The CPU-time is almost identical to that of the
+  brute force method. This means that the calculation of the quantum force is negligeble compared
+  to the rest of the calculations.
 
   \newpage
-
   \subsubsection{Time comparison}
   \begin{figure}[h!]
     \centerline{
@@ -238,14 +297,61 @@ keywordstyle=\bfseries\color{green!40!black},
 	     }
     
   \end{figure}
-  For the analytical solutions the time spent on other operations than calculating the energies
-  is high for lower number of particles, and as we try more particles the time spent on calculating
-  the laplacian dominates and the graph seem to converge to a number around 1000 particles per unit
-  step. With the numerical calculation of the Laplacian the effectiveness of the computation
-  decreases steeply.
+  For lower number of particles the time spent on operations other than calculating the energies
+  is high. By increasing the number of particles the code spend more time calculating the
+  laplacian and the graph seem to converge to a number around 1000 particles per unit
+  step. With the numerical calculation of the Laplacian, the effectiveness of the computation
+  decreases steeply as number of particles increases.
+  
+  \subsubsection{Interacting Hamiltonian}
+  I could not find the error that was causing the interacting model to give bad results.
+  There is an error increasing with number of particles, and it seems to have a linear
+  correlation with the number of particles. It is also unstable, where it suddenly
+  becomes NAN or similar. I have even compared my program with others and I can not find the error
+  unfortunatly. I am hoping to get it fixed, but not in time for this report.
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.6]{graphs/errorana.pdf}
+    \caption{Plotted on the y-axis is the mean energy difference between analytical and numerical %
+      calculation per total number of particles. There seem to be a linear corerlation between %
+      error with the the exceptions of some unstable parts. This might suggest that the error %
+      might come from the movement of particles or in one of the single loops.}
+  \end{figure}
 
+  \newpage
+  \subsubsection{Blocking}
+  These are the results from a run of 500 particles with Importance Sampling since I do not have
+  any interacting data to use.
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.6]{graphs/block.pdf}
+    \caption{500 particles and 3 dimensions, $10^5$ Monte Carlo cycles, $\alpha =0.5$%
+     There is a very low variance due to high precision when calculating this system which %
+      makes it harder to see the effect of blocking even though we can see the right shape. %
+    the STD varies with $1\text{E}-6$.}
+  \end{figure}
+ 
+  \newpage
+  \subsubsection{Particle distribution}
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.6]{graphs/dist.pdf}
+    \caption{To the left is the distribution of particles after 8000 cycles %
+      where we see a tendency to move towards 0.75. On the right side is a cross section %
+      of the particles shown in the xy-plane, where the lines are the shells %
+      chosen when counting the distribution.}
+  \end{figure}
 
-
+  \section{Conclusion}
+  For the non-interacting system the VMC gave the exact results we would expect, and comparing
+  the analytical solutions to the numerical showed little difference in result, but a significant
+  increase in efficiency. Giving such low variance making it unnessecary to utilize blocking for 
+  this system.
+  The interacting system gave a high level of resistance when trying to compute the energies, only
+  reaching a small amount of accuracy for 10 particles with the numerical solution.
+  Furterhmore I hope to find the missing puzzle piece to get it up and running as fast as possible.
+  
+  \newpage
   \appendix
   \input{appendix.tex}
   \bibliographystyle{unsrt}

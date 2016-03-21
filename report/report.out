@@ -4,19 +4,25 @@
 \BOOKMARK [3][-]{subsubsection.2.1.1}{Interacting local energy}{subsection.2.1}% 4
 \BOOKMARK [3][-]{subsubsection.2.1.2}{Brute force Metropolis}{subsection.2.1}% 5
 \BOOKMARK [3][-]{subsubsection.2.1.3}{Importance sampling}{subsection.2.1}% 6
-\BOOKMARK [3][-]{subsubsection.2.1.4}{Interacting}{subsection.2.1}% 7
-\BOOKMARK [1][-]{section.3}{Results}{}% 8
-\BOOKMARK [2][-]{subsubsection.3.0.5}{Brute force Metropolis}{section.3}% 9
-\BOOKMARK [3][-]{subsubsection.3.0.6}{Importance sampling}{subsubsection.3.0.5}% 10
-\BOOKMARK [3][-]{subsubsection.3.0.7}{Time comparison}{subsubsection.3.0.5}% 11
-\BOOKMARK [1][-]{appendix.A}{Tables}{}% 12
-\BOOKMARK [2][-]{subsection.A.1}{Brute force Metropolis algorithm}{appendix.A}% 13
-\BOOKMARK [3][-]{subsubsection.A.1.1}{Analytical 2D}{subsection.A.1}% 14
-\BOOKMARK [3][-]{subsubsection.A.1.2}{Analytical 3D}{subsection.A.1}% 15
-\BOOKMARK [3][-]{subsubsection.A.1.3}{Numerical 2D}{subsection.A.1}% 16
-\BOOKMARK [3][-]{subsubsection.A.1.4}{Numerical 3D}{subsection.A.1}% 17
-\BOOKMARK [2][-]{subsection.A.2}{Metropolis algorithm with Importance sampling}{appendix.A}% 18
-\BOOKMARK [3][-]{subsubsection.A.2.1}{Analytical 2D}{subsection.A.2}% 19
-\BOOKMARK [3][-]{subsubsection.A.2.2}{Analytical 3D}{subsection.A.2}% 20
-\BOOKMARK [3][-]{subsubsection.A.2.3}{Numerical 2D}{subsection.A.2}% 21
-\BOOKMARK [3][-]{subsubsection.A.2.4}{Numerical 3D}{subsection.A.2}% 22
+\BOOKMARK [3][-]{subsubsection.2.1.4}{Blocking}{subsection.2.1}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.5}{One body density}{subsection.2.1}% 8
+\BOOKMARK [1][-]{section.3}{Results}{}% 9
+\BOOKMARK [2][-]{subsubsection.3.0.6}{Brute force Metropolis}{section.3}% 10
+\BOOKMARK [3][-]{subsubsection.3.0.7}{Importance sampling}{subsubsection.3.0.6}% 11
+\BOOKMARK [3][-]{subsubsection.3.0.8}{Time comparison}{subsubsection.3.0.6}% 12
+\BOOKMARK [3][-]{subsubsection.3.0.9}{Interacting Hamiltonian}{subsubsection.3.0.6}% 13
+\BOOKMARK [3][-]{subsubsection.3.0.10}{Blocking}{subsubsection.3.0.6}% 14
+\BOOKMARK [3][-]{subsubsection.3.0.11}{Particle distribution}{subsubsection.3.0.6}% 15
+\BOOKMARK [1][-]{section.4}{Conclusion}{}% 16
+\BOOKMARK [1][-]{appendix.A}{Tables}{}% 17
+\BOOKMARK [2][-]{subsection.A.1}{Brute force Metropolis algorithm}{appendix.A}% 18
+\BOOKMARK [3][-]{subsubsection.A.1.1}{Analytical 2D}{subsection.A.1}% 19
+\BOOKMARK [3][-]{subsubsection.A.1.2}{Analytical 3D}{subsection.A.1}% 20
+\BOOKMARK [3][-]{subsubsection.A.1.3}{Numerical 2D}{subsection.A.1}% 21
+\BOOKMARK [3][-]{subsubsection.A.1.4}{Numerical 3D}{subsection.A.1}% 22
+\BOOKMARK [2][-]{subsection.A.2}{Metropolis algorithm with Importance sampling}{appendix.A}% 23
+\BOOKMARK [3][-]{subsubsection.A.2.1}{Analytical 2D}{subsection.A.2}% 24
+\BOOKMARK [3][-]{subsubsection.A.2.2}{Analytical 3D}{subsection.A.2}% 25
+\BOOKMARK [3][-]{subsubsection.A.2.3}{Numerical 2D}{subsection.A.2}% 26
+\BOOKMARK [3][-]{subsubsection.A.2.4}{Numerical 3D}{subsection.A.2}% 27
+\BOOKMARK [1][-]{appendix.B}{Links}{}% 28

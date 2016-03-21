@@ -27,7 +27,7 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
   double alpha2 = alpha*alpha;
   double boson  = my_bosonSize;
 
-//if (my_system->get_analytical()){
+if (my_system->get_analytical()){
   double first_of_all	= 0;
   double first_sum	= 0;
   double ij_sum		= 0;
@@ -68,10 +68,10 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
         const double zki = zk - my_system->get_particle()[i]->get_position()[2];
 	const double rki = sqrt(xki*xki + yki*yki + zki*zki);
 
-	const double rki_rkj_dot  = xki*xkj + yki*ykj + zki*zkj;
+	const double rki_dot_rkj  = xki*xkj + yki*ykj + zki*zkj;
 	const double uki_mark	  = u_mark(rki);
 
-	ij_sum += rki_rkj_dot*uki_mark/rki;
+	ij_sum += rki_dot_rkj*uki_mark/rki;
       }
       ij_sum *= ukj_mark/rkj;
     }
@@ -87,12 +87,12 @@ double HarmonicOscillatorInteracting::computeLocalEnergy ()
   //cout << ij_sum << "  " << last_sum << "  " << first_sum << "  " << first_of_all << endl;
   Laplacian=  ij_sum + last_sum + 2*first_sum + first_of_all;
   
-  const double analytical = -0.5*Laplacian + Vint + Vext;
-//}  
-Laplacian = 0;
-Vint	  = 0;
-Vext	  = 0;
-//else{
+  //const double analytical = -0.5*Laplacian + Vint + Vext;
+}  
+//Laplacian = 0;
+//Vint	  = 0;
+//Vext	  = 0;
+else{
   const double waveFunctionCurrent = my_system->get_waveFunction()->evaluate();
   double laplacian = 0;
   Vint = 0;
@@ -118,12 +118,12 @@ Vext	  = 0;
     Vext += 0.5*r2;
   }
   Laplacian = laplacian/waveFunctionCurrent;
-//}
-  const double numerical = -0.5*Laplacian + Vint + Vext;
+}
+//  const double numerical = -0.5*Laplacian + Vint + Vext;
   //cout << numerical-analytical << endl;
   //cout << energy << "  " << Laplacian << "  " << Vint << "  " << Vext << endl;
   double energy = -0.5*Laplacian + Vint + Vext;
-  energy = analytical;
+ // energy = analytical;
   return energy;
 }
 

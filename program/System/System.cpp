@@ -10,29 +10,29 @@ System::System (bool File)
 
 bool System::metropolis ()
 {
-  int	    chosenParticle	  = 0;
-  int	    chosenDimension	  = 0;
-  double    waveFunctionOld	  = 0;
-  double    waveFunctionNew	  = 0;
+  int     chosenParticle    = 0;
+  int     chosenDimension   = 0;
+  double    waveFunctionOld   = 0;
+  double    waveFunctionNew   = 0;
   double    waveFunctionsCompared = 0;
-  double    randomMove		  = 0;
- 
+  double    randomMove      = 0;
+
   std::uniform_int_distribution<int> particle  (0,my_nParticles-1);
   std::uniform_int_distribution<int> dimension (0,my_nDimensions-1);
-  
-  randomMove	  = my_normal(my_generator)*my_stepLength;//*(my_uniform(my_generator)-0.5);
+
+  randomMove    = my_normal(my_generator)*my_stepLength;//*(my_uniform(my_generator)-0.5);
   chosenParticle  = particle(my_generator);
   chosenDimension = dimension(my_generator);
 
-  waveFunctionOld = my_waveFunction->evaluate(); 
-  
+  waveFunctionOld = my_waveFunction->evaluate();
+
   my_particles[chosenParticle]->changePosition(chosenDimension, randomMove);
 
   waveFunctionNew = my_waveFunction->evaluate();
 
   waveFunctionsCompared = (waveFunctionNew*waveFunctionNew)/
-		         (waveFunctionOld*waveFunctionOld);
-  
+             (waveFunctionOld*waveFunctionOld);
+
 
   if (waveFunctionsCompared < 1.0){
     if (waveFunctionsCompared < my_uniform(my_generator)){
@@ -45,36 +45,36 @@ bool System::metropolis ()
 
 bool System::importanceSampling()
 {
-  int	    chosenParticle	    = 0;
-  int	    chosenDimension   	    = 0;
-  double    stepDifference	    = 0;
-  double    randomMove		    = 0;
-  double    oldPosition		    = 0;
-  double    greensExp		    = 0;
-  double    waveFunctionOld   	    = 0;
-  double    waveFunctionNew   	    = 0;
-  double    quantumForceOld	    = 0;
-  double    quantumForceNew	    = 0;
+  int     chosenParticle      = 0;
+  int     chosenDimension         = 0;
+  double    stepDifference      = 0;
+  double    randomMove        = 0;
+  double    oldPosition       = 0;
+  double    greensExp       = 0;
+  double    waveFunctionOld         = 0;
+  double    waveFunctionNew         = 0;
+  double    quantumForceOld     = 0;
+  double    quantumForceNew     = 0;
   double    waveFunctionsCompared   = 0;
   double    greensFunctionCompared  = 0;
-  double    compared		    = 0;
+  double    compared        = 0;
 
-  std::uniform_int_distribution<int> particle	(0,my_nParticles-1);
-  std::uniform_int_distribution<int> dimension	(0,my_nDimensions-1);
-  
+  std::uniform_int_distribution<int> particle (0,my_nParticles-1);
+  std::uniform_int_distribution<int> dimension  (0,my_nDimensions-1);
+
   chosenParticle  = particle(my_generator);
   chosenDimension = dimension(my_generator);
-  
+
   oldPosition = my_particles[chosenParticle]->get_position()[chosenDimension];
 
   waveFunctionOld = my_waveFunction->evaluate();
 
   quantumForceOld = my_waveFunction->
-      		 computeQuantumForce(chosenParticle, chosenDimension, waveFunctionOld);
+           computeQuantumForce(chosenParticle, chosenDimension, waveFunctionOld);
 
-  randomMove   = (my_normal(my_generator)) * sqrt(my_stepLength)
-		 +
-		 quantumForceOld * my_stepLength * 0.5;
+  randomMove  = (my_normal(my_generator)) * sqrt(my_stepLength)
+              +
+              quantumForceOld * my_stepLength * 0.5;
 
 
   my_particles[chosenParticle]->changePosition(chosenDimension, randomMove);
@@ -82,17 +82,17 @@ bool System::importanceSampling()
   waveFunctionNew = my_waveFunction->evaluate();
 
   quantumForceNew = my_waveFunction->
-		    computeQuantumForce(chosenParticle, chosenDimension, waveFunctionNew);
+        computeQuantumForce(chosenParticle, chosenDimension, waveFunctionNew);
 
   stepDifference  = my_particles[chosenParticle]->get_position()[chosenDimension] - oldPosition;
 
   greensExp  = (0.5*(quantumForceOld + quantumForceNew)*((quantumForceOld - quantumForceNew)*
-		0.25*my_stepLength - stepDifference));
+    0.25*my_stepLength - stepDifference));
 
   greensFunctionCompared = exp(greensExp);
 
   waveFunctionsCompared  = (waveFunctionNew*waveFunctionNew)/
-			   (waveFunctionOld*waveFunctionOld);
+         (waveFunctionOld*waveFunctionOld);
 
   compared = greensFunctionCompared * waveFunctionsCompared;
 
@@ -102,7 +102,7 @@ bool System::importanceSampling()
       return false;
     }
   }
-  
+
   return true;
 }
 
@@ -113,7 +113,7 @@ void System::runMetropolis ()
 
   unsigned  seed;
   bool accepted = false;
-  my_sampler	= new Sampler(this, my_File);
+  my_sampler  = new Sampler(this, my_File);
   clock::duration d = clock::now() - my_start;
   seed = d.count();
   my_generator.seed(seed);
@@ -134,14 +134,14 @@ void System::runImportanceSampling ()
 {
   //ProgressBar *bar = new ProgressBar(my_nCycles);
   //bar->SetFrequencyUpdate(50);
-  //randomMove.reserve	  (my_nDimensions);
+  //randomMove.reserve    (my_nDimensions);
   //quantumForceOld.reserve (my_nDimensions);
-  //oldPosition.reserve	  (my_nDimensions);
+  //oldPosition.reserve   (my_nDimensions);
 
 
   unsigned  seed;
   bool accepted = false;
-  my_sampler	= new Sampler(this,my_File);
+  my_sampler  = new Sampler(this,my_File);
   clock::duration d = clock::now() - my_start;
   seed = d.count();
   my_generator.seed(seed);
